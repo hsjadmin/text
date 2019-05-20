@@ -1,0 +1,579 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- questionnaireColletion -->
+<mapper namespace="cn.logicalthinking.common.dao.QuestionnaireColletionDao">
+    
+	<!-- 全局map1  start -->
+    <resultMap id="questionnaireColletionMap" type="questionnaireColletion">
+        <result property="id" column="id"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="name" column="name"/>
+        <result property="account" column="account"/>
+        <result property="satisfied" column="satisfied"/>
+        <result property="question1" column="question1"/>
+        <result property="answer1" column="answer1"/>
+        <result property="question2" column="question2"/>
+        <result property="answer2" column="answer2"/>
+        <result property="question3" column="question3"/>
+        <result property="answer3" column="answer3"/>
+        <result property="question4" column="question4"/>
+        <result property="answer4" column="answer4"/>
+        <result property="question5" column="question5"/>
+        <result property="answer5" column="answer5"/>
+        <result property="question6" column="question6"/>
+        <result property="answer6" column="answer6"/>
+        <result property="question7" column="question7"/>
+        <result property="answer7" column="answer7"/>
+        <result property="question8" column="question8"/>
+        <result property="answer8" column="answer8"/>
+        <result property="advise" column="advise"/>
+    </resultMap>
+	<!-- 全局map1 end -->
+		
+	<!-- 全局字段  start -->
+    <sql id="columns">
+        id ,substring(create_time,1,19) create_time ,substring(update_time,1,19) update_time ,name ,account ,satisfied ,question1 ,answer1 ,question2 ,answer2 ,question3 ,answer3 ,question4 ,answer4 ,question5 ,answer5 ,question6 ,answer6 ,question7 ,answer7 ,question8 ,answer8 ,advise
+    </sql>
+	<!-- 全局字段  end -->
+	
+	<!-- 单个添加 start -->
+    <insert id="addQuestionnaireColletion">
+        	INSERT INTO questionnaire_colletion
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+         	<if test="id != null">
+                id,
+            </if>
+         	<if test="createTime != null">
+                create_time,
+            </if>
+         	<if test="updateTime != null">
+                update_time,
+            </if>
+         	<if test="name != null">
+                name,
+            </if>
+         	<if test="account != null">
+                account,
+            </if>
+         	<if test="satisfied != null">
+                satisfied,
+            </if>
+         	<if test="question1 != null">
+                question1,
+            </if>
+         	<if test="answer1 != null">
+                answer1,
+            </if>
+         	<if test="question2 != null">
+                question2,
+            </if>
+         	<if test="answer2 != null">
+                answer2,
+            </if>
+         	<if test="question3 != null">
+                question3,
+            </if>
+         	<if test="answer3 != null">
+                answer3,
+            </if>
+         	<if test="question4 != null">
+                question4,
+            </if>
+         	<if test="answer4 != null">
+                answer4,
+            </if>
+         	<if test="question5 != null">
+                question5,
+            </if>
+         	<if test="answer5 != null">
+                answer5,
+            </if>
+         	<if test="question6 != null">
+                question6,
+            </if>
+         	<if test="answer6 != null">
+                answer6,
+            </if>
+         	<if test="question7 != null">
+                question7,
+            </if>
+         	<if test="answer7 != null">
+                answer7,
+            </if>
+         	<if test="question8 != null">
+                question8,
+            </if>
+         	<if test="answer8 != null">
+                answer8,
+            </if>
+         	<if test="advise != null">
+                advise,
+            </if>
+        </trim>
+        <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+         	<if test="id != null">
+            	#{id} ,
+            </if>
+         	<if test="createTime != null">
+            	#{createTime} ,
+            </if>
+         	<if test="updateTime != null">
+            	#{updateTime} ,
+            </if>
+         	<if test="name != null">
+            	#{name} ,
+            </if>
+         	<if test="account != null">
+            	#{account} ,
+            </if>
+         	<if test="satisfied != null">
+            	#{satisfied} ,
+            </if>
+         	<if test="question1 != null">
+            	#{question1} ,
+            </if>
+         	<if test="answer1 != null">
+            	#{answer1} ,
+            </if>
+         	<if test="question2 != null">
+            	#{question2} ,
+            </if>
+         	<if test="answer2 != null">
+            	#{answer2} ,
+            </if>
+         	<if test="question3 != null">
+            	#{question3} ,
+            </if>
+         	<if test="answer3 != null">
+            	#{answer3} ,
+            </if>
+         	<if test="question4 != null">
+            	#{question4} ,
+            </if>
+         	<if test="answer4 != null">
+            	#{answer4} ,
+            </if>
+         	<if test="question5 != null">
+            	#{question5} ,
+            </if>
+         	<if test="answer5 != null">
+            	#{answer5} ,
+            </if>
+         	<if test="question6 != null">
+            	#{question6} ,
+            </if>
+         	<if test="answer6 != null">
+            	#{answer6} ,
+            </if>
+         	<if test="question7 != null">
+            	#{question7} ,
+            </if>
+         	<if test="answer7 != null">
+            	#{answer7} ,
+            </if>
+         	<if test="question8 != null">
+            	#{question8} ,
+            </if>
+         	<if test="answer8 != null">
+            	#{answer8} ,
+            </if>
+         	<if test="advise != null">
+            	#{advise} ,
+            </if>
+        </trim>
+    </insert>
+	<!-- 单个添加 end -->
+	
+	<!--批量添加  start -->
+	<insert id="batchQuestionnaireColletion">
+	    INSERT INTO 
+	    questionnaire_colletion
+	    <trim prefix="(" suffix=")" suffixOverrides=",">
+            id,
+            create_time,
+            update_time,
+            name,
+            account,
+            satisfied,
+            question1,
+            answer1,
+            question2,
+            answer2,
+            question3,
+            answer3,
+            question4,
+            answer4,
+            question5,
+            answer5,
+            question6,
+            answer6,
+            question7,
+            answer7,
+            question8,
+            answer8,
+            advise,
+        </trim>
+	    VALUES
+	    <foreach collection ="list" item="item" separator =",">
+	    <trim prefix="(" suffix=")" suffixOverrides=",">
+	         #{item.id},
+	         #{item.createTime},
+	         #{item.updateTime},
+	         #{item.name},
+	         #{item.account},
+	         #{item.satisfied},
+	         #{item.question1},
+	         #{item.answer1},
+	         #{item.question2},
+	         #{item.answer2},
+	         #{item.question3},
+	         #{item.answer3},
+	         #{item.question4},
+	         #{item.answer4},
+	         #{item.question5},
+	         #{item.answer5},
+	         #{item.question6},
+	         #{item.answer6},
+	         #{item.question7},
+	         #{item.answer7},
+	         #{item.question8},
+	         #{item.answer8},
+	         #{item.advise},
+	    </trim>
+	    </foreach >
+	</insert>
+	<!-- 批量添加  end -->
+	
+	<!-- 主键批量删除  start -->
+    <delete id="removeQuestionnaireColletion">
+        DELETE FROM questionnaire_colletion
+        WHERE id IN
+       	(${ids})
+    </delete>
+	<!-- 主键批量删除  end -->
+	
+	<!-- 单个修改  start -->
+    <update id="updateQuestionnaireColletion">
+        UPDATE questionnaire_colletion
+        <set>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+            <if test="name != null">
+                name = #{name},
+            </if>
+            <if test="account != null">
+                account = #{account},
+            </if>
+            <if test="satisfied != null">
+                satisfied = #{satisfied},
+            </if>
+            <if test="question1 != null">
+                question1 = #{question1},
+            </if>
+            <if test="answer1 != null">
+                answer1 = #{answer1},
+            </if>
+            <if test="question2 != null">
+                question2 = #{question2},
+            </if>
+            <if test="answer2 != null">
+                answer2 = #{answer2},
+            </if>
+            <if test="question3 != null">
+                question3 = #{question3},
+            </if>
+            <if test="answer3 != null">
+                answer3 = #{answer3},
+            </if>
+            <if test="question4 != null">
+                question4 = #{question4},
+            </if>
+            <if test="answer4 != null">
+                answer4 = #{answer4},
+            </if>
+            <if test="question5 != null">
+                question5 = #{question5},
+            </if>
+            <if test="answer5 != null">
+                answer5 = #{answer5},
+            </if>
+            <if test="question6 != null">
+                question6 = #{question6},
+            </if>
+            <if test="answer6 != null">
+                answer6 = #{answer6},
+            </if>
+            <if test="question7 != null">
+                question7 = #{question7},
+            </if>
+            <if test="answer7 != null">
+                answer7 = #{answer7},
+            </if>
+            <if test="question8 != null">
+                question8 = #{question8},
+            </if>
+            <if test="answer8 != null">
+                answer8 = #{answer8},
+            </if>
+            <if test="advise != null">
+                advise = #{advise},
+            </if>
+        </set>
+        WHERE id = #{id}
+    </update>
+	<!-- 单个修改  end -->
+	
+	<!-- 通过主键查询 start -->
+    <select id="selectQuestionnaireColletionById" resultMap="questionnaireColletionMap">
+        SELECT
+        <include refid="columns" />
+        FROM questionnaire_colletion
+        WHERE id = #{id}
+    </select>
+    <!-- 通过主键查询 end -->
+    
+    <!--带条件的查询全部  start -->
+	<select id="selectQuestionnaireColletionListAll"  parameterType="map" resultMap="questionnaireColletionMap">
+        SELECT
+        <include refid="columns" />
+        FROM questionnaire_colletion
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="name != null">
+                and name = #{name}
+            </if>
+            <if test="account != null">
+                and account = #{account}
+            </if>
+            <if test="satisfied != null">
+                and satisfied = #{satisfied}
+            </if>
+            <if test="question1 != null">
+                and question1 = #{question1}
+            </if>
+            <if test="answer1 != null">
+                and answer1 = #{answer1}
+            </if>
+            <if test="question2 != null">
+                and question2 = #{question2}
+            </if>
+            <if test="answer2 != null">
+                and answer2 = #{answer2}
+            </if>
+            <if test="question3 != null">
+                and question3 = #{question3}
+            </if>
+            <if test="answer3 != null">
+                and answer3 = #{answer3}
+            </if>
+            <if test="question4 != null">
+                and question4 = #{question4}
+            </if>
+            <if test="answer4 != null">
+                and answer4 = #{answer4}
+            </if>
+            <if test="question5 != null">
+                and question5 = #{question5}
+            </if>
+            <if test="answer5 != null">
+                and answer5 = #{answer5}
+            </if>
+            <if test="question6 != null">
+                and question6 = #{question6}
+            </if>
+            <if test="answer6 != null">
+                and answer6 = #{answer6}
+            </if>
+            <if test="question7 != null">
+                and question7 = #{question7}
+            </if>
+            <if test="answer7 != null">
+                and answer7 = #{answer7}
+            </if>
+            <if test="question8 != null">
+                and question8 = #{question8}
+            </if>
+            <if test="answer8 != null">
+                and answer8 = #{answer8}
+            </if>
+            <if test="advise != null">
+                and advise = #{advise}
+            </if>
+        </trim>
+    </select>
+    <!--带条件的查询全部  end -->
+    
+    <!--带条件的分页查询  start -->
+    <select id="selectQuestionnaireColletionListByPage"  parameterType="map" resultMap="questionnaireColletionMap">
+        SELECT
+        <include refid="columns" />
+        FROM questionnaire_colletion
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="name != null">
+                and name like concat('%',#{name},'%')
+            </if>
+            <if test="account != null">
+                and account like concat('%',#{account},'%')
+            </if>
+            <if test="satisfied != null">
+                and satisfied = #{satisfied}
+            </if>
+            <if test="question1 != null">
+                and question1 = #{question1}
+            </if>
+            <if test="answer1 != null">
+                and answer1 = #{answer1}
+            </if>
+            <if test="question2 != null">
+                and question2 = #{question2}
+            </if>
+            <if test="answer2 != null">
+                and answer2 = #{answer2}
+            </if>
+            <if test="question3 != null">
+                and question3 = #{question3}
+            </if>
+            <if test="answer3 != null">
+                and answer3 = #{answer3}
+            </if>
+            <if test="question4 != null">
+                and question4 = #{question4}
+            </if>
+            <if test="answer4 != null">
+                and answer4 = #{answer4}
+            </if>
+            <if test="question5 != null">
+                and question5 = #{question5}
+            </if>
+            <if test="answer5 != null">
+                and answer5 = #{answer5}
+            </if>
+            <if test="question6 != null">
+                and question6 = #{question6}
+            </if>
+            <if test="answer6 != null">
+                and answer6 = #{answer6}
+            </if>
+            <if test="question7 != null">
+                and question7 = #{question7}
+            </if>
+            <if test="answer7 != null">
+                and answer7 = #{answer7}
+            </if>
+            <if test="question8 != null">
+                and question8 = #{question8}
+            </if>
+            <if test="answer8 != null">
+                and answer8 = #{answer8}
+            </if>
+            <if test="advise != null">
+                and advise = #{advise}
+            </if>
+        </trim>
+    </select>
+    <!--带条件的分页查询  end -->
+     
+   	<!-- 查询 总数  start -->
+	<select id="selectQuestionnaireColletionCount" parameterType="map" resultType="int">
+        SELECT
+       	COUNT(1)
+        FROM questionnaire_colletion
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="name != null">
+                and name = #{name}
+            </if>
+            <if test="account != null">
+                and account = #{account}
+            </if>
+            <if test="satisfied != null">
+                and satisfied = #{satisfied}
+            </if>
+            <if test="question1 != null">
+                and question1 = #{question1}
+            </if>
+            <if test="answer1 != null">
+                and answer1 = #{answer1}
+            </if>
+            <if test="question2 != null">
+                and question2 = #{question2}
+            </if>
+            <if test="answer2 != null">
+                and answer2 = #{answer2}
+            </if>
+            <if test="question3 != null">
+                and question3 = #{question3}
+            </if>
+            <if test="answer3 != null">
+                and answer3 = #{answer3}
+            </if>
+            <if test="question4 != null">
+                and question4 = #{question4}
+            </if>
+            <if test="answer4 != null">
+                and answer4 = #{answer4}
+            </if>
+            <if test="question5 != null">
+                and question5 = #{question5}
+            </if>
+            <if test="answer5 != null">
+                and answer5 = #{answer5}
+            </if>
+            <if test="question6 != null">
+                and question6 = #{question6}
+            </if>
+            <if test="answer6 != null">
+                and answer6 = #{answer6}
+            </if>
+            <if test="question7 != null">
+                and question7 = #{question7}
+            </if>
+            <if test="answer7 != null">
+                and answer7 = #{answer7}
+            </if>
+            <if test="question8 != null">
+                and question8 = #{question8}
+            </if>
+            <if test="answer8 != null">
+                and answer8 = #{answer8}
+            </if>
+            <if test="advise != null">
+                and advise = #{advise}
+            </if>
+        </trim>
+    </select>
+	<!-- 查询 总数  end -->
+	
+	<!-- ******************************自定义扩展sql******************************************** -->
+</mapper>

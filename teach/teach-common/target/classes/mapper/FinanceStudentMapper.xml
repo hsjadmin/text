@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- financeStudent -->
+<mapper namespace="cn.logicalthinking.common.dao.FinanceStudentDao">
+    
+	<!-- 全局map1  start -->
+    <resultMap id="financeStudentMap" type="financeStudent">
+        <result property="id" column="id"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="studentId" column="student_id"/>
+        <result property="type" column="type"/>
+        <result property="name" column="name"/>
+        <result property="money" column="money"/>
+    </resultMap>
+	<!-- 全局map1 end -->
+
+	<!-- 全局字段  start -->
+    <sql id="columns">
+        id ,substring(create_time,1,19) create_time ,substring(update_time,1,19) update_time ,student_id ,type ,name ,money
+    </sql>
+	<!-- 全局字段  end -->
+	
+	<!-- 单个添加 start -->
+    <insert id="addFinanceStudent">
+        	INSERT INTO finance_student
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+         	<if test="id != null">
+                id,
+            </if>
+         	<if test="createTime != null">
+                create_time,
+            </if>
+         	<if test="updateTime != null">
+                update_time,
+            </if>
+         	<if test="studentId != null">
+                student_id,
+            </if>
+         	<if test="type != null">
+                type,
+            </if>
+         	<if test="name != null">
+                name,
+            </if>
+         	<if test="money != null">
+                money,
+            </if>
+        </trim>
+        <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+         	<if test="id != null">
+            	#{id} ,
+            </if>
+         	<if test="createTime != null">
+            	#{createTime} ,
+            </if>
+         	<if test="updateTime != null">
+            	#{updateTime} ,
+            </if>
+         	<if test="studentId != null">
+            	#{studentId} ,
+            </if>
+         	<if test="type != null">
+            	#{type} ,
+            </if>
+         	<if test="name != null">
+            	#{name} ,
+            </if>
+         	<if test="money != null">
+            	#{money} ,
+            </if>
+        </trim>
+    </insert>
+	<!-- 单个添加 end -->
+	
+	<!--批量添加  start -->
+	<insert id="batchFinanceStudent">
+	    INSERT INTO 
+	    finance_student
+	    <trim prefix="(" suffix=")" suffixOverrides=",">
+            id,
+            create_time,
+            update_time,
+            student_id,
+            type,
+            name,
+            money,
+        </trim>
+	    VALUES
+	    <foreach collection ="list" item="item" separator =",">
+	    <trim prefix="(" suffix=")" suffixOverrides=",">
+	         #{item.id},
+	         #{item.createTime},
+	         #{item.updateTime},
+	         #{item.studentId},
+	         #{item.type},
+	         #{item.name},
+	         #{item.money},
+	    </trim>
+	    </foreach >
+	</insert>
+	<!-- 批量添加  end -->
+	
+	<!-- 主键批量删除  start -->
+    <delete id="removeFinanceStudent">
+        DELETE FROM finance_student
+        WHERE id IN
+       	(${ids})
+    </delete>
+	<!-- 主键批量删除  end -->
+	
+	<!-- 单个修改  start -->
+    <update id="updateFinanceStudent">
+        UPDATE finance_student
+        <set>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+            <if test="studentId != null">
+                student_id = #{studentId},
+            </if>
+            <if test="type != null">
+                type = #{type},
+            </if>
+            <if test="name != null">
+                name = #{name},
+            </if>
+            <if test="money != null">
+                money = #{money},
+            </if>
+        </set>
+        WHERE id = #{id}
+    </update>
+	<!-- 单个修改  end -->
+	
+	<!-- 通过主键查询 start -->
+    <select id="selectFinanceStudentById" resultMap="financeStudentMap">
+        SELECT
+        <include refid="columns" />
+        FROM finance_student
+        WHERE id = #{id}
+    </select>
+    <!-- 通过主键查询 end -->
+    
+    <!--带条件的查询全部  start -->
+	<select id="selectFinanceStudentListAll"  parameterType="map" resultMap="financeStudentMap">
+        SELECT
+        <include refid="columns" />
+        FROM finance_student
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="studentId != null">
+                and student_id = #{studentId}
+            </if>
+            <if test="type != null">
+                and type = #{type}
+            </if>
+            <if test="name != null">
+                and name = #{name}
+            </if>
+            <if test="money != null">
+                and money = #{money}
+            </if>
+        </trim>
+    </select>
+    <!--带条件的查询全部  end -->
+    
+    <!--带条件的分页查询  start -->
+    <select id="selectFinanceStudentListByPage"  parameterType="map" resultMap="financeStudentMap">
+        SELECT
+        <include refid="columns" />
+        FROM finance_student
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="studentId != null">
+                and student_id = #{studentId}
+            </if>
+            <if test="type != null">
+                and type = #{type}
+            </if>
+            <if test="name != null">
+                and name = #{name}
+            </if>
+            <if test="money != null">
+                and money = #{money}
+            </if>
+        </trim>
+        order by create_time desc
+    </select>
+    <!--带条件的分页查询  end -->
+     
+   	<!-- 查询 总数  start -->
+	<select id="selectFinanceStudentCount" parameterType="map" resultType="int">
+        SELECT
+       	COUNT(1)
+        FROM finance_student
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="studentId != null">
+                and student_id = #{studentId}
+            </if>
+            <if test="type != null">
+                and type = #{type}
+            </if>
+            <if test="name != null">
+                and name = #{name}
+            </if>
+            <if test="money != null">
+                and money = #{money}
+            </if>
+        </trim>
+    </select>
+	<!-- 查询 总数  end -->
+	
+	<!-- ******************************自定义扩展sql******************************************** -->
+
+    <resultMap id="financeStudentMaps" type="financeStudent" extends="financeStudentMap">
+        <collection property="student" ofType="Student" select="cn.logicalthinking.common.dao.StudentDao.selectStudentById" column="student_id"/>
+    </resultMap>
+    <select id="selectFinanceStudentByStudentId" resultMap="financeStudentMaps" parameterType="map">
+        SELECT
+        <include refid="columns" />
+        FROM finance_student
+        WHERE student_id = #{studentId}
+        <if test="money != null">
+            and money = #{money}
+        </if>
+        <if test="createTime != null">
+            and DATE_FORMAT(create_time,'%Y%m%d') = DATE_FORMAT(#{createTime},'%Y%m%d')
+        </if>
+        <if test="startTime != null">
+            and DATE_FORMAT(create_time,'%Y%m%d') > DATE_FORMAT(#{startTime},'%Y%m%d')
+        </if>
+        <if test="endTime != null">
+            and DATE_FORMAT(create_time,'%Y%m%d') &lt; DATE_FORMAT(#{endTime},'%Y%m%d')
+        </if>
+    </select>
+
+    <delete id="removeFinanceStudentBysId">
+        DELETE FROM finance_student
+        WHERE student_id = #{studentId}
+    </delete>
+</mapper>

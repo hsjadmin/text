@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- sysUser -->
+<mapper namespace="cn.logicalthinking.common.dao.SysUserDao">
+
+    <!-- 全局map1  start -->
+    <resultMap id="sysUserMap" type="sysUser">
+        <result property="userId" column="user_id"/>
+        <result property="userName" column="user_name"/>
+        <result property="trueName" column="true_name"/>
+        <result property="sex" column="sex"/>
+        <result property="email" column="email"/>
+        <result property="phone" column="phone"/>
+        <result property="pwd" column="pwd"/>
+        <result property="createTime" column="create_time"/>
+        <result property="loginTime" column="login_time"/>
+        <result property="lastLoginTime" column="last_login_time"/>
+        <result property="state" column="state"/>
+        <result property="type" column="type"/>
+        <result property="picturePath" column="picture_path"/>
+        <result property="address" column="address"/>
+    </resultMap>
+    <!-- 全局map1 end -->
+
+    <!-- 全局map2 start -->
+    <resultMap id="sysUserRoleMap" type="sysUser" extends="sysUserMap">
+        <collection property="roleList" column="user_id" ofType="sysRole"
+                    select="cn.logicalthinking.common.dao.SysRoleDao.selectSysRoleByUserId"></collection>
+    </resultMap>
+    <!-- 全局map2 end -->
+
+    <!-- 全局字段  start -->
+    <sql id="columns">
+        user_id ,user_name ,true_name ,sex ,email ,phone ,pwd ,substring(create_time,1,19) create_time ,substring(login_time,1,19) login_time ,substring(last_login_time,1,19) last_login_time ,state ,type ,picture_path ,address
+    </sql>
+    <!-- 全局字段  end -->
+
+    <!-- 单个添加 start -->
+    <insert id="addSysUser">
+        INSERT INTO sys_user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userId != null">
+                user_id,
+            </if>
+            <if test="userName != null">
+                user_name,
+            </if>
+            <if test="trueName != null">
+                true_name,
+            </if>
+            <if test="sex != null">
+                sex,
+            </if>
+            <if test="email != null">
+                email,
+            </if>
+            <if test="phone != null">
+                phone,
+            </if>
+            <if test="pwd != null">
+                pwd,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="loginTime != null">
+                login_time,
+            </if>
+            <if test="lastLoginTime != null">
+                last_login_time,
+            </if>
+            <if test="state != null">
+                state,
+            </if>
+            <if test="type != null">
+                type,
+            </if>
+            <if test="picturePath != null">
+                picture_path,
+            </if>
+            <if test="address != null">
+                address,
+            </if>
+        </trim>
+        <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+            <if test="userId != null">
+                #{userId} ,
+            </if>
+            <if test="userName != null">
+                #{userName} ,
+            </if>
+            <if test="trueName != null">
+                #{trueName} ,
+            </if>
+            <if test="sex != null">
+                #{sex} ,
+            </if>
+            <if test="email != null">
+                #{email} ,
+            </if>
+            <if test="phone != null">
+                #{phone} ,
+            </if>
+            <if test="pwd != null">
+                #{pwd} ,
+            </if>
+            <if test="createTime != null">
+                #{createTime} ,
+            </if>
+            <if test="loginTime != null">
+                #{loginTime} ,
+            </if>
+            <if test="lastLoginTime != null">
+                #{lastLoginTime} ,
+            </if>
+            <if test="state != null">
+                #{state} ,
+            </if>
+            <if test="type != null">
+                #{type} ,
+            </if>
+            <if test="picturePath != null">
+                #{picturePath} ,
+            </if>
+            <if test="address != null">
+                #{address} ,
+            </if>
+        </trim>
+    </insert>
+    <!-- 单个添加 end -->
+
+    <!--批量添加  start -->
+    <insert id="batchSysUser">
+        INSERT INTO
+        sys_user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            user_id,
+            user_name,
+            true_name,
+            sex,
+            email,
+            phone,
+            pwd,
+            create_time,
+            login_time,
+            last_login_time,
+            state,
+            type,
+            picture_path,
+            address,
+        </trim>
+        VALUES
+        <foreach collection="list" item="item" separator=",">
+            <trim prefix="(" suffix=")" suffixOverrides=",">
+                #{item.userId},
+                #{item.userName},
+                #{item.trueName},
+                #{item.sex},
+                #{item.email},
+                #{item.phone},
+                #{item.pwd},
+                #{item.createTime},
+                #{item.loginTime},
+                #{item.lastLoginTime},
+                #{item.state},
+                #{item.type},
+                #{item.picturePath},
+                #{item.address},
+            </trim>
+        </foreach>
+    </insert>
+    <!-- 批量添加  end -->
+
+    <!-- 主键批量删除  start -->
+    <delete id="removeSysUser">
+        DELETE FROM sys_user
+        WHERE user_id IN
+       	(${userIds})
+    </delete>
+    <!-- 主键批量删除  end -->
+
+    <!-- 单个修改  start -->
+    <update id="updateSysUser">
+        UPDATE sys_user
+        <set>
+            <if test="userName != null">
+                user_name = #{userName},
+            </if>
+            <if test="trueName != null">
+                true_name = #{trueName},
+            </if>
+            <if test="sex != null">
+                sex = #{sex},
+            </if>
+            <if test="email != null">
+                email = #{email},
+            </if>
+            <if test="phone != null">
+                phone = #{phone},
+            </if>
+            <if test="pwd != null">
+                pwd = #{pwd},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+            <if test="loginTime != null">
+                login_time = #{loginTime},
+            </if>
+            <if test="lastLoginTime != null">
+                last_login_time = #{lastLoginTime},
+            </if>
+            <if test="state != null">
+                state = #{state},
+            </if>
+            <if test="type != null">
+                type = #{type},
+            </if>
+            <if test="picturePath != null">
+                picture_path = #{picturePath},
+            </if>
+            <if test="address != null">
+                address = #{address},
+            </if>
+        </set>
+        WHERE user_id = #{userId}
+    </update>
+    <!-- 单个修改  end -->
+
+    <!-- 通过主键查询 start -->
+    <select id="selectSysUserById" resultMap="sysUserRoleMap">
+        SELECT
+        <include refid="columns"/>
+        FROM sys_user
+        WHERE user_id = #{user_id}
+    </select>
+    <!-- 通过主键查询 end -->
+
+    <!--带条件的查询全部  start -->
+    <select id="selectSysUserListAll" parameterType="map" resultMap="sysUserMap">
+        SELECT
+        <include refid="columns"/>
+        FROM sys_user
+        <trim prefix="where" prefixOverrides="and">
+            <if test="userId != null">
+                and user_id = #{userId}
+            </if>
+            <if test="userName != null">
+                and user_name = #{userName}
+            </if>
+            <if test="trueName != null">
+                and true_name = #{trueName}
+            </if>
+            <if test="sex != null">
+                and sex = #{sex}
+            </if>
+            <if test="email != null">
+                and email = #{email}
+            </if>
+            <if test="phone != null">
+                and phone = #{phone}
+            </if>
+            <if test="pwd != null">
+                and pwd = #{pwd}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="loginTime != null">
+                and login_time = #{loginTime}
+            </if>
+            <if test="lastLoginTime != null">
+                and last_login_time = #{lastLoginTime}
+            </if>
+            <if test="state != null">
+                and state = #{state}
+            </if>
+            <if test="type != null">
+                and type = #{type}
+            </if>
+            <if test="picturePath != null">
+                and picture_path = #{picturePath}
+            </if>
+            <if test="address != null">
+                and address = #{address}
+            </if>
+        </trim>
+    </select>
+    <!--带条件的查询全部  end -->
+
+    <!--带条件的分页查询  start -->
+    <select id="selectSysUserListByPage" parameterType="map" resultMap="sysUserMap">
+        SELECT
+        <include refid="columns"/>
+        FROM sys_user
+        <trim prefix="where" prefixOverrides="and">
+            <if test="userId != null">
+                and user_id = #{userId}
+            </if>
+            <if test="userName != null">
+                and user_name = #{userName}
+            </if>
+            <if test="trueName != null">
+                and true_name = #{trueName}
+            </if>
+            <if test="sex != null">
+                and sex = #{sex}
+            </if>
+            <if test="email != null">
+                and email = #{email}
+            </if>
+            <if test="phone != null">
+                and phone = #{phone}
+            </if>
+            <if test="pwd != null">
+                and pwd = #{pwd}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="loginTime != null">
+                and login_time = #{loginTime}
+            </if>
+            <if test="lastLoginTime != null">
+                and last_login_time = #{lastLoginTime}
+            </if>
+            <if test="state != null">
+                and state = #{state}
+            </if>
+            <if test="type != null">
+                and type = #{type}
+            </if>
+            <if test="picturePath != null">
+                and picture_path = #{picturePath}
+            </if>
+            <if test="address != null">
+                and address = #{address}
+            </if>
+        </trim>
+    </select>
+    <!--带条件的分页查询  end -->
+
+    <!-- 查询 总数  start -->
+    <select id="selectSysUserCount" parameterType="map" resultType="int">
+        SELECT
+        COUNT(1)
+        FROM sys_user
+        <trim prefix="where" prefixOverrides="and">
+            <if test="userId != null">
+                and user_id = #{userId}
+            </if>
+            <if test="userName != null">
+                and user_name = #{userName}
+            </if>
+            <if test="trueName != null">
+                and true_name = #{trueName}
+            </if>
+            <if test="sex != null">
+                and sex = #{sex}
+            </if>
+            <if test="email != null">
+                and email = #{email}
+            </if>
+            <if test="phone != null">
+                and phone = #{phone}
+            </if>
+            <if test="pwd != null">
+                and pwd = #{pwd}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="loginTime != null">
+                and login_time = #{loginTime}
+            </if>
+            <if test="lastLoginTime != null">
+                and last_login_time = #{lastLoginTime}
+            </if>
+            <if test="state != null">
+                and state = #{state}
+            </if>
+            <if test="type != null">
+                and type = #{type}
+            </if>
+            <if test="picturePath != null">
+                and picture_path = #{picturePath}
+            </if>
+            <if test="address != null">
+                and address = #{address}
+            </if>
+        </trim>
+    </select>
+    <!-- 查询 总数  end -->
+
+    <!-- ******************************自定义扩展sql******************************************** -->
+
+    <!--带条件的分页查询  start -->
+    <select id="selectSysUserRoleListByPage" parameterType="map" resultMap="sysUserRoleMap">
+        SELECT
+        <include refid="columns"/>
+        FROM sys_user
+        <trim prefix="where" prefixOverrides="and">
+            <if test="userId != null">
+                and user_id = #{userId}
+            </if>
+            <if test="userName != null">
+                and user_name like concat('%',#{userName},'%')
+            </if>
+            <if test="trueName != null">
+                and true_name = #{trueName}
+            </if>
+            <if test="sex != null">
+                and sex = #{sex}
+            </if>
+            <if test="email != null">
+                and email = #{email}
+            </if>
+            <if test="phone != null">
+                and phone = #{phone}
+            </if>
+            <if test="pwd != null">
+                and pwd = #{pwd}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="loginTime != null">
+                and login_time = #{loginTime}
+            </if>
+            <if test="lastLoginTime != null">
+                and last_login_time = #{lastLoginTime}
+            </if>
+            <if test="state != null">
+                and state = #{state}
+            </if>
+            <if test="type != null">
+                and type = #{type}
+            </if>
+            <if test="picturePath != null">
+                and picture_path = #{picturePath}
+            </if>
+            <if test="address != null">
+                and address = #{address}
+            </if>
+            <if test="roleId!= null">
+                and user_id IN
+                (
+                SELECT user_id FROM user_role where role_id = #{roleId}
+                )
+            </if>
+        </trim>
+        order by create_time desc
+    </select>
+    <!--带条件的分页查询  end -->
+</mapper>

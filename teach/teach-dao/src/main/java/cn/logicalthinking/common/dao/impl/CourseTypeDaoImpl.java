@@ -1,0 +1,94 @@
+package cn.logicalthinking.common.dao.impl;
+
+import cn.logicalthinking.common.dao.BaseDao;
+import cn.logicalthinking.common.dao.CourseTypeDao;
+import cn.logicalthinking.common.entity.CourseType;
+import cn.logicalthinking.common.exception.DaoException;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import org.springframework.stereotype.Component;
+
+import java.util.List;
+import java.util.Map;
+
+/**
+ * @author 黄世杰
+ * @date 2018-12-19
+ * @version  1.0
+ */
+@Component
+public class CourseTypeDaoImpl extends BaseDao implements CourseTypeDao{
+
+	public int addCourseType(CourseType courseType) throws DaoException{
+		return super.getSqlSession().insert("addCourseType", courseType);
+	}
+	public int batchCourseType(List<CourseType> list) throws DaoException{
+		return super.getSqlSession().insert("batchCourseType",list);
+	}
+
+	public int updateCourseType(CourseType courseType) throws DaoException{
+		return super.getSqlSession().update("updateCourseType", courseType);
+	}
+
+	public int removeCourseType(Map<String, Object> map) throws DaoException{
+		return super.getSqlSession().delete("removeCourseType", map);
+	}
+
+	public CourseType selectCourseTypeById(Integer id) throws DaoException{
+		return super.getSqlSession().selectOne("selectCourseTypeById",id);
+	}
+
+	public List<CourseType> selectCourseTypeListAll(Map<String, Object> map) throws DaoException{
+		return super.getSqlSession().selectList("selectCourseTypeListAll",map);
+	}
+	
+	public PageInfo<CourseType> selectCourseTypeListByPage(Map<String, Object> map) throws DaoException{
+		if(!map.containsKey("pageNum"))
+			map.put("pageNum",0);
+		if(!map.containsKey("pageSize"))
+			map.put("pageSize",0);
+    	PageHelper.startPage(map);
+        List<CourseType> selectList = super.getSqlSession().selectList("selectCourseTypeListByPage", map);
+        return new PageInfo<CourseType>(selectList);
+	}
+
+	public int selectCourseTypeCount(Map<String, Object> map) throws DaoException{
+		Object obj = super.getSqlSession().selectOne("selectCourseTypeCount",map);
+		if(obj != null){
+			return Integer.parseInt(obj.toString());
+		}
+		return 0;
+	}
+	
+	/*********************************************自定义扩展sql***********************************************/
+
+	public PageInfo<CourseType> selectCourseTypeListByPageWithCourseAndTeacher(Map<String, Object> map) throws DaoException{
+		if(!map.containsKey("pageNum"))
+			map.put("pageNum",0);
+		if(!map.containsKey("pageSize"))
+			map.put("pageSize",0);
+		PageHelper.startPage(map);
+		List<CourseType> selectList = super.getSqlSession().selectList("selectCourseTypeListByPageWithCourseAndTeacher", map);
+		return new PageInfo<CourseType>(selectList);
+	}
+
+	@Override
+	public int addCourseTypes(CourseType courseType) throws DaoException {
+		return super.getSqlSession().insert("addCourseTypes", courseType);
+	}
+
+	@Override
+	public CourseType getTypeOne(String courseId) throws DaoException {
+		return super.getSqlSession().selectOne("getTypeOne",courseId);
+	}
+
+	@Override
+	public List<CourseType> getType(Map<String, Object> map) throws DaoException {
+		return super.getSqlSession().selectList("getType",map);
+	}
+
+	public int updateCourseTypeEnrolmentAndCommissionSafely(CourseType courseType) throws DaoException{
+		return super.getSqlSession().update("updateCourseTypeEnrolmentAndCommissionSafely", courseType);
+	}
+
+}

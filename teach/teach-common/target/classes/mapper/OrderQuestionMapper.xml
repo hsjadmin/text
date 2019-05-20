@@ -1,0 +1,613 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- orderQuestion -->
+<mapper namespace="cn.logicalthinking.common.dao.OrderQuestionDao">
+    
+	<!-- 全局map1  start -->
+    <resultMap id="orderQuestionMap" type="orderQuestion">
+        <result property="id" column="id"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="studentId" column="student_id"/>
+        <result property="teacherId" column="teacher_id"/>
+        <result property="studentName" column="student_name"/>
+        <result property="teacherName" column="teacher_name"/>
+        <result property="questionImg" column="question_img"/>
+        <result property="status" column="status"/>
+        <result property="price" column="price"/>
+        <result property="isCoupon" column="is_coupon"/>
+        <result property="couponPrice" column="coupon_price"/>
+        <result property="isPay" column="is_pay"/>
+        <result property="payType" column="pay_type"/>
+        <result property="phone" column="phone"/>
+        <result property="address" column="address"/>
+        <result property="area" column="area"/>
+        <result property="answeringTime" column="answering_time"/>
+        <result property="apprised" column="apprised"/>
+        <result property="truePrice" column="true_price"/>
+        <result property="grade" column="grade"/>
+    </resultMap>
+	<!-- 全局map1 end -->
+		
+	<!-- 全局字段  start -->
+    <sql id="columns">
+        id ,substring(create_time,1,19) create_time ,substring(update_time,1,19) update_time ,student_id ,teacher_id ,student_name ,teacher_name ,question_img ,status ,price ,is_coupon ,coupon_price ,is_pay ,pay_type ,phone ,address ,area ,answering_time, apprised,true_price,grade
+    </sql>
+	<!-- 全局字段  end -->
+	
+	<!-- 单个添加 start -->
+    <insert id="addOrderQuestion" useGeneratedKeys="true" keyProperty="id">
+        	INSERT INTO order_question
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+         	<if test="id != null">
+                id,
+            </if>
+         	<if test="createTime != null">
+                create_time,
+            </if>
+         	<if test="updateTime != null">
+                update_time,
+            </if>
+         	<if test="studentId != null">
+                student_id,
+            </if>
+         	<if test="teacherId != null">
+                teacher_id,
+            </if>
+         	<if test="studentName != null">
+                student_name,
+            </if>
+         	<if test="teacherName != null">
+                teacher_name,
+            </if>
+         	<if test="questionImg != null">
+                question_img,
+            </if>
+         	<if test="status != null">
+                status,
+            </if>
+         	<if test="price != null">
+                price,
+            </if>
+         	<if test="isCoupon != null">
+                is_coupon,
+            </if>
+         	<if test="couponPrice != null">
+                coupon_price,
+            </if>
+         	<if test="isPay != null">
+                is_pay,
+            </if>
+         	<if test="payType != null">
+                pay_type,
+            </if>
+         	<if test="phone != null">
+                phone,
+            </if>
+         	<if test="address != null">
+                address,
+            </if>
+         	<if test="area != null">
+                area,
+            </if>
+         	<if test="answeringTime != null">
+                answering_time,
+            </if>
+         	<if test="apprised != null">
+                apprised,
+            </if>
+         	<if test="truePrice != null">
+                true_price,
+            </if>
+         	<if test="grade != null">
+                grade,
+            </if>
+        </trim>
+        <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+         	<if test="id != null">
+            	#{id} ,
+            </if>
+         	<if test="createTime != null">
+            	#{createTime} ,
+            </if>
+         	<if test="updateTime != null">
+            	#{updateTime} ,
+            </if>
+         	<if test="studentId != null">
+            	#{studentId} ,
+            </if>
+         	<if test="teacherId != null">
+            	#{teacherId} ,
+            </if>
+         	<if test="studentName != null">
+            	#{studentName} ,
+            </if>
+         	<if test="teacherName != null">
+            	#{teacherName} ,
+            </if>
+         	<if test="questionImg != null">
+            	#{questionImg} ,
+            </if>
+         	<if test="status != null">
+            	#{status} ,
+            </if>
+         	<if test="price != null">
+            	#{price} ,
+            </if>
+         	<if test="isCoupon != null">
+            	#{isCoupon} ,
+            </if>
+         	<if test="couponPrice != null">
+            	#{couponPrice} ,
+            </if>
+         	<if test="isPay != null">
+            	#{isPay} ,
+            </if>
+         	<if test="payType != null">
+            	#{payType} ,
+            </if>
+         	<if test="phone != null">
+            	#{phone} ,
+            </if>
+         	<if test="address != null">
+            	#{address} ,
+            </if>
+         	<if test="area != null">
+            	#{area} ,
+            </if>
+         	<if test="answeringTime != null">
+            	#{answeringTime} ,
+            </if>
+         	<if test="apprised != null">
+            	#{apprised} ,
+            </if>
+         	<if test="truePrice != null">
+            	#{truePrice} ,
+            </if>
+         	<if test="grade != null">
+            	#{grade} ,
+            </if>
+        </trim>
+    </insert>
+	<!-- 单个添加 end -->
+	
+	<!--批量添加  start -->
+	<insert id="batchOrderQuestion">
+	    INSERT INTO 
+	    order_question
+	    <trim prefix="(" suffix=")" suffixOverrides=",">
+            id,
+            create_time,
+            update_time,
+            student_id,
+            teacher_id,
+            student_name,
+            teacher_name,
+            question_img,
+            status,
+            price,
+            is_coupon,
+            coupon_price,
+            is_pay,
+            pay_type,
+            phone,
+            address,
+            area,
+            answering_time,
+            apprised,
+            true_price,
+            grade
+        </trim>
+	    VALUES
+	    <foreach collection ="list" item="item" separator =",">
+	    <trim prefix="(" suffix=")" suffixOverrides=",">
+	         #{item.id},
+	         #{item.createTime},
+	         #{item.updateTime},
+	         #{item.studentId},
+	         #{item.teacherId},
+	         #{item.studentName},
+	         #{item.teacherName},
+	         #{item.questionImg},
+	         #{item.status},
+	         #{item.price},
+	         #{item.isCoupon},
+	         #{item.couponPrice},
+	         #{item.isPay},
+	         #{item.payType},
+	         #{item.phone},
+	         #{item.address},
+	         #{item.area},
+	         #{item.answeringTime},
+	         #{item.apprised},
+	         #{item.truePrice},
+	         #{item.grade},
+	    </trim>
+	    </foreach >
+	</insert>
+	<!-- 批量添加  end -->
+	
+	<!-- 主键批量删除  start -->
+    <delete id="removeOrderQuestion">
+        DELETE FROM order_question
+        WHERE id IN
+       	(${ids})
+    </delete>
+	<!-- 主键批量删除  end -->
+	
+	<!-- 单个修改  start -->
+    <update id="updateOrderQuestion">
+        UPDATE order_question
+        <set>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+            <if test="studentId != null">
+                student_id = #{studentId},
+            </if>
+            <if test="teacherId != null">
+                teacher_id = #{teacherId},
+            </if>
+            <if test="studentName != null">
+                student_name = #{studentName},
+            </if>
+            <if test="teacherName != null">
+                teacher_name = #{teacherName},
+            </if>
+            <if test="questionImg != null">
+                question_img = #{questionImg},
+            </if>
+            <if test="status != null">
+                status = #{status},
+            </if>
+            <if test="price != null">
+                price = #{price},
+            </if>
+            <if test="isCoupon != null">
+                is_coupon = #{isCoupon},
+            </if>
+            <if test="couponPrice != null">
+                coupon_price = #{couponPrice},
+            </if>
+            <if test="isPay != null">
+                is_pay = #{isPay},
+            </if>
+            <if test="payType != null">
+                pay_type = #{payType},
+            </if>
+            <if test="phone != null">
+                phone = #{phone},
+            </if>
+            <if test="address != null">
+                address = #{address},
+            </if>
+            <if test="area != null">
+                area = #{area},
+            </if>
+            <if test="answeringTime != null">
+                answering_time = #{answeringTime},
+            </if>
+            <if test="apprised != null">
+                apprised = #{apprised},
+            </if>
+            <if test="truePrice != null">
+                true_price = #{truePrice},
+            </if>
+            <if test="grade != null">
+                grade = #{grade},
+            </if>
+        </set>
+        WHERE id = #{id}
+    </update>
+	<!-- 单个修改  end -->
+	
+	<!-- 通过主键查询 start -->
+    <select id="selectOrderQuestionById" resultMap="orderQuestionMap">
+        SELECT
+        <include refid="columns" />
+        FROM order_question
+        WHERE id = #{id}
+    </select>
+    <!-- 通过主键查询 end -->
+    
+    <!--带条件的查询全部  start -->
+	<select id="selectOrderQuestionListAll"  parameterType="map" resultMap="orderQuestionMap">
+        SELECT
+        <include refid="columns" />
+        FROM order_question
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="studentId != null">
+                and student_id = #{studentId}
+            </if>
+            <if test="teacherId != null">
+                and teacher_id = #{teacherId}
+            </if>
+            <if test="studentName != null">
+                and student_name = #{studentName}
+            </if>
+            <if test="teacherName != null">
+                and teacher_name = #{teacherName}
+            </if>
+            <if test="questionImg != null">
+                and question_img = #{questionImg}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="price != null">
+                and price = #{price}
+            </if>
+            <if test="isCoupon != null">
+                and is_coupon = #{isCoupon}
+            </if>
+            <if test="couponPrice != null">
+                and coupon_price = #{couponPrice}
+            </if>
+            <if test="isPay != null">
+                and is_pay = #{isPay}
+            </if>
+            <if test="payType != null">
+                and pay_type = #{payType}
+            </if>
+            <if test="phone != null">
+                and phone = #{phone}
+            </if>
+            <if test="address != null">
+                and address = #{address}
+            </if>
+            <if test="area != null">
+                and area = #{area}
+            </if>
+            <if test="answeringTime != null">
+                and answering_time = #{answeringTime}
+            </if>
+            <if test="apprised != null">
+                and apprised = #{apprised}
+            </if>
+            <if test="truePrice != null">
+                and true_price = #{truePrice}
+            </if>
+            <if test="grade != null">
+                and grade = #{grade}
+            </if>
+        </trim>
+    </select>
+    <!--带条件的查询全部  end -->
+    
+    <!--带条件的分页查询  start -->
+    <select id="selectOrderQuestionListByPage"  parameterType="map" resultMap="orderQuestionMap">
+        SELECT
+        <include refid="columns" />
+        FROM order_question
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="studentId != null">
+                and student_id = #{studentId}
+            </if>
+            <if test="teacherId != null">
+                and teacher_id = #{teacherId}
+            </if>
+            <if test="studentName != null">
+                and student_name like concat('%',#{studentName},'%')
+            </if>
+            <if test="teacherName != null">
+                and teacher_name like concat('%',#{teacherName},'%')
+            </if>
+            <if test="questionImg != null">
+                and question_img = #{questionImg}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="price != null">
+                and price = #{price}
+            </if>
+            <if test="isCoupon != null">
+                and is_coupon = #{isCoupon}
+            </if>
+            <if test="couponPrice != null">
+                and coupon_price = #{couponPrice}
+            </if>
+            <if test="isPay != null">
+                and is_pay = #{isPay}
+            </if>
+            <if test="payType != null">
+                and pay_type = #{payType}
+            </if>
+            <if test="phone != null">
+                and phone = #{phone}
+            </if>
+            <if test="address != null">
+                and address = #{address}
+            </if>
+            <if test="area != null">
+                and area = #{area}
+            </if>
+            <if test="answeringTime != null">
+                and answering_time = #{answeringTime}
+            </if>
+            <if test="apprised != null">
+                and apprised = #{apprised}
+            </if>
+            <if test="truePrice != null">
+                and true_price = #{truePrice}
+            </if>
+            <if test="grade != null">
+                and grade = #{grade}
+            </if>
+        </trim>
+    </select>
+    <!--带条件的分页查询  end -->
+     
+   	<!-- 查询 总数  start -->
+	<select id="selectOrderQuestionCount" parameterType="map" resultType="int">
+        SELECT
+       	COUNT(1)
+        FROM order_question
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="studentId != null">
+                and student_id = #{studentId}
+            </if>
+            <if test="teacherId != null">
+                and teacher_id = #{teacherId}
+            </if>
+            <if test="studentName != null">
+                and student_name = #{studentName}
+            </if>
+            <if test="teacherName != null">
+                and teacher_name = #{teacherName}
+            </if>
+            <if test="questionImg != null">
+                and question_img = #{questionImg}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="price != null">
+                and price = #{price}
+            </if>
+            <if test="isCoupon != null">
+                and is_coupon = #{isCoupon}
+            </if>
+            <if test="couponPrice != null">
+                and coupon_price = #{couponPrice}
+            </if>
+            <if test="isPay != null">
+                and is_pay = #{isPay}
+            </if>
+            <if test="payType != null">
+                and pay_type = #{payType}
+            </if>
+            <if test="phone != null">
+                and phone = #{phone}
+            </if>
+            <if test="address != null">
+                and address = #{address}
+            </if>
+            <if test="area != null">
+                and area = #{area}
+            </if>
+            <if test="answeringTime != null">
+                and answering_time = #{answeringTime}
+            </if>
+            <if test="apprised != null">
+                and apprised = #{apprised}
+            </if>
+            <if test="truePrice != null">
+                and true_price = #{truePrice}
+            </if>
+            <if test="grade != null">
+                and grade = #{grade}
+            </if>
+        </trim>
+    </select>
+	<!-- 查询 总数  end -->
+	
+	<!-- ******************************自定义扩展sql******************************************** -->
+    <select id="getOrderQuestionFinish" resultMap="orderQuestionMap">
+        SELECT * FROM `order_question`
+        WHERE teacher_id = #{id} AND `status` = 3
+    </select>
+
+    <select id="getOrderQuestionCount" parameterType="map" resultType="int">
+        SELECT
+        COUNT(1)
+        FROM order_question
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="studentId != null">
+                and student_id = #{studentId}
+            </if>
+            <if test="teacherId != null">
+                and teacher_id = #{teacherId}
+            </if>
+            <if test="studentName != null">
+                and student_name = #{studentName}
+            </if>
+            <if test="teacherName != null">
+                and teacher_name = #{teacherName}
+            </if>
+            <if test="questionImg != null">
+                and question_img = #{questionImg}
+            </if>
+            <if test="status != null">
+                and status in (${status})
+            </if>
+            <if test="price != null">
+                and price = #{price}
+            </if>
+            <if test="isCoupon != null">
+                and is_coupon = #{isCoupon}
+            </if>
+            <if test="couponPrice != null">
+                and coupon_price = #{couponPrice}
+            </if>
+            <if test="isPay != null">
+                and is_pay = #{isPay}
+            </if>
+            <if test="payType != null">
+                and pay_type = #{payType}
+            </if>
+            <if test="phone != null">
+                and phone = #{phone}
+            </if>
+            <if test="address != null">
+                and address = #{address}
+            </if>
+            <if test="area != null">
+                and area = #{area}
+            </if>
+            <if test="answeringTime != null">
+                and answering_time = #{answeringTime}
+            </if>
+            <if test="apprised != null">
+                and apprised = #{apprised}
+            </if>
+            <if test="truePrice != null">
+                and true_price = #{truePrice}
+            </if>
+            <if test="grade != null">
+                and grade = #{grade}
+            </if>
+        </trim>
+    </select>
+
+</mapper>

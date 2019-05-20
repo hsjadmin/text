@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- sysLog -->
+<mapper namespace="cn.logicalthinking.common.dao.SysLogDao">
+    
+	<!-- 全局map1  start -->
+    <resultMap id="sysLogMap" type="sysLog">
+        <result property="logid" column="logid"/>
+        <result property="userId" column="user_id"/>
+        <result property="username" column="username"/>
+        <result property="operateName" column="operate_name"/>
+        <result property="operateUrl" column="operate_url"/>
+        <result property="token" column="token"/>
+        <result property="ip" column="ip"/>
+        <result property="port" column="port"/>
+        <result property="customerType" column="customer_type"/>
+        <result property="type" column="type"/>
+        <result property="createTime" column="create_time"/>
+        <result property="loseStatus" column="lose_status"/>
+        <result property="opType" column="op_type"/>
+    </resultMap>
+	<!-- 全局map1 end -->
+		
+	<!-- 全局字段  start -->
+    <sql id="columns">
+        logid ,user_id ,username ,operate_name ,operate_url ,token ,ip ,port ,customer_type ,type ,create_time ,lose_status ,op_type
+    </sql>
+	<!-- 全局字段  end -->
+	
+	<!-- 单个添加 start -->
+    <insert id="addSysLog">
+        	INSERT INTO sys_log
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+         	<if test="logid != null">
+                logid,
+            </if>
+         	<if test="userId != null">
+                user_id,
+            </if>
+         	<if test="username != null">
+                username,
+            </if>
+         	<if test="operateName != null">
+                operate_name,
+            </if>
+         	<if test="operateUrl != null">
+                operate_url,
+            </if>
+         	<if test="token != null">
+                token,
+            </if>
+         	<if test="ip != null">
+                ip,
+            </if>
+         	<if test="port != null">
+                port,
+            </if>
+         	<if test="customerType != null">
+                customer_type,
+            </if>
+         	<if test="type != null">
+                type,
+            </if>
+         	<if test="createTime != null">
+                create_time,
+            </if>
+         	<if test="loseStatus != null">
+                lose_status,
+            </if>
+         	<if test="opType != null">
+                op_type,
+            </if>
+        </trim>
+        <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+         	<if test="logid != null">
+            	#{logid} ,
+            </if>
+         	<if test="userId != null">
+            	#{userId} ,
+            </if>
+         	<if test="username != null">
+            	#{username} ,
+            </if>
+         	<if test="operateName != null">
+            	#{operateName} ,
+            </if>
+         	<if test="operateUrl != null">
+            	#{operateUrl} ,
+            </if>
+         	<if test="token != null">
+            	#{token} ,
+            </if>
+         	<if test="ip != null">
+            	#{ip} ,
+            </if>
+         	<if test="port != null">
+            	#{port} ,
+            </if>
+         	<if test="customerType != null">
+            	#{customerType} ,
+            </if>
+         	<if test="type != null">
+            	#{type} ,
+            </if>
+         	<if test="createTime != null">
+            	#{createTime} ,
+            </if>
+         	<if test="loseStatus != null">
+            	#{loseStatus} ,
+            </if>
+         	<if test="opType != null">
+            	#{opType} ,
+            </if>
+        </trim>
+    </insert>
+	<!-- 单个添加 end -->
+	
+	<!--批量添加  start -->
+	<insert id="batchSysLog">
+	    INSERT INTO 
+	    sys_log
+	    <trim prefix="(" suffix=")" suffixOverrides=",">
+            logid,
+            user_id,
+            username,
+            operate_name,
+            operate_url,
+            token,
+            ip,
+            port,
+            customer_type,
+            type,
+            create_time,
+            lose_status,
+            op_type,
+        </trim>
+	    VALUES
+	    <foreach collection ="list" item="item" separator =",">
+	    <trim prefix="(" suffix=")" suffixOverrides=",">
+	         #{item.logid},
+	         #{item.userId},
+	         #{item.username},
+	         #{item.operateName},
+	         #{item.operateUrl},
+	         #{item.token},
+	         #{item.ip},
+	         #{item.port},
+	         #{item.customerType},
+	         #{item.type},
+	         #{item.createTime},
+	         #{item.loseStatus},
+	         #{item.opType},
+	    </trim>
+	    </foreach >
+	</insert>
+	<!-- 批量添加  end -->
+	
+	<!-- 主键批量删除  start -->
+    <delete id="removeSysLog">
+        DELETE FROM sys_log
+        WHERE logid IN
+       	(${logids})
+    </delete>
+	<!-- 主键批量删除  end -->
+	
+	<!-- 单个修改  start -->
+    <update id="updateSysLog">
+        UPDATE sys_log
+        <set>
+            <if test="userId != null">
+                user_id = #{userId},
+            </if>
+            <if test="username != null">
+                username = #{username},
+            </if>
+            <if test="operateName != null">
+                operate_name = #{operateName},
+            </if>
+            <if test="operateUrl != null">
+                operate_url = #{operateUrl},
+            </if>
+            <if test="token != null">
+                token = #{token},
+            </if>
+            <if test="ip != null">
+                ip = #{ip},
+            </if>
+            <if test="port != null">
+                port = #{port},
+            </if>
+            <if test="customerType != null">
+                customer_type = #{customerType},
+            </if>
+            <if test="type != null">
+                type = #{type},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+            <if test="loseStatus != null">
+                lose_status = #{loseStatus},
+            </if>
+            <if test="opType != null">
+                op_type = #{opType},
+            </if>
+        </set>
+        WHERE logid = #{logid}
+    </update>
+	<!-- 单个修改  end -->
+	
+	<!-- 通过主键查询 start -->
+    <select id="selectSysLogById" resultMap="sysLogMap">
+        SELECT
+        <include refid="columns" />
+        FROM sys_log
+        WHERE logid = #{logid}
+    </select>
+    <!-- 通过主键查询 end -->
+    
+    <!--带条件的查询全部  start -->
+	<select id="selectSysLogListAll"  parameterType="map" resultMap="sysLogMap">
+        SELECT
+        <include refid="columns" />
+        FROM sys_log
+        <trim prefix="where" prefixOverrides="and">
+            <if test="logid != null">
+                and logid = #{logid}
+            </if>
+            <if test="userId != null">
+                and user_id = #{userId}
+            </if>
+            <if test="username != null">
+                and username = #{username},
+            </if>
+            <if test="operateName != null">
+                and operate_name = #{operateName}
+            </if>
+            <if test="operateUrl != null">
+                and operate_url = #{operateUrl}
+            </if>
+            <if test="token != null">
+                and token = #{token}
+            </if>
+            <if test="ip != null">
+                and ip = #{ip}
+            </if>
+            <if test="port != null">
+                and port = #{port}
+            </if>
+            <if test="customerType != null">
+                and customer_type = #{customerType}
+            </if>
+            <if test="type != null">
+                and type = #{type}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="loseStatus != null">
+                and lose_status = #{loseStatus}
+            </if>
+            <if test="opType != null">
+                and op_type = #{opType}
+            </if>
+        </trim>
+    </select>
+    <!--带条件的查询全部  end -->
+    
+    <!--带条件的分页查询  start -->
+    <select id="selectSysLogListByPage"  parameterType="map" resultMap="sysLogMap">
+        SELECT
+        <include refid="columns" />
+        FROM sys_log
+        <trim prefix="where" prefixOverrides="and">
+            <if test="logid != null">
+                and logid = #{logid}
+            </if>
+            <if test="userId != null">
+                and user_id = #{userId}
+            </if>
+            <if test="username != null">
+                and username like concat('%',#{username},'%')
+            </if>
+            <if test="operateName != null">
+                and operate_name like concat('%',#{operateName},'%')
+            </if>
+            <if test="operateUrl != null">
+                and operate_url = #{operateUrl}
+            </if>
+            <if test="token != null">
+                and token = #{token}
+            </if>
+            <if test="ip != null">
+                and ip = #{ip}
+            </if>
+            <if test="port != null">
+                and port = #{port}
+            </if>
+            <if test="customerType != null">
+                and customer_type = #{customerType}
+            </if>
+            <if test="type != null">
+                and type = #{type}
+            </if>
+            <if test="createTime != null">
+                and DATE_FORMAT(create_time,'%Y%m%d') = DATE_FORMAT(#{createTime},'%Y%m%d')
+            </if>
+            <if test="loseStatus != null">
+                and lose_status = #{loseStatus}
+            </if>
+            <if test="opType != null">
+                and op_type = #{opType}
+            </if>
+        </trim>
+              order by create_time desc
+    </select>
+    <!--带条件的分页查询  end -->
+     
+   	<!-- 查询 总数  start -->
+	<select id="selectSysLogCount" parameterType="map" resultType="int">
+        SELECT
+       	COUNT(1)
+        FROM sys_log
+        <trim prefix="where" prefixOverrides="and">
+            <if test="logid != null">
+                and logid = #{logid}
+            </if>
+            <if test="userId != null">
+                and user_id = #{userId}
+            </if>
+            <if test="username != null">
+                and username = #{username},
+            </if>
+            <if test="operateName != null">
+                and operate_name = #{operateName}
+            </if>
+            <if test="operateUrl != null">
+                and operate_url = #{operateUrl}
+            </if>
+            <if test="token != null">
+                and token = #{token}
+            </if>
+            <if test="ip != null">
+                and ip = #{ip}
+            </if>
+            <if test="port != null">
+                and port = #{port}
+            </if>
+            <if test="customerType != null">
+                and customer_type = #{customerType}
+            </if>
+            <if test="type != null">
+                and type = #{type}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="loseStatus != null">
+                and lose_status = #{loseStatus}
+            </if>
+            <if test="opType != null">
+                and op_type = #{opType}
+            </if>
+        </trim>
+    </select>
+	<!-- 查询 总数  end -->
+	
+	<!-- ******************************自定义扩展sql******************************************** -->
+
+    <!--带条件的分页查询  start -->
+    <resultMap id="sysLogMapCus" type="SysLog" extends="sysLogMap">
+        <association property="sysUser" column="user_id" select="cn.logincalthinking.common.dao.SysUserDao.selectSysUserById" />
+    </resultMap>
+    <select id="selectSysLogListByPageCus"  parameterType="map" resultMap="sysLogMapCus">
+        SELECT
+        <include refid="columns" />
+        FROM sys_log
+        <trim prefix="where" prefixOverrides="and">
+            <if test="logid != null">
+                and logid = #{logid}
+            </if>
+            <if test="userId != null">
+                and user_id = #{userId}
+            </if>
+            <if test="username != null">
+                and username = #{username},
+            </if>
+            <if test="operateName != null">
+                and operate_name = #{operateName}
+            </if>
+            <if test="operateUrl != null">
+                and operate_url = #{operateUrl}
+            </if>
+            <if test="token != null">
+                and token = #{token}
+            </if>
+            <if test="ip != null">
+                and ip = #{ip}
+            </if>
+            <if test="port != null">
+                and port = #{port}
+            </if>
+            <if test="customerType != null">
+                and customer_type = #{customerType}
+            </if>
+            <if test="type != null">
+                and type = #{type}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="loseStatus != null">
+                and lose_status = #{loseStatus}
+            </if>
+            <if test="opType != null">
+                and op_type = #{opType}
+            </if>
+        </trim>
+    </select>
+    <!--带条件的分页查询  end -->
+</mapper>

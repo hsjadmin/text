@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="teach-common" />
+        <module name="teach-dao" />
+        <module name="teach-pojo" />
+        <module name="teach-service-manager" />
+        <module name="teach-service-student" />
+        <module name="teach-service-teacher" />
+        <module name="teach-web-manager" />
+        <module name="teach-web-student" />
+        <module name="teach-web-teacher" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>

@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- finance -->
+<mapper namespace="cn.logicalthinking.common.dao.FinanceDao">
+    
+	<!-- 全局map1  start -->
+    <resultMap id="financeMap" type="finance">
+        <result property="id" column="id"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="studentName" column="student_name"/>
+        <result property="teacherName" column="teacher_name"/>
+        <result property="studentPay" column="student_pay"/>
+        <result property="platformIncome" column="platform_income"/>
+        <result property="teacherIncome" column="teacher_income"/>
+        <result property="teacherBonusRatio" column="teacher_bonus_ratio"/>
+    </resultMap>
+	<!-- 全局map1 end -->
+		
+	<!-- 全局字段  start -->
+    <sql id="columns">
+        id ,substring(create_time,1,19) create_time ,substring(update_time,1,19) update_time ,student_name ,teacher_name ,student_pay ,platform_income ,teacher_income ,teacher_bonus_ratio
+    </sql>
+	<!-- 全局字段  end -->
+	
+	<!-- 单个添加 start -->
+    <insert id="addFinance">
+        	INSERT INTO finance
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+         	<if test="id != null">
+                id,
+            </if>
+         	<if test="createTime != null">
+                create_time,
+            </if>
+         	<if test="updateTime != null">
+                update_time,
+            </if>
+         	<if test="studentName != null">
+                student_name,
+            </if>
+         	<if test="teacherName != null">
+                teacher_name,
+            </if>
+         	<if test="studentPay != null">
+                student_pay,
+            </if>
+         	<if test="platformIncome != null">
+                platform_income,
+            </if>
+         	<if test="teacherIncome != null">
+                teacher_income,
+            </if>
+         	<if test="teacherBonusRatio != null">
+                teacher_bonus_ratio,
+            </if>
+        </trim>
+        <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+         	<if test="id != null">
+            	#{id} ,
+            </if>
+         	<if test="createTime != null">
+            	#{createTime} ,
+            </if>
+         	<if test="updateTime != null">
+            	#{updateTime} ,
+            </if>
+         	<if test="studentName != null">
+            	#{studentName} ,
+            </if>
+         	<if test="teacherName != null">
+            	#{teacherName} ,
+            </if>
+         	<if test="studentPay != null">
+            	#{studentPay} ,
+            </if>
+         	<if test="platformIncome != null">
+            	#{platformIncome} ,
+            </if>
+         	<if test="teacherIncome != null">
+            	#{teacherIncome} ,
+            </if>
+         	<if test="teacherBonusRatio != null">
+            	#{teacherBonusRatio} ,
+            </if>
+        </trim>
+    </insert>
+	<!-- 单个添加 end -->
+	
+	<!--批量添加  start -->
+	<insert id="batchFinance">
+	    INSERT INTO 
+	    finance
+	    <trim prefix="(" suffix=")" suffixOverrides=",">
+            id,
+            create_time,
+            update_time,
+            student_name,
+            teacher_name,
+            student_pay,
+            platform_income,
+            teacher_income,
+            teacher_bonus_ratio,
+        </trim>
+	    VALUES
+	    <foreach collection ="list" item="item" separator =",">
+	    <trim prefix="(" suffix=")" suffixOverrides=",">
+	         #{item.id},
+	         #{item.createTime},
+	         #{item.updateTime},
+	         #{item.studentName},
+	         #{item.teacherName},
+	         #{item.studentPay},
+	         #{item.platformIncome},
+	         #{item.teacherIncome},
+	         #{item.teacherBonusRatio},
+	    </trim>
+	    </foreach >
+	</insert>
+	<!-- 批量添加  end -->
+	
+	<!-- 主键批量删除  start -->
+    <delete id="removeFinance">
+        DELETE FROM finance
+        WHERE id IN
+       	(${ids})
+    </delete>
+	<!-- 主键批量删除  end -->
+	
+	<!-- 单个修改  start -->
+    <update id="updateFinance">
+        UPDATE finance
+        <set>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+            <if test="studentName != null">
+                student_name = #{studentName},
+            </if>
+            <if test="teacherName != null">
+                teacher_name = #{teacherName},
+            </if>
+            <if test="studentPay != null">
+                student_pay = #{studentPay},
+            </if>
+            <if test="platformIncome != null">
+                platform_income = #{platformIncome},
+            </if>
+            <if test="teacherIncome != null">
+                teacher_income = #{teacherIncome},
+            </if>
+            <if test="teacherBonusRatio != null">
+                teacher_bonus_ratio = #{teacherBonusRatio},
+            </if>
+        </set>
+        WHERE id = #{id}
+    </update>
+	<!-- 单个修改  end -->
+	
+	<!-- 通过主键查询 start -->
+    <select id="selectFinanceById" resultMap="financeMap">
+        SELECT
+        <include refid="columns" />
+        FROM finance
+        WHERE id = #{id}
+    </select>
+    <!-- 通过主键查询 end -->
+    
+    <!--带条件的查询全部  start -->
+	<select id="selectFinanceListAll"  parameterType="map" resultMap="financeMap">
+        SELECT
+        <include refid="columns" />
+        FROM finance
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="studentName != null">
+                and student_name = #{studentName}
+            </if>
+            <if test="teacherName != null">
+                and teacher_name = #{teacherName}
+            </if>
+            <if test="studentPay != null">
+                and student_pay = #{studentPay}
+            </if>
+            <if test="platformIncome != null">
+                and platform_income = #{platformIncome}
+            </if>
+            <if test="teacherIncome != null">
+                and teacher_income = #{teacherIncome}
+            </if>
+            <if test="teacherBonusRatio != null">
+                and teacher_bonus_ratio = #{teacherBonusRatio}
+            </if>
+        </trim>
+    </select>
+    <!--带条件的查询全部  end -->
+    
+    <!--带条件的分页查询  start -->
+    <select id="selectFinanceListByPage"  parameterType="map" resultMap="financeMap">
+        SELECT
+        <include refid="columns" />
+        FROM finance
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="studentName != null">
+                and student_name like concat('%',#{studentName},'%')
+            </if>
+            <if test="teacherName != null">
+                and teacher_name like concat('%',#{teacherName},'%')
+            </if>
+            <if test="studentPay != null">
+                and student_pay = #{studentPay}
+            </if>
+            <if test="platformIncome != null">
+                and platform_income = #{platformIncome}
+            </if>
+            <if test="teacherIncome != null">
+                and teacher_income = #{teacherIncome}
+            </if>
+            <if test="teacherBonusRatio != null">
+                and teacher_bonus_ratio = #{teacherBonusRatio}
+            </if>
+        </trim>
+    </select>
+    <!--带条件的分页查询  end -->
+     
+   	<!-- 查询 总数  start -->
+	<select id="selectFinanceCount" parameterType="map" resultType="int">
+        SELECT
+       	COUNT(1)
+        FROM finance
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="studentName != null">
+                and student_name = #{studentName}
+            </if>
+            <if test="teacherName != null">
+                and teacher_name = #{teacherName}
+            </if>
+            <if test="studentPay != null">
+                and student_pay = #{studentPay}
+            </if>
+            <if test="platformIncome != null">
+                and platform_income = #{platformIncome}
+            </if>
+            <if test="teacherIncome != null">
+                and teacher_income = #{teacherIncome}
+            </if>
+            <if test="teacherBonusRatio != null">
+                and teacher_bonus_ratio = #{teacherBonusRatio}
+            </if>
+        </trim>
+    </select>
+	<!-- 查询 总数  end -->
+	
+	<!-- ******************************自定义扩展sql******************************************** -->
+</mapper>

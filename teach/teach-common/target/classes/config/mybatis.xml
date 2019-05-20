@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+		<!-- 打印查询语句 -->
+		<setting name="logImpl" value="LOG4J" />
+		<!-- 设置缓存 -->
+		<setting name="cacheEnabled" value="true"/>
+        <!-- 全局性设置懒加载。如果设为‘false'，则所有相关联的都会被初始化加载。 -->
+        <setting name="lazyLoadingEnabled" value="false"/>
+        <!-- 当设置为‘true'的时候，懒加载的对象可能被任何懒属性全部加载。否则，每个属性都按需加载。 -->
+        <setting name="aggressiveLazyLoading" value="true"/>
+	</settings>
+
+	<!-- 设置别名 -->
+	<typeAliases>
+		<package name="cn.logicalthinking.common.entity"/>
+	</typeAliases>
+	
+		<plugins>
+         <!-- PageHelper4.1.1 --> 
+        <plugin interceptor="com.github.pagehelper.PageHelper">
+            <property name="dialect" value="mysql"/>
+            <!-- 设置为true时，会将RowBounds第一个参数offset当成pageNum页码使用 , 和startPage中的pageNum效果一样--> 
+            <property name="offsetAsPageNum" value="false"/>
+            <!-- 设置为true时，使用RowBounds分页会进行count查询 -->
+            <property name="rowBoundsWithCount" value="false"/>
+            <!-- 设置为true时，如果pageSize=0或者RowBounds.limit = 0就会查询出全部的结果 -->
+            <property name="pageSizeZero" value="true"/>
+            <!-- 禁用合理化时，如果pageNum<1或pageNum>pages会返回空数据 -->
+            <property name="reasonable" value="false"/>
+            <!-- 支持通过Mapper接口参数来传递分页参数 --> 
+            <property name="supportMethodsArguments" value="false"/>
+            <property name="returnPageInfo" value="none"/>
+        </plugin>
+    </plugins>
+
+</configuration>

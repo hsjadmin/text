@@ -1,0 +1,1638 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="teach-web-manager:war" />
+      <artifact name="teach-web-manager:war exploded" />
+      <artifact name="teach-web-student:war" />
+      <artifact name="teach-web-student:war exploded" />
+      <artifact name="teach-web-teacher:war" />
+      <artifact name="teach-web-teacher:war exploded" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7b0b8e47-e648-43a7-986b-1cb415f6dda2" name="Default Changelist" comment="" />
+    <ignored path="$PROJECT_DIR$/teach-common/target/" />
+    <ignored path="$PROJECT_DIR$/teach-web/target/" />
+    <ignored path="$PROJECT_DIR$/teach-service/target/" />
+    <ignored path="$PROJECT_DIR$/teach-dao/target/" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <ignored path="$PROJECT_DIR$/teach-pojo/target/" />
+    <ignored path="$PROJECT_DIR$/teach-web/teach-web-manager/target/" />
+    <ignored path="$PROJECT_DIR$/teach-web/teach-web-teacher/target/" />
+    <ignored path="$PROJECT_DIR$/teach-service/teach-service-student/target/" />
+    <ignored path="$PROJECT_DIR$/teach-service/teach-service-teacher/target/" />
+    <ignored path="$PROJECT_DIR$/teach-web/teach-web-student/target/" />
+    <ignored path="$PROJECT_DIR$/teach-service/teach-service-manager/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-1358058517">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="25" />
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.13" value="1" />
+          <entry key="project.open.time.14" value="3" />
+          <entry key="project.open.time.17" value="1" />
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.21" value="1" />
+          <entry key="project.open.time.23" value="1" />
+          <entry key="project.open.time.24" value="1" />
+          <entry key="project.open.time.27" value="1" />
+          <entry key="project.open.time.28" value="1" />
+          <entry key="project.open.time.30" value="1" />
+          <entry key="project.open.time.31" value="1" />
+          <entry key="project.open.time.32" value="1" />
+          <entry key="project.open.time.33" value="2" />
+          <entry key="project.open.time.36" value="1" />
+          <entry key="project.open.time.37" value="1" />
+          <entry key="project.open.time.38" value="2" />
+          <entry key="project.open.time.42" value="1" />
+          <entry key="project.open.time.44" value="1" />
+          <entry key="project.open.time.45" value="1" />
+          <entry key="project.open.time.47" value="2" />
+          <entry key="project.open.time.48" value="1" />
+          <entry key="project.open.time.5" value="2" />
+          <entry key="project.open.time.56" value="1" />
+          <entry key="project.open.time.58" value="1" />
+          <entry key="project.open.time.6" value="1" />
+          <entry key="project.open.time.66" value="1" />
+          <entry key="project.open.time.69" value="1" />
+          <entry key="project.open.time.8" value="1" />
+          <entry key="project.opened" value="35" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="1" value="1" />
+          <entry key="aj" value="1" />
+          <entry key="class" value="3" />
+          <entry key="classpath" value="2" />
+          <entry key="http" value="1" />
+          <entry key="iml" value="3" />
+          <entry key="java" value="392" />
+          <entry key="java___jb_tmp___" value="1" />
+          <entry key="jpg" value="5" />
+          <entry key="json" value="2" />
+          <entry key="jsp" value="1" />
+          <entry key="log" value="1" />
+          <entry key="md" value="4" />
+          <entry key="mymetadata" value="2" />
+          <entry key="project" value="2" />
+          <entry key="properties" value="64" />
+          <entry key="r802" value="1" />
+          <entry key="sql" value="1" />
+          <entry key="xml" value="111" />
+          <entry key="xml___jb_tmp___" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="AspectJ" value="1" />
+          <entry key="CLASS" value="3" />
+          <entry key="Eclipse" value="4" />
+          <entry key="IDEA_MODULE" value="3" />
+          <entry key="Image" value="5" />
+          <entry key="JAVA" value="392" />
+          <entry key="JSON" value="2" />
+          <entry key="JSP" value="1" />
+          <entry key="Markdown" value="4" />
+          <entry key="PLAIN_TEXT" value="7" />
+          <entry key="Properties" value="64" />
+          <entry key="SQL" value="1" />
+          <entry key="Scratch" value="1" />
+          <entry key="XML" value="111" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="1" value="2" />
+          <entry key="java" value="2408" />
+          <entry key="json" value="23" />
+          <entry key="properties" value="5" />
+          <entry key="xml" value="135" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="2408" />
+          <entry key="JSON" value="23" />
+          <entry key="PLAIN_TEXT" value="2" />
+          <entry key="Properties" value="5" />
+          <entry key="SQL" value="2" />
+          <entry key="XML" value="133" />
+        </counts>
+      </usages-collector>
+    </session>
+    <session id="1664926462">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="2" />
+          <entry key="project.open.time.3" value="1" />
+          <entry key="project.open.time.4" value="1" />
+          <entry key="project.open.time.5" value="1" />
+          <entry key="project.open.time.53" value="1" />
+          <entry key="project.opened" value="4" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="java" value="79" />
+          <entry key="jpg" value="2" />
+          <entry key="md" value="2" />
+          <entry key="png" value="1" />
+          <entry key="properties" value="3" />
+          <entry key="sql" value="2" />
+          <entry key="xml" value="4" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="Image" value="3" />
+          <entry key="JAVA" value="79" />
+          <entry key="Markdown" value="2" />
+          <entry key="Properties" value="3" />
+          <entry key="SQL" value="2" />
+          <entry key="XML" value="4" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="216" />
+          <entry key="xml" value="22" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="216" />
+          <entry key="XML" value="22" />
+        </counts>
+      </usages-collector>
+    </session>
+    <session id="896333393">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.7" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="teach" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/teach-service/teach-service-teacher/src/main/java/cn/logicalthinking/models/teacher/service/IsExistRoomService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1056">
+              <caret line="65" column="32" selection-start-line="65" selection-start-column="19" selection-end-line="65" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/teach-service/teach-service-teacher/src/main/java/cn/logicalthinking/models/teacher/service/UpdateCourseStatusService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="384">
+              <caret line="24" column="44" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/teach-service/teach-service-teacher/src/main/java/cn/logicalthinking/models/teacher/service/SetUpchannelNoService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="816">
+              <caret line="47" column="31" selection-start-line="47" selection-start-column="22" selection-end-line="47" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/teach-web/teach-web-teacher/src/main/java/cn/logicalthinking/models/teacher/TeacherCoursesController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1128">
+              <caret line="60" column="32" selection-start-line="60" selection-start-column="32" selection-end-line="60" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/teach-web/teach-web-student/src/main/java/cn/logicalthinking/models/student/controller/StQuestionController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="312">
+              <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/teach-web/teach-web-student/src/main/java/cn/logicalthinking/models/student/controller/StCourseController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1440">
+              <caret line="78" column="45" selection-start-line="78" selection-start-column="22" selection-end-line="78" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/teach-service/teach-service-student/src/main/java/cn/logicalthinking/models/student/service/course/StPayCourseOrderService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2928">
+              <caret line="144" column="115" selection-start-line="144" selection-start-column="93" selection-end-line="144" selection-end-column="115" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/teach-web/teach-web-teacher/src/main/java/cn/logicalthinking/models/teacher/TeacherRouteController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="456">
+              <caret line="122" column="22" selection-start-line="122" selection-start-column="22" selection-end-line="122" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTTP Request" />
+        <option value="Aspect" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>updeteTeacherInfo</find>
+      <find>updateTeacherInfo</find>
+      <find>getStudentList</find>
+      <find>updateTeacher</find>
+      <find>hasUseCoupon</find>
+      <find>path</find>
+      <find>StPayCourseOrderService.</find>
+      <find>StdJDBCDelegat</find>
+      <find>mysql</find>
+      <find>getOrderCourseList</find>
+      <find>orderCoursePayCallback</find>
+      <find>StudentInterceptor</find>
+      <find>mysql-connector-java</find>
+      <find>getDoubtsOrder</find>
+      <find>getOrAddStudentByOpenId</find>
+      <find>sendCode</find>
+      <find>teacherLogin/login</find>
+      <find>isRegister</find>
+      <find>addJob</find>
+      <find>viewOrderInfo</find>
+      <find>main</find>
+      <find>sha</find>
+      <find>teacher/shareCourse</find>
+      <find>shareCourse</find>
+      <find>share</find>
+      <find>stGetCourseById</find>
+      <find>payCourseOrder</find>
+      <find>isExistRoom</find>
+      <find>setUpchannelNo</find>
+      <find>updateCourseStatus</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>http://localhost:8083//teach-web-manager</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>C:\ide_project\teach\teach\teach-web\teach-web-student\src\main\java\cn\logicalthinking</dir>
+    </dirStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/teach-web/pom.xml" />
+        <option value="$PROJECT_DIR$/teach-service/teach-service-manager/src/main/java/cn/logicalthinking/models/manage/service/AddMarketingBannerService.java" />
+        <option value="$PROJECT_DIR$/teach-service/teach-service-manager/src/main/java/cn/logicalthinking/models/manage/service/UpdateSysUserService.java" />
+        <option value="$PROJECT_DIR$/teach-service/teach-service-teacher/src/main/java/cn/logicalthinking/models/teacher/service/UpdeteTeacherInfoService.java" />
+        <option value="$PROJECT_DIR$/teach-web/teach-web-manager/src/main/webapp/upload/file/1" />
+        <option value="$APPLICATION_CONFIG_DIR$/extensions/saa.http" />
+        <option value="$PROJECT_DIR$/teach-service/teach-service-manager/src/main/java/cn/logicalthinking/models/manage/service/GetStudentListService.java" />
+        <option value="$PROJECT_DIR$/teach-common/src/main/java/cn/logicalthinking/common/util/HttpsRequest.java" />
+        <option value="$PROJECT_DIR$/teach-common/src/main/java/cn/logicalthinking/common/quartz/JobCleanFile.java" />
+        <option value="$PROJECT_DIR$/teach-common/src/main/resources/config/pro/db.properties" />
+        <option value="$PROJECT_DIR$/teach-common/src/main/resources/config/dev/db.properties" />
+        <option value="$PROJECT_DIR$/teach-service/teach-service-manager/src/main/java/cn/logicalthinking/models/manage/service/MaGetOrderCourseListService.java" />
+        <option value="$PROJECT_DIR$/teach-pojo/src/main/java/cn/logicalthinking/common/entity/OrderCourse.java" />
+        <option value="$PROJECT_DIR$/teach-common/src/main/resources/mapper/OrderCourseMapper.xml" />
+        <option value="$PROJECT_DIR$/teach-pojo/src/main/java/cn/logicalthinking/common/entity/OrderQuestion.java" />
+        <option value="$PROJECT_DIR$/teach-common/src/main/resources/mapper/OrderQuestionMapper.xml" />
+        <option value="$PROJECT_DIR$/teach-service/teach-service-manager/src/main/java/cn/logicalthinking/models/manage/service/GetDoubtsOrderService.java" />
+        <option value="$PROJECT_DIR$/teach-service/teach-service-student/src/main/java/cn/logicalthinking/models/student/service/question/StPreQuestionOrderService.java" />
+        <option value="$PROJECT_DIR$/teach-web/teach-web-student/src/main/java/cn/logicalthinking/models/student/controller/StQuestionController.java" />
+        <option value="$PROJECT_DIR$/teach-dao/pom.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/readme.md" />
+        <option value="$PROJECT_DIR$/teach-common/src/main/resources/config/file-path.properties" />
+        <option value="$PROJECT_DIR$/teach-common/src/main/resources/config/wxpay.properties" />
+        <option value="$PROJECT_DIR$/teach-common/src/main/resources/quartz.properties" />
+        <option value="$PROJECT_DIR$/teach-common/src/main/resources/config/db.properties" />
+        <option value="$PROJECT_DIR$/teach-common/src/main/java/cn/logicalthinking/common/quartz/QuartzManager.java" />
+        <option value="$PROJECT_DIR$/teach-common/src/main/java/cn/logicalthinking/common/pay/MyWXPayUtil.java" />
+        <option value="$PROJECT_DIR$/teach-service/teach-service-student/src/main/java/cn/logicalthinking/models/student/service/buiz/OrderCoursePayCallback.java" />
+        <option value="$PROJECT_DIR$/teach-dao/src/main/java/cn/logicalthinking/common/dao/CourseOutlineDao.java" />
+        <option value="$PROJECT_DIR$/teach-service/teach-service-student/src/main/java/cn/logicalthinking/models/student/service/course/StViewCourseInfoService.java" />
+        <option value="$PROJECT_DIR$/teach-common/src/main/java/cn/logicalthinking/common/util/DateUtil.java" />
+        <option value="$PROJECT_DIR$/teach-common/src/main/resources/log4j.properties" />
+        <option value="$PROJECT_DIR$/teach-common/src/main/java/cn/logicalthinking/common/pay/wx/util/wxPayApi.java" />
+        <option value="$PROJECT_DIR$/teach-common/src/main/java/cn/logicalthinking/common/pay/wx/sdk/WXPay.java" />
+        <option value="$PROJECT_DIR$/teach-service/teach-service-teacher/src/main/java/cn/logicalthinking/models/teacher/service/KeepVideoUrlService.java" />
+        <option value="$PROJECT_DIR$/teach-common/src/main/java/cn/logicalthinking/common/pay/wx/sdk/WXPayRequest.java" />
+        <option value="$PROJECT_DIR$/teach-service/teach-service-student/src/main/java/cn/logicalthinking/models/student/service/course/StPayCourseOrderService.java" />
+        <option value="$PROJECT_DIR$/teach-web/teach-web-student/src/main/resources/spring-mvc-model.xml" />
+        <option value="$PROJECT_DIR$/teach-service/teach-service-teacher/src/main/java/cn/logicalthinking/models/teacher/service/TeacherShareCoursesService.java" />
+        <option value="$PROJECT_DIR$/teach-web/teach-web-teacher/src/main/java/cn/logicalthinking/models/teacher/intercept/TeacherInterceptor.java" />
+        <option value="$PROJECT_DIR$/teach-web/teach-web-teacher/src/main/java/cn/logicalthinking/models/teacher/TeacherShareCourseCotroller.java" />
+        <option value="$PROJECT_DIR$/teach-web/teach-web-student/src/main/java/cn/logicalthinking/models/student/intercept/StudentInterceptor.java" />
+        <option value="$PROJECT_DIR$/teach-common/src/main/java/cn/logicalthinking/common/base/service/IClientData.java" />
+        <option value="$PROJECT_DIR$/teach-service/teach-service-student/src/main/java/cn/logicalthinking/models/student/service/course/StGetCourseByIdService.java" />
+        <option value="$PROJECT_DIR$/teach-service/teach-service-teacher/src/main/java/cn/logicalthinking/models/common/WebClient.java" />
+        <option value="$PROJECT_DIR$/teach-service/teach-service-manager/src/main/java/cn/logicalthinking/common/base/service/WebClient.java" />
+        <option value="$PROJECT_DIR$/teach-service/teach-service-student/src/main/java/cn/logicalthinking/common/base/service/WebClient.java" />
+        <option value="$PROJECT_DIR$/teach-service/teach-service-teacher/src/main/java/cn/logicalthinking/models/teacher/service/IsExistRoomService.java" />
+        <option value="$PROJECT_DIR$/teach-service/teach-service-teacher/src/main/java/cn/logicalthinking/models/teacher/service/SetUpchannelNoService.java" />
+        <option value="$PROJECT_DIR$/teach-web/teach-web-teacher/src/main/java/cn/logicalthinking/models/teacher/TeacherRouteController.java" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="412" />
+    <option name="y" value="86" />
+    <option name="width" value="1400" />
+    <option name="height" value="1000" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="teach" type="b2602c69:ProjectViewProjectNode" />
+              <item name="teach" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SearchEverywhereHistoryKey" value="a&#9;PSI&#9;JAVA://cn.logicalthinking.common.base.service.AbstractService&#10;UeditorController&#9;ACTION&#9;null" />
+    <property name="ToolWindowVersion Control.ShowToolbar" value="false" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558083604235" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Console Font" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="cn.logicalthinking.common.util" />
+      <recent name="cn.logicalthinking.models.manage.service" />
+      <recent name="cn.logicalthinking.models.manage.controller" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\ide_project\teach\teach\teach-web\teach-web-manager\src\main\webapp\WEB-INF\lib" />
+      <recent name="C:\ide_project\teach\teach\teach-web\teach-web-manager\src\main\webapp\conf" />
+      <recent name="C:\ide_project\teach\teach\teach-web\teach-web-manager\target\teach-web-manager\img" />
+      <recent name="C:\ide_project\teach\teach\teach-web\teach-web-manager\target\teach-web-manager\WEB-INF\img" />
+      <recent name="C:\ide_project\teach\teach\teach-common\src\main\java\cn\logicalthinking\common\base\filter" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Tomcat Server.all">
+    <configuration name="DateUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cn.logicalthinking.common.util.DateUtil" />
+      <module name="teach-common" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.logicalthinking.common.util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="all" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7.0.72" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER" value="false" />
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/teach-web-manager/swagger-ui.html" />
+      <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <file path="$PROJECT_DIR$/teach-file">
+          <settings>
+            <option name="CONTEXT_PATH" value="/teach-file" />
+          </settings>
+        </file>
+        <artifact name="teach-web-manager:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/teach-web-manager" />
+          </settings>
+        </artifact>
+        <artifact name="teach-web-student:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/teach-web-student" />
+          </settings>
+        </artifact>
+        <artifact name="teach-web-teacher:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/teach-web-teacher" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="manage_(1)_teach" />
+        <option name="HTTP_PORT" value="8080" />
+        <option name="JNDI_PORT" value="1081" />
+      </server-settings>
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="Tomcat Catalina" enabled="true" />
+      <predefined_log_file id="Tomcat Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="53320" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="JRebel Debug">
+        <option name="DEBUG_PORT" value="53321" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="JRebel Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="JRebel Executor">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="teach-web-manager:war exploded" />
+          <artifact name="teach-web-student:war exploded" />
+          <artifact name="teach-web-teacher:war exploded" />
+        </option>
+      </method>
+    </configuration>
+    <configuration name="manage" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7.0.72" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8083//teach-web-manager/swagger-ui.html" />
+      <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="teach-web-manager:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/teach-web-manager" />
+          </settings>
+        </artifact>
+        <file path="$PROJECT_DIR$/teach-file">
+          <settings>
+            <option name="CONTEXT_PATH" value="/teach-web-file" />
+          </settings>
+        </file>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_teach_2" />
+        <option name="HTTP_PORT" value="8083" />
+        <option name="JNDI_PORT" value="1088" />
+      </server-settings>
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="Tomcat Catalina" enabled="true" />
+      <predefined_log_file id="Tomcat Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="53320" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="JRebel Debug">
+        <option name="DEBUG_PORT" value="53321" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="JRebel Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="JRebel Executor">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="teach-web-manager:war exploded" />
+          <artifact name="teach-web-student:war exploded" />
+          <artifact name="teach-web-teacher:war exploded" />
+        </option>
+      </method>
+    </configuration>
+    <configuration name="student" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7.0.72" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8091/teach-web-student/swagger-ui.html" />
+      <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
+      <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
+      <option name="UPDATE_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
+      <deployment>
+        <artifact name="teach-web-student:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/teach-web-student" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_teach" />
+        <option name="HTTP_PORT" value="8091" />
+        <option name="JNDI_PORT" value="1034" />
+      </server-settings>
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="Tomcat Catalina" enabled="true" />
+      <predefined_log_file id="Tomcat Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="53015" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="JRebel Debug">
+        <option name="DEBUG_PORT" value="53016" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="JRebel Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="JRebel Executor">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="teach-web-student:war exploded" />
+        </option>
+      </method>
+    </configuration>
+    <configuration name="teacher" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7.0.72" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8081//teach-web-teacher/swagger-ui.html" />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="teach-web-teacher:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/teach-web-teacher" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_(1)_teach" />
+        <option name="HTTP_PORT" value="8081" />
+        <option name="JNDI_PORT" value="1077" />
+      </server-settings>
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="Tomcat Catalina" enabled="true" />
+      <predefined_log_file id="Tomcat Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="64727" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="JRebel Debug">
+        <option name="DEBUG_PORT" value="64728" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="JRebel Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="JRebel Executor">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="teach-web-teacher:war exploded" />
+        </option>
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Tomcat Server.manage" />
+      <item itemvalue="Tomcat Server.all" />
+      <item itemvalue="Tomcat Server.student" />
+      <item itemvalue="Tomcat Server.teacher" />
+      <item itemvalue="Application.DateUtil" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.DateUtil" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration" cleanupOnStartRun="true">
+    <configuration>C:\Users\Administrator\AppData\Roaming\Subversion</configuration>
+    <supportedVersion>125</supportedVersion>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7b0b8e47-e648-43a7-986b-1cb415f6dda2" name="Default Changelist" comment="" />
+      <created>1545274958082</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1545274958082</updated>
+      <workItem from="1545274962948" duration="1375000" />
+      <workItem from="1545277520365" duration="146000" />
+      <workItem from="1545277804711" duration="15972000" />
+      <workItem from="1545458007317" duration="26510000" />
+      <workItem from="1546565459162" duration="6607000" />
+      <workItem from="1546673894684" duration="6125000" />
+      <workItem from="1546824753811" duration="2393000" />
+      <workItem from="1547002563721" duration="6202000" />
+      <workItem from="1547170236416" duration="596000" />
+      <workItem from="1547280483860" duration="6905000" />
+      <workItem from="1547289967202" duration="1004000" />
+      <workItem from="1547430316265" duration="3077000" />
+      <workItem from="1547703218126" duration="2468000" />
+      <workItem from="1548128202043" duration="2041000" />
+      <workItem from="1550452582807" duration="2365000" />
+      <workItem from="1550460493903" duration="231000" />
+      <workItem from="1550461239790" duration="806000" />
+      <workItem from="1550469292590" duration="2383000" />
+      <workItem from="1551768799356" duration="4987000" />
+      <workItem from="1552294302660" duration="20697000" />
+      <workItem from="1552366093161" duration="1730000" />
+      <workItem from="1552373381452" duration="898000" />
+      <workItem from="1552375709417" duration="944000" />
+      <workItem from="1552906936199" duration="95000" />
+      <workItem from="1552908682947" duration="1517000" />
+      <workItem from="1554802223562" duration="5099000" />
+      <workItem from="1556080587035" duration="390000" />
+      <workItem from="1556178414925" duration="10664000" />
+      <workItem from="1556192154290" duration="4036000" />
+      <workItem from="1556415290912" duration="9235000" />
+      <workItem from="1556438013365" duration="4262000" />
+      <workItem from="1556524830354" duration="45000" />
+      <workItem from="1556530242255" duration="3246000" />
+      <workItem from="1556539100416" duration="17550000" />
+      <workItem from="1557018068995" duration="5027000" />
+      <workItem from="1557050683366" duration="3070000" />
+      <workItem from="1557111881553" duration="3938000" />
+      <workItem from="1557120918364" duration="10134000" />
+      <workItem from="1558073605157" duration="5159000" />
+      <workItem from="1558084939908" duration="1198000" />
+    </task>
+    <task id="LOCAL-00001">
+      <created>1545290024824</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1545290024824</updated>
+    </task>
+    <task id="LOCAL-00002">
+      <created>1545614228279</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1545614228279</updated>
+    </task>
+    <task id="LOCAL-00003">
+      <created>1545614593451</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1545614593451</updated>
+    </task>
+    <task id="LOCAL-00004">
+      <created>1545614908614</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1545614908614</updated>
+    </task>
+    <task id="LOCAL-00005">
+      <created>1545615054412</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1545615054412</updated>
+    </task>
+    <task id="LOCAL-00006">
+      <created>1545618259317</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1545618259317</updated>
+    </task>
+    <task id="LOCAL-00007">
+      <created>1545622741791</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1545622741791</updated>
+    </task>
+    <task id="LOCAL-00008">
+      <created>1545881464503</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1545881464503</updated>
+    </task>
+    <task id="LOCAL-00009">
+      <created>1546829901111</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1546829901111</updated>
+    </task>
+    <task id="LOCAL-00010">
+      <created>1547283551737</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1547283551737</updated>
+    </task>
+    <task id="LOCAL-00011">
+      <created>1547290031434</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1547290031434</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="201127000" />
+  </component>
+  <component name="TodoView" selected-index="2">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8078669" visible="true" weight="0.2975162" />
+      <window_info id="Structure" order="1" sideWeight="0.19213313" side_tool="true" weight="0.4087473" />
+      <window_info id="Designer" order="2" />
+      <window_info id="JRebel" order="3" sideWeight="0.41597795" side_tool="true" weight="0.31965443" />
+      <window_info id="Image Layers" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Favorites" order="6" sideWeight="0.41597795" side_tool="true" weight="0.31965443" />
+      <window_info id="Capture Tool" order="7" />
+      <window_info id="Web" order="8" sideWeight="0.19062027" side_tool="true" weight="0.4087473" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32915717" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49892008" visible="true" weight="0.32801822" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49838012" weight="0.5888383" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49946004" weight="0.32232347" />
+      <window_info anchor="bottom" id="Spring" order="7" weight="0.32915717" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32915717" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5010799" side_tool="true" weight="0.45413363" />
+      <window_info anchor="bottom" id="Java Enterprise" order="10" sideWeight="0.49946004" weight="0.32915717" />
+      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="12" sideWeight="0.49892008" weight="0.32915717" />
+      <window_info anchor="bottom" id="JRebel Executor" order="13" />
+      <window_info anchor="bottom" id="JRebel Console" order="14" sideWeight="0.5010799" side_tool="true" weight="0.77123445" />
+      <window_info anchor="bottom" id="Messages" order="15" sideWeight="0.49676025" weight="0.46469247" />
+      <window_info anchor="bottom" id="Application Servers" order="16" sideWeight="0.4940605" visible="true" weight="0.4214123" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Maven Projects" order="1" weight="0.17062636" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="right" x="655" y="139" width="610" height="762" id="JRebel Setup Guide" order="9" type="FLOATING" weight="0.32937366" />
+      <window_info anchor="right" id="Bean Validation" order="10" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="LAST_COMMIT_MESSAGE" value="" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/teach-web/teach-web-manager/src/main/java/cn/logicalthinking/models/manage/controller/StudentController.java</url>
+          <line>26</line>
+          <properties />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/teach-common/src/main/java/cn/logicalthinking/common/base/service/IClientData.java</url>
+          <line>72</line>
+          <properties class="cn.logicalthinking.common.base.service.IClientData" method="getStudentUsers">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/teach-service/teach-service-teacher/src/main/java/cn/logicalthinking/models/common/WebClient.java</url>
+          <line>240</line>
+          <properties class="cn.logicalthinking.models.common.WebClient" method="getStudentUsers">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/teach-web/teach-web-student/src/main/resources/spring-mvc-model.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="38" column="31" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teach-web/teach-web-student/src/main/java/cn/logicalthinking/models/student/intercept/StudentInterceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="127" column="10" lean-forward="true" selection-start-line="127" selection-start-column="10" selection-end-line="127" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teach-service/teach-service-student/src/main/java/cn/logicalthinking/models/student/service/course/StGetCourseByIdService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="63" column="39" selection-start-line="63" selection-start-column="39" selection-end-line="63" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teach-service/teach-service-teacher/src/main/java/cn/logicalthinking/models/common/WebClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="240" column="19" selection-start-line="240" selection-start-column="19" selection-end-line="240" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teach-common/src/main/java/cn/logicalthinking/common/base/service/IClientData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teach-service/teach-service-manager/src/main/java/cn/logicalthinking/common/base/service/WebClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="244" column="27" lean-forward="true" selection-start-line="244" selection-start-column="27" selection-end-line="244" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teach-service/teach-service-student/src/main/java/cn/logicalthinking/common/base/service/WebClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="232" selection-start-line="232" selection-end-line="232" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teach-common/src/main/resources/quartz.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="35" column="33" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teach-file/image/8.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teach-file/image/bg.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teach-file/image/default-cover.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/readme.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="394">
+            <caret line="29" selection-start-line="29" selection-end-line="29" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/teach-s.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/teach.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teach-service/teach-service-student/src/main/java/cn/logicalthinking/models/student/service/question/StPreQuestionOrderService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="77">
+          <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teach-service/teach-service-teacher/src/main/java/cn/logicalthinking/models/teacher/service/VerificationPhontService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="23" column="13" lean-forward="true" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teach-service/teach-service-teacher/src/main/java/cn/logicalthinking/models/teacher/service/VerificationOldPwdService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teach-service/teach-service-teacher/src/main/java/cn/logicalthinking/models/teacher/service/UpdeteTeacherInfoService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teach-service/teach-service-teacher/src/main/java/cn/logicalthinking/models/teacher/service/UpdatePwdSetPwdService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teach-service/teach-service-teacher/src/main/java/cn/logicalthinking/models/teacher/service/TeacherShareCoursesService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="71" column="30" selection-start-line="71" selection-start-column="30" selection-end-line="71" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teach-service/teach-service-teacher/src/main/java/cn/logicalthinking/models/teacher/service/UpdateCourseShowTypeService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="20" column="13" lean-forward="true" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teach-service/teach-service-teacher/src/main/java/cn/logicalthinking/models/teacher/service/TeachUserLoginSendCodeService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teach-service/teach-service-teacher/src/main/java/cn/logicalthinking/models/teacher/service/TeacherUserLoginService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="33" column="17" lean-forward="true" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teach-service/teach-service-teacher/src/main/java/cn/logicalthinking/models/teacher/service/TeacherSelfInfoService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teach-service/teach-service-teacher/src/main/java/cn/logicalthinking/models/teacher/service/TeacherPerfectInfoService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teach-service/teach-service-teacher/src/main/java/cn/logicalthinking/models/teacher/service/SetUpTeacherAddressService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teach-service/teach-service-teacher/src/main/java/cn/logicalthinking/models/teacher/service/SetUpProblemTimeService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teach-service/teach-service-teacher/src/main/java/cn/logicalthinking/models/teacher/service/SetReadStatusService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teach-service/teach-service-teacher/src/main/java/cn/logicalthinking/models/teacher/service/SetProblemSolvingStatusService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teach-service/teach-service-teacher/src/main/java/cn/logicalthinking/models/teacher/service/SetPayPwdService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teach-service/teach-service-teacher/src/main/java/cn/logicalthinking/models/teacher/service/SendMessagePushService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teach-service/teach-service-teacher/src/main/java/cn/logicalthinking/models/teacher/service/RemoveTeacherMessageService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teach-service/teach-service-teacher/src/main/java/cn/logicalthinking/models/teacher/service/RemoveDoctorMessageService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teach-service/teach-service-teacher/src/main/java/cn/logicalthinking/models/teacher/service/ReleaseCourseService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="37" column="13" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teach-service/teach-service-teacher/src/main/java/cn/logicalthinking/models/teacher/service/ProcessingOrderService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teach-service/teach-service-teacher/src/main/java/cn/logicalthinking/models/teacher/service/OnLineQuestionService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teach-service/teach-service-teacher/src/main/java/cn/logicalthinking/models/teacher/service/KeepVideoUrlService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1104">
+          <caret line="63" column="56" selection-start-line="63" selection-start-column="56" selection-end-line="63" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teach-web/teach-web-teacher/src/main/java/cn/logicalthinking/models/teacher/TeacherReleaseCourseController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teach-web/teach-web-teacher/src/main/java/cn/logicalthinking/models/teacher/TeacherShareCourseCotroller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-33">
+          <caret line="27" column="18" lean-forward="true" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teach-pojo/src/main/java/cn/logicalthinking/common/entity/CourseOutline.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teach-common/src/main/resources/mapper/CourseMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="527" column="30" selection-start-line="527" selection-start-column="19" selection-end-line="527" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teach-dao/src/main/java/cn/logicalthinking/common/dao/CourseDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="19" column="19" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teach-pojo/src/main/java/cn/logicalthinking/common/entity/Teacher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1037">
+          <caret line="65" column="31" lean-forward="true" selection-start-line="65" selection-start-column="31" selection-end-line="65" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teach-service/teach-service-teacher/src/main/java/cn/logicalthinking/models/teacher/service/IsExistRoomService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1056">
+          <caret line="65" column="32" selection-start-line="65" selection-start-column="19" selection-end-line="65" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teach-service/teach-service-teacher/src/main/java/cn/logicalthinking/models/teacher/service/UpdateCourseStatusService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="24" column="44" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teach-service/teach-service-teacher/src/main/java/cn/logicalthinking/models/teacher/service/SetUpchannelNoService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="816">
+          <caret line="47" column="31" selection-start-line="47" selection-start-column="22" selection-end-line="47" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teach-web/teach-web-teacher/src/main/java/cn/logicalthinking/models/teacher/TeacherCoursesController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1128">
+          <caret line="60" column="32" selection-start-line="60" selection-start-column="32" selection-end-line="60" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teach-web/teach-web-student/src/main/java/cn/logicalthinking/models/student/controller/StQuestionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teach-web/teach-web-student/src/main/java/cn/logicalthinking/models/student/controller/StCourseController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1440">
+          <caret line="78" column="45" selection-start-line="78" selection-start-column="22" selection-end-line="78" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teach-service/teach-service-student/src/main/java/cn/logicalthinking/models/student/service/course/StPayCourseOrderService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2928">
+          <caret line="144" column="115" selection-start-line="144" selection-start-column="93" selection-end-line="144" selection-end-column="115" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teach-web/teach-web-teacher/src/main/java/cn/logicalthinking/models/teacher/TeacherRouteController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="122" column="22" selection-start-line="122" selection-start-column="22" selection-end-line="122" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>teach-web-student:war</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="Copyright.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Spring</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>teach-web-teacher</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: aopalliance:aopalliance:1.0</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

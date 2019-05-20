@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- courseComment -->
+<mapper namespace="cn.logicalthinking.common.dao.CourseCommentDao">
+    
+	<!-- 全局map1  start -->
+    <resultMap id="courseCommentMap" type="courseComment">
+        <result property="id" column="id"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="courseId" column="course_id"/>
+        <result property="studentId" column="student_id"/>
+        <result property="picture" column="picture"/>
+        <result property="name" column="name"/>
+        <result property="type" column="type"/>
+        <result property="start" column="start"/>
+        <result property="comment" column="comment"/>
+        <result property="orderCourseId" column="order_course_id"/>
+    </resultMap>
+	<!-- 全局map1 end -->
+		
+	<!-- 全局字段  start -->
+    <sql id="columns">
+        id ,substring(create_time,1,19) create_time ,substring(update_time,1,19) update_time ,course_id ,student_id ,picture ,name ,type ,start ,comment ,order_course_id
+    </sql>
+	<!-- 全局字段  end -->
+	
+	<!-- 单个添加 start -->
+    <insert id="addCourseComment">
+        	INSERT INTO course_comment
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+         	<if test="id != null">
+                id,
+            </if>
+         	<if test="createTime != null">
+                create_time,
+            </if>
+         	<if test="updateTime != null">
+                update_time,
+            </if>
+         	<if test="courseId != null">
+                course_id,
+            </if>
+         	<if test="studentId != null">
+                student_id,
+            </if>
+         	<if test="picture != null">
+                picture,
+            </if>
+         	<if test="name != null">
+                name,
+            </if>
+         	<if test="type != null">
+                type,
+            </if>
+         	<if test="start != null">
+                start,
+            </if>
+         	<if test="comment != null">
+                comment,
+            </if>
+         	<if test="orderCourseId != null">
+                order_course_id,
+            </if>
+        </trim>
+        <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+         	<if test="id != null">
+            	#{id} ,
+            </if>
+         	<if test="createTime != null">
+            	#{createTime} ,
+            </if>
+         	<if test="updateTime != null">
+            	#{updateTime} ,
+            </if>
+         	<if test="courseId != null">
+            	#{courseId} ,
+            </if>
+         	<if test="studentId != null">
+            	#{studentId} ,
+            </if>
+         	<if test="picture != null">
+            	#{picture} ,
+            </if>
+         	<if test="name != null">
+            	#{name} ,
+            </if>
+         	<if test="type != null">
+            	#{type} ,
+            </if>
+         	<if test="start != null">
+            	#{start} ,
+            </if>
+         	<if test="comment != null">
+            	#{comment} ,
+            </if>
+         	<if test="orderCourseId != null">
+            	#{orderCourseId} ,
+            </if>
+        </trim>
+    </insert>
+	<!-- 单个添加 end -->
+	
+	<!--批量添加  start -->
+	<insert id="batchCourseComment">
+	    INSERT INTO 
+	    course_comment
+	    <trim prefix="(" suffix=")" suffixOverrides=",">
+            id,
+            create_time,
+            update_time,
+            course_id,
+            student_id,
+            picture,
+            name,
+            type,
+            start,
+            comment,
+            order_course_id,
+        </trim>
+	    VALUES
+	    <foreach collection ="list" item="item" separator =",">
+	    <trim prefix="(" suffix=")" suffixOverrides=",">
+	         #{item.id},
+	         #{item.createTime},
+	         #{item.updateTime},
+	         #{item.courseId},
+	         #{item.studentId},
+	         #{item.picture},
+	         #{item.name},
+	         #{item.type},
+	         #{item.start},
+	         #{item.comment},
+	         #{item.orderCourseId},
+	    </trim>
+	    </foreach >
+	</insert>
+	<!-- 批量添加  end -->
+	
+	<!-- 主键批量删除  start -->
+    <delete id="removeCourseComment">
+        DELETE FROM course_comment
+        WHERE id IN
+       	(${ids})
+    </delete>
+	<!-- 主键批量删除  end -->
+	
+	<!-- 单个修改  start -->
+    <update id="updateCourseComment">
+        UPDATE course_comment
+        <set>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+            <if test="courseId != null">
+                course_id = #{courseId},
+            </if>
+            <if test="studentId != null">
+                student_id = #{studentId},
+            </if>
+            <if test="picture != null">
+                picture = #{picture},
+            </if>
+            <if test="name != null">
+                name = #{name},
+            </if>
+            <if test="type != null">
+                type = #{type},
+            </if>
+            <if test="start != null">
+                start = #{start},
+            </if>
+            <if test="comment != null">
+                comment = #{comment},
+            </if>
+            <if test="orderCourseId != null">
+                order_course_id = #{orderCourseId},
+            </if>
+        </set>
+        WHERE id = #{id}
+    </update>
+	<!-- 单个修改  end -->
+	
+	<!-- 通过主键查询 start -->
+    <select id="selectCourseCommentById" resultMap="courseCommentMap">
+        SELECT
+        <include refid="columns" />
+        FROM course_comment
+        WHERE id = #{id}
+    </select>
+    <!-- 通过主键查询 end -->
+    
+    <!--带条件的查询全部  start -->
+	<select id="selectCourseCommentListAll"  parameterType="map" resultMap="courseCommentMap">
+        SELECT
+        <include refid="columns" />
+        FROM course_comment
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="courseId != null">
+                and course_id = #{courseId}
+            </if>
+            <if test="studentId != null">
+                and student_id = #{studentId}
+            </if>
+            <if test="picture != null">
+                and picture = #{picture}
+            </if>
+            <if test="name != null">
+                and name = #{name}
+            </if>
+            <if test="type != null">
+                and type = #{type}
+            </if>
+            <if test="start != null">
+                and start = #{start}
+            </if>
+            <if test="comment != null">
+                and comment = #{comment}
+            </if>
+            <if test="orderCourseId != null">
+                and order_course_id = #{orderCourseId}
+            </if>
+        </trim>
+    </select>
+    <!--带条件的查询全部  end -->
+    
+    <!--带条件的分页查询  start -->
+    <select id="selectCourseCommentListByPage"  parameterType="map" resultMap="courseCommentMap">
+        SELECT
+        <include refid="columns" />
+        FROM course_comment
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="courseId != null">
+                and course_id = #{courseId}
+            </if>
+            <if test="studentId != null">
+                and student_id = #{studentId}
+            </if>
+            <if test="picture != null">
+                and picture = #{picture}
+            </if>
+            <if test="name != null">
+                and name = #{name}
+            </if>
+            <if test="type != null">
+                and type = #{type}
+            </if>
+            <if test="start != null">
+                and start = #{start}
+            </if>
+            <if test="comment != null">
+                and comment = #{comment}
+            </if>
+            <if test="orderCourseId != null">
+                and order_course_id = #{orderCourseId}
+            </if>
+        </trim>
+    </select>
+    <!--带条件的分页查询  end -->
+     
+   	<!-- 查询 总数  start -->
+	<select id="selectCourseCommentCount" parameterType="map" resultType="int">
+        SELECT
+       	COUNT(1)
+        FROM course_comment
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="courseId != null">
+                and course_id = #{courseId}
+            </if>
+            <if test="studentId != null">
+                and student_id = #{studentId}
+            </if>
+            <if test="picture != null">
+                and picture = #{picture}
+            </if>
+            <if test="name != null">
+                and name = #{name}
+            </if>
+            <if test="type != null">
+                and type = #{type}
+            </if>
+            <if test="start != null">
+                and start = #{start}
+            </if>
+            <if test="comment != null">
+                and comment = #{comment}
+            </if>
+            <if test="orderCourseId != null">
+                and order_course_id = #{orderCourseId}
+            </if>
+        </trim>
+    </select>
+	<!-- 查询 总数  end -->
+	
+	<!-- ******************************自定义扩展sql******************************************** -->
+    <select id="selectCourseCommentBycId"  parameterType="map" resultMap="courseCommentMap">
+        SELECT
+        count(*)
+        FROM course_comment
+        WHERE course_id = #{courseId}
+    </select>
+
+    <select id="selectCourseCommentByPage"  parameterType="map" resultMap="courseCommentMap">
+        SELECT
+        <include refid="columns" />
+        FROM course_comment
+        WHERE course_id = #{courseId}
+        <if test="type != null">
+            and type = #{type}
+        </if>
+    </select>
+</mapper>

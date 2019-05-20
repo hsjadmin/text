@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- couponGroup -->
+<mapper namespace="cn.logincalthinking.common.dao.CouponGroupDao">
+
+    <!-- 全局map1  start -->
+    <resultMap id="couponGroupMap" type="couponGroup">
+        <result property="id" column="id"/>
+        <result property="createTime" column="create_time"/>
+        <result property="startTime" column="start_time"/>
+        <result property="endTime" column="end_time"/>
+        <result property="couponName" column="coupon_name"/>
+        <result property="satisfy" column="satisfy"/>
+        <result property="discount" column="discount"/>
+        <result property="couponType" column="coupon_type"/>
+    </resultMap>
+    <!-- 全局map1 end -->
+
+    <!-- 全局字段  start -->
+    <sql id="columns">
+        id ,substring(create_time,1,19) create_time ,start_time ,end_time ,coupon_name ,satisfy ,discount ,coupon_type
+    </sql>
+    <!-- 全局字段  end -->
+
+    <!-- 单个添加 start -->
+    <insert id="addCouponGroup">
+        INSERT INTO coupon_group
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="startTime != null">
+                start_time,
+            </if>
+            <if test="endTime != null">
+                end_time,
+            </if>
+            <if test="couponName != null">
+                coupon_name,
+            </if>
+            <if test="satisfy != null">
+                satisfy,
+            </if>
+            <if test="discount != null">
+                discount,
+            </if>
+            <if test="couponType != null">
+                coupon_type,
+            </if>
+        </trim>
+        <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id} ,
+            </if>
+            <if test="createTime != null">
+                #{createTime} ,
+            </if>
+            <if test="startTime != null">
+                #{startTime} ,
+            </if>
+            <if test="endTime != null">
+                #{endTime} ,
+            </if>
+            <if test="couponName != null">
+                #{couponName} ,
+            </if>
+            <if test="satisfy != null">
+                #{satisfy} ,
+            </if>
+            <if test="discount != null">
+                #{discount} ,
+            </if>
+            <if test="couponType != null">
+                #{couponType} ,
+            </if>
+        </trim>
+    </insert>
+    <!-- 单个添加 end -->
+
+    <!--批量添加  start -->
+    <insert id="batchCouponGroup">
+        INSERT INTO
+        coupon_group
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            id,
+            create_time,
+            start_time,
+            end_time,
+            coupon_name,
+            satisfy,
+            discount,
+            coupon_type,
+        </trim>
+        VALUES
+        <foreach collection="list" item="item" separator=",">
+            <trim prefix="(" suffix=")" suffixOverrides=",">
+                #{item.id},
+                #{item.createTime},
+                #{item.startTime},
+                #{item.endTime},
+                #{item.couponName},
+                #{item.satisfy},
+                #{item.discount},
+                #{item.couponType},
+            </trim>
+        </foreach>
+    </insert>
+    <!-- 批量添加  end -->
+
+    <!-- 主键批量删除  start -->
+    <delete id="removeCouponGroup">
+        DELETE FROM coupon_group
+        WHERE id IN
+       	(${ids})
+    </delete>
+    <!-- 主键批量删除  end -->
+
+    <!-- 单个修改  start -->
+    <update id="updateCouponGroup">
+        UPDATE coupon_group
+        <set>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+            <if test="startTime != null">
+                start_time = #{startTime},
+            </if>
+            <if test="endTime != null">
+                end_time = #{endTime},
+            </if>
+            <if test="couponName != null">
+                coupon_name = #{couponName},
+            </if>
+            <if test="satisfy != null">
+                satisfy = #{satisfy},
+            </if>
+            <if test="discount != null">
+                discount = #{discount},
+            </if>
+            <if test="couponType != null">
+                coupon_type = #{couponType},
+            </if>
+        </set>
+        WHERE id = #{id}
+    </update>
+    <!-- 单个修改  end -->
+
+    <!-- 通过主键查询 start -->
+    <select id="selectCouponGroupById" resultMap="couponGroupMap">
+        SELECT
+        <include refid="columns"/>
+        FROM coupon_group
+        WHERE id = #{id}
+    </select>
+    <!-- 通过主键查询 end -->
+
+    <!--带条件的查询全部  start -->
+    <select id="selectCouponGroupListAll" parameterType="map" resultMap="couponGroupMap">
+        SELECT
+        <include refid="columns"/>
+        FROM coupon_group
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="startTime != null">
+                and start_time = #{startTime}
+            </if>
+            <if test="endTime != null">
+                and end_time = #{endTime}
+            </if>
+            <if test="couponName != null">
+                and coupon_name = #{couponName}
+            </if>
+            <if test="satisfy != null">
+                and satisfy = #{satisfy}
+            </if>
+            <if test="discount != null">
+                and discount = #{discount}
+            </if>
+            <if test="couponType != null">
+                and coupon_type = #{couponType}
+            </if>
+        </trim>
+        order by create_time desc
+    </select>
+    <!--带条件的查询全部  end -->
+
+    <!--带条件的分页查询  start -->
+    <select id="selectCouponGroupListByPage" parameterType="map" resultMap="couponGroupMap">
+        SELECT
+        <include refid="columns"/>
+        FROM coupon_group
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="startTime != null">
+                and start_time = #{startTime}
+            </if>
+            <if test="ctStart != null">
+                and DATE_FORMAT(create_time,'%Y-%m-%d') >= DATE_FORMAT(#{ctStart},'%Y-%m-%d')
+            </if>
+            <if test="ctEnd != null">
+                and DATE_FORMAT(#{ctEnd},'%Y-%m-%d') >= DATE_FORMAT(create_time,'%Y-%m-%d')
+            </if>
+            <if test="endTime != null">
+                and end_time = #{endTime}
+            </if>
+            <if test="couponName != null">
+                and coupon_name LIKE CONCAT('%', #{couponName},'%')
+            </if>
+            <if test="satisfy != null">
+                and satisfy = #{satisfy}
+            </if>
+            <if test="discount != null">
+                and discount = #{discount}
+            </if>
+            <if test="couponType != null">
+                and coupon_type = #{couponType}
+            </if>
+        </trim>
+        order by create_time desc
+    </select>
+    <!--带条件的分页查询  end -->
+
+    <!-- 查询 总数  start -->
+    <select id="selectCouponGroupCount" parameterType="map" resultType="int">
+        SELECT
+        COUNT(1)
+        FROM coupon_group
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="startTime != null">
+                and start_time = #{startTime}
+            </if>
+            <if test="endTime != null">
+                and end_time = #{endTime}
+            </if>
+            <if test="couponName != null">
+                and coupon_name = #{couponName}
+            </if>
+            <if test="satisfy != null">
+                and satisfy = #{satisfy}
+            </if>
+            <if test="discount != null">
+                and discount = #{discount}
+            </if>
+            <if test="couponType != null">
+                and coupon_type = #{couponType}
+            </if>
+        </trim>
+    </select>
+    <!-- 查询 总数  end -->
+
+    <!-- ******************************自定义扩展sql******************************************** -->
+</mapper>

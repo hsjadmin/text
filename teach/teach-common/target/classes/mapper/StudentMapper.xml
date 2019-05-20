@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- student -->
+<mapper namespace="cn.logicalthinking.common.dao.StudentDao">
+
+    <!-- 全局map1  start -->
+    <resultMap id="studentMap" type="student">
+        <result property="id" column="id"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="name" column="name"/>
+        <result property="gender" column="gender"/>
+        <result property="region" column="region"/>
+        <result property="phone" column="phone"/>
+        <result property="age" column="age"/>
+        <result property="grade" column="grade"/>
+        <result property="picture" column="picture"/>
+        <result property="userName" column="user_name"/>
+        <result property="address" column="address"/>
+        <result property="balance" column="balance"/>
+        <result property="status" column="status"/>
+        <result property="idCard" column="id_card"/>
+        <result property="openId" column="open_id"/>
+        <result property="pin" column="pin"/>
+        <result property="hasPin" column="hasPin"/>
+    </resultMap>
+    <!-- 全局map1 end -->
+
+    <!-- 全局字段  start -->
+    <sql id="columns">
+        id ,substring(create_time,1,19) create_time ,substring(update_time,1,19) update_time ,name ,gender ,region ,phone ,age ,grade ,picture ,user_name ,address ,balance ,status ,id_card ,open_id, pin, hasPin
+    </sql>
+    <!-- 全局字段  end -->
+
+    <!-- 单个添加 start -->
+    <insert id="addStudent">
+        INSERT INTO student
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+            <if test="name != null">
+                name,
+            </if>
+            <if test="gender != null">
+                gender,
+            </if>
+            <if test="region != null">
+                region,
+            </if>
+            <if test="phone != null">
+                phone,
+            </if>
+            <if test="age != null">
+                age,
+            </if>
+            <if test="grade != null">
+                grade,
+            </if>
+            <if test="picture != null">
+                picture,
+            </if>
+            <if test="userName != null">
+                user_name,
+            </if>
+            <if test="address != null">
+                address,
+            </if>
+            <if test="balance != null">
+                balance,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+            <if test="idCard != null">
+                id_card,
+            </if>
+            <if test="openId != null">
+                open_id,
+            </if>
+            <if test="hasPin != null">
+                hasPin,
+            </if>
+            <if test="pin != null">
+                pin,
+            </if>
+        </trim>
+        <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id} ,
+            </if>
+            <if test="createTime != null">
+                #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                #{updateTime} ,
+            </if>
+            <if test="name != null">
+                #{name} ,
+            </if>
+            <if test="gender != null">
+                #{gender} ,
+            </if>
+            <if test="region != null">
+                #{region} ,
+            </if>
+            <if test="phone != null">
+                #{phone} ,
+            </if>
+            <if test="age != null">
+                #{age} ,
+            </if>
+            <if test="grade != null">
+                #{grade} ,
+            </if>
+            <if test="picture != null">
+                #{picture} ,
+            </if>
+            <if test="userName != null">
+                #{userName} ,
+            </if>
+            <if test="address != null">
+                #{address} ,
+            </if>
+            <if test="balance != null">
+                #{balance} ,
+            </if>
+            <if test="status != null">
+                #{status} ,
+            </if>
+            <if test="idCard != null">
+                #{idCard} ,
+            </if>
+            <if test="openId != null">
+                #{openId} ,
+            </if>
+            <if test="hasPin != null">
+                #{hasPin},
+            </if>
+            <if test="pin != null">
+                #{pin},
+            </if>
+        </trim>
+    </insert>
+    <!-- 单个添加 end -->
+
+    <!--批量添加  start -->
+    <insert id="batchStudent">
+        INSERT INTO
+        student
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            id,
+            create_time,
+            update_time,
+            name,
+            gender,
+            region,
+            phone,
+            age,
+            grade,
+            picture,
+            user_name,
+            address,
+            balance,
+            status,
+            id_card,
+            open_id,
+            pin,
+            hasPin,
+        </trim>
+        VALUES
+        <foreach collection="list" item="item" separator=",">
+            <trim prefix="(" suffix=")" suffixOverrides=",">
+                #{item.id},
+                #{item.createTime},
+                #{item.updateTime},
+                #{item.name},
+                #{item.gender},
+                #{item.region},
+                #{item.phone},
+                #{item.age},
+                #{item.grade},
+                #{item.picture},
+                #{item.userName},
+                #{item.address},
+                #{item.balance},
+                #{item.status},
+                #{item.idCard},
+                #{item.openId},
+                #{item.pin},
+                #{item.hasPin},
+            </trim>
+        </foreach>
+    </insert>
+    <!-- 批量添加  end -->
+
+    <!-- 主键批量删除  start -->
+    <delete id="removeStudent">
+        DELETE FROM student
+        WHERE id IN
+       	(${ids})
+    </delete>
+    <!-- 主键批量删除  end -->
+
+    <!-- 单个修改  start -->
+    <update id="updateStudent">
+        UPDATE student
+        <set>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+            <if test="name != null">
+                name = #{name},
+            </if>
+            <if test="gender != null">
+                gender = #{gender},
+            </if>
+            <if test="region != null">
+                region = #{region},
+            </if>
+            <if test="phone != null">
+                phone = #{phone},
+            </if>
+            <if test="age != null">
+                age = #{age},
+            </if>
+            <if test="grade != null">
+                grade = #{grade},
+            </if>
+            <if test="picture != null">
+                picture = #{picture},
+            </if>
+            <if test="userName != null">
+                user_name = #{userName},
+            </if>
+            <if test="address != null">
+                address = #{address},
+            </if>
+            <if test="balance != null">
+                balance = #{balance},
+            </if>
+            <if test="status != null">
+                status = #{status},
+            </if>
+            <if test="idCard != null">
+                id_card = #{idCard},
+            </if>
+            <if test="openId != null">
+                open_id = #{openId},
+            </if>
+            <if test="pin != null">
+                pin = #{pin},
+            </if>
+            <if test="hasPin != null">
+                hasPin = #{hasPin},
+            </if>
+        </set>
+        WHERE id = #{id}
+    </update>
+    <!-- 单个修改  end -->
+
+    <!-- 通过主键查询 start -->
+    <select id="selectStudentById" resultMap="studentMap">
+        SELECT
+        <include refid="columns"/>
+        FROM student
+        WHERE id = #{id}
+    </select>
+    <!-- 通过主键查询 end -->
+
+    <!--带条件的查询全部  start -->
+    <select id="selectStudentListAll" parameterType="map" resultMap="studentMap">
+        SELECT
+        <include refid="columns"/>
+        FROM student
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="name != null">
+                and name = #{name}
+            </if>
+            <if test="gender != null">
+                and gender = #{gender}
+            </if>
+            <if test="region != null">
+                and region = #{region}
+            </if>
+            <if test="phone != null">
+                and phone = #{phone}
+            </if>
+            <if test="age != null">
+                and age = #{age}
+            </if>
+            <if test="grade != null">
+                and grade = #{grade}
+            </if>
+            <if test="picture != null">
+                and picture = #{picture}
+            </if>
+            <if test="userName != null">
+                and user_name = #{userName}
+            </if>
+            <if test="address != null">
+                and address = #{address}
+            </if>
+            <if test="balance != null">
+                and balance = #{balance}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="idCard != null">
+                and id_card = #{idCard}
+            </if>
+            <if test="openId != null">
+                and open_id = #{openId}
+            </if>
+            <if test="pin != null">
+                and pin = #{pin},
+            </if>
+            <if test="hasPin != null">
+                and hasPin = #{hasPin},
+            </if>
+        </trim>
+    </select>
+    <!--带条件的查询全部  end -->
+
+    <!--带条件的分页查询  start -->
+    <select id="selectStudentListByPage" parameterType="map" resultMap="studentMap">
+        SELECT
+        <include refid="columns"/>
+        FROM student
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="name != null">
+                and name like concat('%',#{name},'%')
+            </if>
+            <if test="gender != null">
+                and gender = #{gender}
+            </if>
+            <if test="region != null">
+                and region like concat('%',#{region},'%')
+            </if>
+            <if test="phone != null">
+                and phone like concat('%',#{phone},'%')
+            </if>
+            <if test="age != null">
+                and age = #{age}
+            </if>
+            <if test="grade != null">
+                and grade like concat('%',#{grade},'%')
+            </if>
+            <if test="picture != null">
+                and picture = #{picture}
+            </if>
+            <if test="userName != null">
+                and user_name like concat('%',#{userName},'%')
+            </if>
+            <if test="address != null">
+                and address like concat('%',#{address},'%')
+            </if>
+            <if test="balance != null">
+                and balance = #{balance}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="idCard != null">
+                and id_card = #{idCard}
+            </if>
+            <if test="openId != null">
+                and open_id = #{openId}
+            </if>
+            <if test="pin != null">
+                and pin = #{pin},
+            </if>
+            <if test="hasPin != null">
+                and hasPin = #{hasPin},
+            </if>
+        </trim>
+    </select>
+    <!--带条件的分页查询  end -->
+
+    <!-- 查询 总数  start -->
+    <select id="selectStudentCount" parameterType="map" resultType="int">
+        SELECT
+        COUNT(1)
+        FROM student
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="name != null">
+                and name = #{name}
+            </if>
+            <if test="gender != null">
+                and gender = #{gender}
+            </if>
+            <if test="region != null">
+                and region = #{region}
+            </if>
+            <if test="phone != null">
+                and phone = #{phone}
+            </if>
+            <if test="age != null">
+                and age = #{age}
+            </if>
+            <if test="grade != null">
+                and grade = #{grade}
+            </if>
+            <if test="picture != null">
+                and picture = #{picture}
+            </if>
+            <if test="userName != null">
+                and user_name = #{userName}
+            </if>
+            <if test="address != null">
+                and address = #{address}
+            </if>
+            <if test="balance != null">
+                and balance = #{balance}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="idCard != null">
+                and id_card = #{idCard}
+            </if>
+            <if test="openId != null">
+                and open_id = #{openId}
+            </if>
+            <if test="pin != null">
+                and pin = #{pin},
+            </if>
+            <if test="hasPin != null">
+                and hasPin = #{hasPin},
+            </if>
+        </trim>
+    </select>
+    <!-- 查询 总数  end -->
+
+    <!-- ******************************自定义扩展sql******************************************** -->
+
+    <!-- 根据openId查询用户信息 start -->
+    <select id="selectStudentByOpenId" resultMap="studentMap">
+        SELECT
+        <include refid="columns"/>
+        FROM student
+        WHERE open_id = #{openId}
+    </select>
+    <!-- 根据openId查询用户信息 end -->
+
+    <select id="selectStudent" parameterType="string" resultMap="studentMap">
+        SELECT
+        <include refid="columns"/>
+        FROM student
+        WHERE id in (${_parameter})
+    </select>
+    <update id="updateStudentBalances">
+        UPDATE student
+        SET balance = balance - #{balance}
+        WHERE id = #{id}
+    </update>
+
+    <!-- 修改余额  start -->
+    <update id="updateStudentBalance" parameterType="map">
+    UPDATE
+      student
+    set
+      balance = #{balance},
+      update_time = NOW()
+    where id = #{id}
+    <if test="updateTime == null">
+        and update_time is #{updateTime}
+    </if>
+    <if test="updateTime != null">
+        and update_time = #{updateTime}
+    </if>
+
+    </update>
+</mapper>

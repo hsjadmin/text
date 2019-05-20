@@ -1,0 +1,1141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- teacher -->
+<mapper namespace="cn.logicalthinking.common.dao.TeacherDao">
+    
+	<!-- 全局map1  start -->
+    <resultMap id="teacherMap" type="teacher">
+        <result property="id" column="id"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="name" column="name"/>
+        <result property="age" column="age"/>
+        <result property="teachercol" column="teachercol"/>
+        <result property="gender" column="gender"/>
+        <result property="level" column="level"/>
+        <result property="grade" column="grade"/>
+        <result property="phone" column="phone"/>
+        <result property="subject" column="subject"/>
+        <result property="experience" column="experience"/>
+        <result property="idCard" column="id_card"/>
+        <result property="picture" column="picture"/>
+        <result property="cardImg" column="card_img"/>
+        <result property="examine" column="examine"/>
+        <result property="reason" column="reason"/>
+        <result property="region" column="region"/>
+        <result property="address" column="address"/>
+        <result property="starCount" column="star_count"/>
+        <result property="starTimes" column="star_times"/>
+        <result property="userName" column="user_name"/>
+        <result property="balance" column="balance"/>
+        <result property="status" column="status"/>
+        <result property="teachingExperience" column="teaching_experience"/>
+        <result property="certificateOfHonor" column="certificate_of_honor"/>
+        <result property="introduce" column="introduce"/>
+        <result property="isShow" column="is_show"/>
+        <result property="charges" column="charges"/>
+        <result property="chargeSettings" column="charge_settings"/>
+        <result property="openId" column="open_id"/>
+        <result property="liveRoom" column="live_room"/>
+        <result property="payPwd" column="pay_pwd"/>
+        <result property="startingPrice" column="starting_price"/>
+        <result property="isOnline" column="is_online"/>
+    </resultMap>
+	<!-- 全局map1 end -->
+    <resultMap id="teacherMaps" type="teacher" extends="teacherMap">
+        <!--未完成集合-->
+        <collection property="courseList" ofType="Course" column="id" select="cn.logicalthinking.common.dao.CourseDao.selectCompleteClass"></collection>
+        <!--已完成集合-->
+        <collection property="courses" ofType="Course" column="id" select="cn.logicalthinking.common.dao.CourseDao.selectNoCompleteClass"></collection>
+        <collection property="orderQuestion" ofType="OrderQuestion" column="id" select="cn.logicalthinking.common.dao.OrderQuestionDao.getOrderQuestionFinish"></collection>
+    </resultMap>
+		
+	<!-- 全局字段  start -->
+    <sql id="columns">
+        id ,substring(create_time,1,19) create_time ,substring(update_time,1,19) update_time ,name ,age ,teachercol ,gender ,phone ,level,grade ,subject ,experience ,id_card ,picture ,card_img ,examine ,reason ,region ,address ,star_count ,star_times ,user_name ,balance ,status ,teaching_experience ,certificate_of_honor ,introduce ,is_show ,charges ,charge_settings ,open_id ,live_room,pay_pwd,starting_price,is_online
+    </sql>
+	<!-- 全局字段  end -->
+	
+	<!-- 单个添加 start -->
+    <insert id="addTeacher" useGeneratedKeys="true" keyProperty="id">
+        	INSERT INTO teacher
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+         	<if test="id != null">
+                id,
+            </if>
+         	<if test="createTime != null">
+                create_time,
+            </if>
+         	<if test="updateTime != null">
+                update_time,
+            </if>
+         	<if test="name != null">
+                name,
+            </if>
+         	<if test="age != null">
+                age,
+            </if>
+         	<if test="teachercol != null">
+                teachercol,
+            </if>
+         	<if test="gender != null">
+                gender,
+            </if>
+         	<if test="phone != null">
+                phone,
+            </if>
+         	<if test="level != null">
+                level,
+            </if>
+         	<if test="grade != null">
+                grade,
+            </if>
+         	<if test="subject != null">
+                subject,
+            </if>
+         	<if test="experience != null">
+                experience,
+            </if>
+         	<if test="idCard != null">
+                id_card,
+            </if>
+         	<if test="picture != null">
+                picture,
+            </if>
+         	<if test="cardImg != null">
+                card_img,
+            </if>
+         	<if test="examine != null">
+                examine,
+            </if>
+         	<if test="reason != null">
+                reason,
+            </if>
+         	<if test="region != null">
+                region,
+            </if>
+         	<if test="address != null">
+                address,
+            </if>
+         	<if test="starCount != null">
+                star_count,
+            </if>
+         	<if test="starTimes != null">
+                star_times,
+            </if>
+         	<if test="userName != null">
+                user_name,
+            </if>
+         	<if test="balance != null">
+                balance,
+            </if>
+         	<if test="status != null">
+                status,
+            </if>
+         	<if test="teachingExperience != null">
+                teaching_experience,
+            </if>
+         	<if test="certificateOfHonor != null">
+                certificate_of_honor,
+            </if>
+         	<if test="introduce != null">
+                introduce,
+            </if>
+         	<if test="isShow != null">
+                is_show,
+            </if>
+         	<if test="charges != null">
+                charges,
+            </if>
+         	<if test="chargeSettings != null">
+                charge_settings,
+            </if>
+         	<if test="openId != null">
+                open_id,
+            </if>
+         	<if test="liveRoom != null">
+                live_room,
+            </if>
+         	<if test="payPwd != null">
+                pay_pwd,
+            </if>
+         	<if test="startingPrice != null">
+                starting_price,
+            </if>
+         	<if test="isOnline != null">
+                is_online,
+            </if>
+        </trim>
+        <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+         	<if test="id != null">
+            	#{id} ,
+            </if>
+         	<if test="createTime != null">
+            	#{createTime} ,
+            </if>
+         	<if test="updateTime != null">
+            	#{updateTime} ,
+            </if>
+         	<if test="name != null">
+            	#{name} ,
+            </if>
+         	<if test="age != null">
+            	#{age} ,
+            </if>
+         	<if test="teachercol != null">
+            	#{teachercol} ,
+            </if>
+         	<if test="gender != null">
+            	#{gender} ,
+            </if>
+         	<if test="phone != null">
+            	#{phone} ,
+            </if>
+         	<if test="level != null">
+            	#{level} ,
+            </if>
+         	<if test="grade != null">
+            	#{grade} ,
+            </if>
+         	<if test="subject != null">
+            	#{subject} ,
+            </if>
+         	<if test="experience != null">
+            	#{experience} ,
+            </if>
+         	<if test="idCard != null">
+            	#{idCard} ,
+            </if>
+         	<if test="picture != null">
+            	#{picture} ,
+            </if>
+         	<if test="cardImg != null">
+            	#{cardImg} ,
+            </if>
+         	<if test="examine != null">
+            	#{examine} ,
+            </if>
+         	<if test="reason != null">
+            	#{reason} ,
+            </if>
+         	<if test="region != null">
+            	#{region} ,
+            </if>
+         	<if test="address != null">
+            	#{address} ,
+            </if>
+         	<if test="starCount != null">
+            	#{starCount} ,
+            </if>
+         	<if test="starTimes != null">
+            	#{starTimes} ,
+            </if>
+         	<if test="userName != null">
+            	#{userName} ,
+            </if>
+         	<if test="balance != null">
+            	#{balance} ,
+            </if>
+         	<if test="status != null">
+            	#{status} ,
+            </if>
+         	<if test="teachingExperience != null">
+            	#{teachingExperience} ,
+            </if>
+         	<if test="certificateOfHonor != null">
+            	#{certificateOfHonor} ,
+            </if>
+         	<if test="introduce != null">
+            	#{introduce} ,
+            </if>
+         	<if test="isShow != null">
+            	#{isShow} ,
+            </if>
+         	<if test="charges != null">
+            	#{charges} ,
+            </if>
+         	<if test="chargeSettings != null">
+            	#{chargeSettings} ,
+            </if>
+         	<if test="openId != null">
+            	#{openId} ,
+            </if>
+         	<if test="liveRoom != null">
+            	#{liveRoom} ,
+            </if>
+            <if test="payPwd != null">
+                #{payPwd},
+            </if>
+            <if test="startingPrice != null">
+                #{startingPrice},
+            </if>
+            <if test="isOnline != null">
+                #{isOnline},
+            </if>
+        </trim>
+    </insert>
+	<!-- 单个添加 end -->
+	
+	<!--批量添加  start -->
+	<insert id="batchTeacher">
+	    INSERT INTO 
+	    teacher
+	    <trim prefix="(" suffix=")" suffixOverrides=",">
+            id,
+            create_time,
+            update_time,
+            name,
+            age,
+            teachercol,
+            gender,
+            phone,
+            level,
+            grade,
+            subject,
+            experience,
+            id_card,
+            picture,
+            card_img,
+            examine,
+            reason,
+            region,
+            address,
+            star_count,
+            star_times,
+            user_name,
+            balance,
+            status,
+            teaching_experience,
+            certificate_of_honor,
+            introduce,
+            is_show,
+            charges,
+            charge_settings,
+            open_id,
+            live_room,
+            pay_pwd,
+            starting_price,
+            is_online
+        </trim>
+	    VALUES
+	    <foreach collection ="list" item="item" separator =",">
+	    <trim prefix="(" suffix=")" suffixOverrides=",">
+	         #{item.id},
+	         #{item.createTime},
+	         #{item.updateTime},
+	         #{item.name},
+	         #{item.age},
+	         #{item.teachercol},
+	         #{item.gender},
+	         #{item.phone},
+	         #{item.level},
+	         #{item.grade},
+	         #{item.subject},
+	         #{item.experience},
+	         #{item.idCard},
+	         #{item.picture},
+	         #{item.cardImg},
+	         #{item.examine},
+	         #{item.reason},
+	         #{item.region},
+	         #{item.address},
+	         #{item.starCount},
+	         #{item.starTimes},
+	         #{item.userName},
+	         #{item.balance},
+	         #{item.status},
+	         #{item.teachingExperience},
+	         #{item.certificateOfHonor},
+	         #{item.introduce},
+	         #{item.isShow},
+	         #{item.charges},
+	         #{item.chargeSettings},
+	         #{item.openId},
+	         #{item.liveRoom},
+             #{item.payPwd},
+             #{item.startingPrice},
+            #{item.isOnline}
+	    </trim>
+	    </foreach >
+	</insert>
+	<!-- 批量添加  end -->
+	
+	<!-- 主键批量删除  start -->
+    <delete id="removeTeacher">
+        DELETE FROM teacher
+        WHERE id IN
+       	(${ids})
+    </delete>
+	<!-- 主键批量删除  end -->
+	
+	<!-- 单个修改  start -->
+    <update id="updateTeacher">
+        UPDATE teacher
+        <set>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+            <if test="name != null">
+                name = #{name},
+            </if>
+            <if test="age != null">
+                age = #{age},
+            </if>
+            <if test="teachercol != null">
+                teachercol = #{teachercol},
+            </if>
+            <if test="gender != null">
+                gender = #{gender},
+            </if>
+            <if test="phone != null">
+                phone = #{phone},
+            </if>
+            <if test="level != null">
+                level = #{level},
+            </if>
+            <if test="grade != null">
+                grade = #{grade},
+            </if>
+            <if test="subject != null">
+                subject = #{subject},
+            </if>
+            <if test="experience != null">
+                experience = #{experience},
+            </if>
+            <if test="idCard != null">
+                id_card = #{idCard},
+            </if>
+            <if test="picture != null">
+                picture = #{picture},
+            </if>
+            <if test="cardImg != null">
+                card_img = #{cardImg},
+            </if>
+            <if test="examine != null">
+                examine = #{examine},
+            </if>
+            <if test="reason != null">
+                reason = #{reason},
+            </if>
+            <if test="region != null">
+                region = #{region},
+            </if>
+            <if test="address != null">
+                address = #{address},
+            </if>
+            <if test="starCount != null">
+                star_count = #{starCount},
+            </if>
+            <if test="starTimes != null">
+                star_times = #{starTimes},
+            </if>
+            <if test="userName != null">
+                user_name = #{userName},
+            </if>
+            <if test="balance != null">
+                balance = #{balance},
+            </if>
+            <if test="status != null">
+                status = #{status},
+            </if>
+            <if test="teachingExperience != null">
+                teaching_experience = #{teachingExperience},
+            </if>
+            <if test="certificateOfHonor != null">
+                certificate_of_honor = #{certificateOfHonor},
+            </if>
+            <if test="introduce != null">
+                introduce = #{introduce},
+            </if>
+            <if test="isShow != null">
+                is_show = #{isShow},
+            </if>
+            <if test="charges != null">
+                charges = #{charges},
+            </if>
+            <if test="chargeSettings != null">
+                charge_settings = #{chargeSettings},
+            </if>
+            <if test="openId != null">
+                open_id = #{openId},
+            </if>
+            <if test="liveRoom != null">
+                live_room = #{liveRoom},
+            </if>
+            <if test="payPwd != null">
+                pay_pwd = #{payPwd},
+            </if>
+            <if test="startingPrice != null">
+                starting_price = #{startingPrice},
+            </if>
+            <if test="isOnline != null">
+                is_online = #{isOnline},
+            </if>
+        </set>
+        WHERE id = #{id}
+    </update>
+	<!-- 单个修改  end -->
+	
+	<!-- 通过主键查询 start -->
+    <select id="selectTeacherById" resultMap="teacherMap">
+        SELECT
+        <include refid="columns" />
+        FROM teacher
+        WHERE id = #{id}
+    </select>
+    <!-- 通过主键查询 end -->
+    
+    <!--带条件的查询全部  start -->
+	<select id="selectTeacherListAll"  parameterType="map" resultMap="teacherMap">
+        SELECT
+        <include refid="columns" />
+        FROM teacher
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="name != null">
+                and name = #{name}
+            </if>
+            <if test="age != null">
+                and age = #{age}
+            </if>
+            <if test="teachercol != null">
+                and teachercol = #{teachercol}
+            </if>
+            <if test="gender != null">
+                and gender = #{gender}
+            </if>
+            <if test="phone != null">
+                and phone = #{phone}
+            </if>
+            <if test="level != null">
+                and level = #{level}
+            </if>
+            <if test="grade != null">
+                and grade = #{grade}
+            </if>
+            <if test="subject != null">
+                and subject = #{subject}
+            </if>
+            <if test="experience != null">
+                and experience = #{experience}
+            </if>
+            <if test="idCard != null">
+                and id_card = #{idCard}
+            </if>
+            <if test="picture != null">
+                and picture = #{picture}
+            </if>
+            <if test="cardImg != null">
+                and card_img = #{cardImg}
+            </if>
+            <if test="examine != null">
+                and examine = #{examine}
+            </if>
+            <if test="reason != null">
+                and reason = #{reason}
+            </if>
+            <if test="region != null">
+                and region = #{region}
+            </if>
+            <if test="address != null">
+                and address = #{address}
+            </if>
+            <if test="starCount != null">
+                and star_count = #{starCount}
+            </if>
+            <if test="starTimes != null">
+                and star_times = #{starTimes}
+            </if>
+            <if test="userName != null">
+                and user_name = #{userName}
+            </if>
+            <if test="balance != null">
+                and balance = #{balance}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="teachingExperience != null">
+                and teaching_experience = #{teachingExperience}
+            </if>
+            <if test="certificateOfHonor != null">
+                and certificate_of_honor = #{certificateOfHonor}
+            </if>
+            <if test="introduce != null">
+                and introduce = #{introduce}
+            </if>
+            <if test="isShow != null">
+                and is_show = #{isShow}
+            </if>
+            <if test="charges != null">
+                and charges = #{charges}
+            </if>
+            <if test="chargeSettings != null">
+                and charge_settings = #{chargeSettings}
+            </if>
+            <if test="openId != null">
+                and open_id = #{openId}
+            </if>
+            <if test="liveRoom != null">
+                and live_room = #{liveRoom}
+            </if>
+            <if test="payPwd != null">
+                and pay_pwd = #{payPwd},
+            </if>
+            <if test="startingPrice != null">
+                and starting_price = #{startingPrice},
+            </if>
+            <if test="isOnline != null">
+                and is_online = #{isOnline},
+            </if>
+        </trim>
+    </select>
+    <!--带条件的查询全部  end -->
+    
+    <!--带条件的分页查询  start -->
+    <select id="selectTeacherListByPage"  parameterType="map" resultMap="teacherMap">
+        SELECT
+        <include refid="columns" />
+        FROM teacher
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="name != null">
+                and name like concat('%',#{name},"%")
+            </if>
+            <if test="age != null">
+                and age = #{age}
+            </if>
+            <if test="teachercol != null">
+                and teachercol = #{teachercol}
+            </if>
+            <if test="gender != null">
+                and gender = #{gender}
+            </if>
+            <if test="phone != null">
+                and phone = #{phone}
+            </if>
+            <if test="level != null">
+                and level like CONCAT('%',#{level},'%')
+            </if>
+            <if test="grade != null">
+                and grade like CONCAT('%',#{grade},'%')
+            </if>
+            <if test="subject != null">
+                and subject = #{subject}
+            </if>
+            <if test="experience != null">
+                and experience = #{experience}
+            </if>
+            <if test="idCard != null">
+                and id_card = #{idCard}
+            </if>
+            <if test="picture != null">
+                and picture = #{picture}
+            </if>
+            <if test="cardImg != null">
+                and card_img = #{cardImg}
+            </if>
+            <if test="examine != null">
+                and examine = #{examine}
+            </if>
+            <if test="reason != null">
+                and reason = #{reason}
+            </if>
+            <if test="region != null">
+                and region like CONCAT('%',#{region},'%')
+            </if>
+            <if test="address != null">
+                and address like CONCAT('%',#{address},'%')
+            </if>
+            <if test="starCount != null">
+                and star_count = #{starCount}
+            </if>
+            <if test="starTimes != null">
+                and star_times = #{starTimes}
+            </if>
+            <if test="userName != null">
+                and user_name like CONCAT('%',#{userName},'%')
+            </if>
+            <if test="balance != null">
+                and balance = #{balance}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="teachingExperience != null">
+                and teaching_experience = #{teachingExperience}
+            </if>
+            <if test="certificateOfHonor != null">
+                and certificate_of_honor = #{certificateOfHonor}
+            </if>
+            <if test="introduce != null">
+                and introduce = #{introduce}
+            </if>
+            <if test="isShow != null">
+                and is_show = #{isShow}
+            </if>
+            <if test="charges != null">
+                and charges = #{charges}
+            </if>
+            <if test="chargeSettings != null">
+                and charge_settings = #{chargeSettings}
+            </if>
+            <if test="openId != null">
+                and open_id = #{openId}
+            </if>
+            <if test="liveRoom != null">
+                and live_room = #{liveRoom}
+            </if>
+            <if test="payPwd != null">
+                and pay_pwd = #{payPwd},
+            </if>
+            <if test="startingPrice != null">
+                and starting_price = #{startingPrice},
+            </if>
+            <if test="isOnline != null">
+                and is_online = #{isOnline},
+            </if>
+        </trim>
+    </select>
+    <!--带条件的分页查询  end -->
+     
+   	<!-- 查询 总数  start -->
+	<select id="selectTeacherCount" parameterType="map" resultType="int">
+        SELECT
+       	COUNT(1)
+        FROM teacher
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="name != null">
+                and name = #{name}
+            </if>
+            <if test="age != null">
+                and age = #{age}
+            </if>
+            <if test="teachercol != null">
+                and teachercol = #{teachercol}
+            </if>
+            <if test="gender != null">
+                and gender = #{gender}
+            </if>
+            <if test="phone != null">
+                and phone = #{phone}
+            </if>
+            <if test="level != null">
+                and level = #{level}
+            </if>
+            <if test="grade != null">
+                and grade = #{grade}
+            </if>
+            <if test="subject != null">
+                and subject = #{subject}
+            </if>
+            <if test="experience != null">
+                and experience = #{experience}
+            </if>
+            <if test="idCard != null">
+                and id_card = #{idCard}
+            </if>
+            <if test="picture != null">
+                and picture = #{picture}
+            </if>
+            <if test="cardImg != null">
+                and card_img = #{cardImg}
+            </if>
+            <if test="examine != null">
+                and examine = #{examine}
+            </if>
+            <if test="reason != null">
+                and reason = #{reason}
+            </if>
+            <if test="region != null">
+                and region = #{region}
+            </if>
+            <if test="address != null">
+                and address = #{address}
+            </if>
+            <if test="starCount != null">
+                and star_count = #{starCount}
+            </if>
+            <if test="starTimes != null">
+                and star_times = #{starTimes}
+            </if>
+            <if test="userName != null">
+                and user_name = #{userName}
+            </if>
+            <if test="balance != null">
+                and balance = #{balance}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="teachingExperience != null">
+                and teaching_experience = #{teachingExperience}
+            </if>
+            <if test="certificateOfHonor != null">
+                and certificate_of_honor = #{certificateOfHonor}
+            </if>
+            <if test="introduce != null">
+                and introduce = #{introduce}
+            </if>
+            <if test="isShow != null">
+                and is_show = #{isShow}
+            </if>
+            <if test="charges != null">
+                and charges = #{charges}
+            </if>
+            <if test="chargeSettings != null">
+                and charge_settings = #{chargeSettings}
+            </if>
+            <if test="openId != null">
+                and open_id = #{openId}
+            </if>
+            <if test="liveRoom != null">
+                and live_room = #{liveRoom}
+            </if>
+            <if test="payPwd != null">
+                and pay_pwd = #{payPwd},
+            </if>
+            <if test="startingPrice != null">
+                and starting_p rice = #{startingPrice},
+            </if>
+            <if test="isOnline != null">
+                and is_online rice = #{isOnline},
+            </if>
+        </trim>
+    </select>
+	<!-- 查询 总数  end -->
+	
+	<!-- ******************************自定义扩展sql******************************************** -->
+    <select id="isRegister"  parameterType="String" resultMap="teacherMap">
+        SELECT
+        <include refid="columns" />
+        FROM teacher
+        WHERE phone = #{phone}
+    </select>
+
+    <select id="getTeacherInfo" resultMap="teacherMaps">
+        SELECT
+        <include refid="columns" />
+        FROM teacher
+        WHERE id = #{id}
+    </select>
+    <resultMap id="teacherMapCus" type="Teacher" extends="teacherMap">
+        <collection property="financeTeachers" ofType="FinanceTeacher" column="id" select="cn.logicalthinking.common.dao.FinanceTeacherDao.selectFinancebyTeacherId"/>
+    </resultMap>
+    <select id="getTeacherBalance" resultMap="teacherMapCus">
+        SELECT
+        <include refid="columns" />
+        FROM teacher
+        WHERE id = #{id}
+    </select>
+    <update id="updateBalance">
+        UPDATE teacher
+        SET balance = balance - #{money}
+        WHERE id = #{id}
+    </update>
+    <update id="addBalance">
+        UPDATE teacher
+        SET balance = balance + #{money}
+        WHERE id = #{id}
+    </update>
+
+    <!--学生查询教师列表，按是否满课排序  start -->
+    <resultMap id="teacherMapOrderByFully" type="teacher" extends="teacherMap">
+        <result property="fully" column="fully"/>
+        <result property="star" column="star"/>
+    </resultMap>
+    <select id="selectTeacherListByPageOrderByFully" parameterType="map" resultMap="teacherMapOrderByFully">
+        SELECT
+        c2.quantity = c2.enrolment fully,
+        ROUND(teacher.star_count/teacher.star_times,1) star,
+        teacher.id,
+        teacher.create_time,
+        teacher.update_time,
+        teacher.`name`,
+        teacher.age,
+        teacher.teachercol,
+        teacher.gender,
+        teacher.phone,
+        teacher.grade,
+        teacher.`subject`,
+        teacher.`level`,
+        teacher.experience,
+        teacher.id_card,
+        teacher.picture,
+        teacher.card_img,
+        teacher.examine,
+        teacher.reason,
+        teacher.region,
+        teacher.address,
+        teacher.star_count,
+        teacher.star_times,
+        teacher.user_name,
+        teacher.balance,
+        teacher.`status`,
+        teacher.teaching_experience,
+        teacher.certificate_of_honor,
+        teacher.introduce,
+        teacher.is_show,
+        teacher.charges,
+        teacher.charge_settings,
+        teacher.open_id,
+        teacher.live_room,
+        teacher.pay_pwd,
+        teacher.starting_price,
+        teacher.is_online
+        FROM
+        teacher
+        INNER JOIN course ON course.teacher_id = teacher.id
+        INNER JOIN course_type c2 on course.id = c2.course_id
+        <trim prefix="where" prefixOverrides="and">
+            <if test="level!=null">
+                and teacher.level = #{level}
+            </if>
+            <if test="grade!=null">
+                and teacher.grade = #{grade}
+            </if>
+            <if test="subject!=null">
+                and teacher.subject = #{subject}
+            </if>
+            <if test="name!=null">
+                and teacher.name like concat('%',#{name},'%')
+            </if>
+            and teacher.examine = 2
+            and teacher.status = 0
+            and teacher.is_show = 0
+        </trim>
+        GROUP BY teacher.id
+        ORDER BY fully ASC,star DESC
+    </select>
+
+    <select id="selectTeacherByIdPageOrderByFully" parameterType="map" resultMap="teacherMapOrderByFully">
+        SELECT
+        c2.quantity = c2.enrolment fully,
+        ROUND(teacher.star_count/teacher.star_times,1) star,
+        teacher.id,
+        teacher.create_time,
+        teacher.update_time,
+        teacher.`name`,
+        teacher.age,
+        teacher.teachercol,
+        teacher.gender,
+        teacher.phone,
+        teacher.grade,
+        teacher.`subject`,
+        teacher.`level`,
+        teacher.experience,
+        teacher.id_card,
+        teacher.picture,
+        teacher.card_img,
+        teacher.examine,
+        teacher.reason,
+        teacher.region,
+        teacher.address,
+        teacher.star_count,
+        teacher.star_times,
+        teacher.user_name,
+        teacher.balance,
+        teacher.`status`,
+        teacher.teaching_experience,
+        teacher.certificate_of_honor,
+        teacher.introduce,
+        teacher.is_show,
+        teacher.charges,
+        teacher.charge_settings,
+        teacher.open_id,
+        teacher.live_room,
+        teacher.pay_pwd,
+        teacher.starting_price,
+        teacher.is_online
+        FROM
+        teacher
+        LEFT JOIN course ON course.teacher_id = teacher.id
+        LEFT JOIN course_type c2 on course.id = c2.course_id
+        <trim prefix="where" prefixOverrides="and">
+            and teacher.examine = 2
+            and teacher.status = 0
+            and teacher.is_show = 0
+            and teacher.id = #{id}
+        </trim>
+        GROUP BY teacher.id
+        ORDER BY fully ASC,star DESC
+    </select>
+    <!--学生查询教师列表，按是否满课排序  end -->
+
+
+    <!---->
+    <select id="selectLGS" resultType="LGS">
+        SELECT
+            sd1.id as levelId,
+            sd1.`name` as levelName,
+            sd2.id as gradeId,
+            sd2.`name` as gradeName,
+            sd3.id as subjectId,
+            sd3.`name` as subjectName
+        FROM
+            `sys_data` sd1,
+            `sys_data` sd2,
+            `sys_data` sd3
+        WHERE
+            sd1.type = 1
+        AND sd2.type = 2
+        AND sd2.pid = sd1.id
+        AND sd3.type = 3
+        AND sd3.pid = sd2.id
+    </select>
+
+    <resultMap id="levelMap" type="Level">
+        <id column="levelId" property="levelId"/>
+        <result column="levelName" property="levelName"/>
+        <collection property="grades" ofType="Grade">
+            <id column="gradeId" property="gradeId"/>
+            <result column="gradeName" property="gradeName"/>
+            <collection property="subjects" ofType="Subject">
+                <id column="subjectId" property="subjectId"/>
+                <result column="subjectName" property="subjectName"/>
+            </collection>
+        </collection>
+    </resultMap>
+
+    <select id="selectLevel" resultMap="levelMap">
+        SELECT
+            sd1.id as levelId,
+            sd1.`name` as levelName,
+            sd2.id as gradeId,
+            sd2.`name` as gradeName,
+            sd3.id as subjectId,
+            sd3.`name` as subjectName
+        FROM
+            `sys_data` sd1,
+            `sys_data` sd2,
+            `sys_data` sd3
+        WHERE
+            sd1.type = 1
+        AND sd2.type = 2
+        AND sd2.pid = sd1.id
+        AND sd3.type = 3
+        AND sd3.pid = sd2.id
+    </select>
+
+    <!--查询答疑老师接口 start-->
+    <resultMap id="teacherMapOrderByStar" type="teacher" extends="teacherMap">
+        <result property="fully" column="fully"/>
+        <result property="star" column="star"/>
+    </resultMap>
+    <select id="selectTeacherListByPageOrderByStar" parameterType="map" resultMap="teacherMapOrderByStar">
+        SELECT
+        ROUND(teacher.star_count/teacher.star_times,1) star,
+        teacher.id,
+        teacher.create_time,
+        teacher.update_time,
+        teacher.`name`,
+        teacher.age,
+        teacher.teachercol,
+        teacher.gender,
+        teacher.phone,
+        teacher.grade,
+        teacher.`subject`,
+        teacher.`level`,
+        teacher.experience,
+        teacher.id_card,
+        teacher.picture,
+        teacher.card_img,
+        teacher.examine,
+        teacher.reason,
+        teacher.region,
+        teacher.address,
+        teacher.star_count,
+        teacher.star_times,
+        teacher.user_name,
+        teacher.balance,
+        teacher.`status`,
+        teacher.teaching_experience,
+        teacher.certificate_of_honor,
+        teacher.introduce,
+        teacher.is_show,
+        teacher.charges,
+        teacher.charge_settings,
+        teacher.open_id,
+        teacher.live_room,
+        teacher.pay_pwd,
+        teacher.starting_price,
+        teacher.is_online
+        FROM
+        teacher
+        <trim prefix="where" prefixOverrides="and">
+            <if test="level!=null">
+                and teacher.level = #{level}
+            </if>
+            <if test="grade!=null">
+                and teacher.grade = #{grade}
+            </if>
+            <if test="subject!=null">
+                and teacher.subject = #{subject}
+            </if>
+            <if test="name!=null">
+                and teacher.name like concat('%',#{name},'%')
+            </if>
+            and teacher.examine = 2
+            and teacher.status = 0
+            and teacher.is_show = 0
+        </trim>
+        GROUP BY teacher.id
+        ORDER BY teacher.is_online DESC,star DESC
+    </select>
+    <!--查询答疑老师接口 end-->
+
+
+    <update id="updateBalanceSafeLy" parameterType="map">
+        UPDATE
+        teacher
+        set
+        balance = #{balance},
+        update_time = NOW()
+        where id = #{id}
+        <if test="updateTime == null">
+            and update_time is #{updateTime}
+        </if>
+        <if test="updateTime != null">
+            and update_time = #{updateTime}
+        </if>
+
+    </update>
+
+    <update id="updateOnlineStatusByPhone" parameterType="map">
+        UPDATE
+        teacher
+        set
+        is_online = #{isOnline}
+        where phone = #{phone}
+
+    </update>
+</mapper>

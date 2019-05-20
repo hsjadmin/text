@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- courseOutline -->
+<mapper namespace="cn.logicalthinking.common.dao.CourseOutlineDao">
+    
+	<!-- 全局map1  start -->
+    <resultMap id="courseOutlineMap" type="courseOutline">
+        <result property="id" column="id"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="courseTypeId" column="course_type_id"/>
+        <result property="startTime" column="start_time"/>
+        <result property="title" column="title"/>
+        <result property="introduce" column="introduce"/>
+        <result property="status" column="status"/>
+        <result property="rank" column="rank"/>
+        <result property="videoUrl" column="video_url"/>
+        <result property="channelNo" column="channel_no"/>
+    </resultMap>
+	<!-- 全局map1 end -->
+		
+	<!-- 全局字段  start -->
+    <sql id="columns">
+        id ,substring(create_time,1,19) create_time ,substring(update_time,1,19) update_time ,course_type_id ,substring(start_time,1,16) start_time ,title ,introduce ,status ,rank ,video_url,channel_no
+    </sql>
+	<!-- 全局字段  end -->
+	
+	<!-- 单个添加 start -->
+    <insert id="addCourseOutline" useGeneratedKeys="true" keyProperty="id">
+        	INSERT INTO course_outline
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+         	<if test="id != null">
+                id,
+            </if>
+         	<if test="createTime != null">
+                create_time,
+            </if>
+         	<if test="updateTime != null">
+                update_time,
+            </if>
+         	<if test="courseTypeId != null">
+                course_type_id,
+            </if>
+         	<if test="startTime != null">
+                start_time,
+            </if>
+         	<if test="title != null">
+                title,
+            </if>
+         	<if test="introduce != null">
+                introduce,
+            </if>
+         	<if test="status != null">
+                status,
+            </if>
+         	<if test="rank != null">
+                rank,
+            </if>
+         	<if test="videoUrl != null">
+                video_url,
+            </if>
+         	<if test="channelNo != null">
+                channel_no,
+            </if>
+        </trim>
+        <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+         	<if test="id != null">
+            	#{id} ,
+            </if>
+         	<if test="createTime != null">
+            	#{createTime} ,
+            </if>
+         	<if test="updateTime != null">
+            	#{updateTime} ,
+            </if>
+         	<if test="courseTypeId != null">
+            	#{courseTypeId} ,
+            </if>
+         	<if test="startTime != null">
+            	#{startTime} ,
+            </if>
+         	<if test="title != null">
+            	#{title} ,
+            </if>
+         	<if test="introduce != null">
+            	#{introduce} ,
+            </if>
+         	<if test="status != null">
+            	#{status} ,
+            </if>
+         	<if test="rank != null">
+            	#{rank} ,
+            </if>
+         	<if test="videoUrl != null">
+            	#{videoUrl} ,
+            </if>
+         	<if test="channelNo != null">
+            	#{channelNo} ,
+            </if>
+        </trim>
+    </insert>
+	<!-- 单个添加 end -->
+	
+	<!--批量添加  start -->
+	<insert id="batchCourseOutline" useGeneratedKeys="true" keyProperty="id">
+	    INSERT INTO 
+	    course_outline
+	    <trim prefix="(" suffix=")" suffixOverrides=",">
+            create_time,
+            update_time,
+            course_type_id,
+            start_time,
+            title,
+            introduce,
+            status,
+            rank,
+            video_url,
+            channel_no
+        </trim>
+	    VALUES
+	    <foreach collection ="list" item="item" separator =",">
+	    <trim prefix="(" suffix=")" suffixOverrides=",">
+	         #{item.createTime},
+	         #{item.updateTime},
+	         #{item.courseTypeId},
+	         #{item.startTime},
+	         #{item.title},
+	         #{item.introduce},
+	         #{item.status},
+	         #{item.rank},
+	         #{item.videoUrl},
+	         #{item.channelNo},
+	    </trim>
+	    </foreach >
+	</insert>
+	<!-- 批量添加  end -->
+	
+	<!-- 主键批量删除  start -->
+    <delete id="removeCourseOutline">
+        DELETE FROM course_outline
+        WHERE id IN
+       	(${ids})
+    </delete>
+	<!-- 主键批量删除  end -->
+	
+	<!-- 单个修改  start -->
+    <update id="updateCourseOutline">
+        UPDATE course_outline
+        <set>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+            <if test="courseTypeId != null">
+                course_type_id = #{courseTypeId},
+            </if>
+            <if test="startTime != null">
+                start_time = #{startTime},
+            </if>
+            <if test="title != null">
+                title = #{title},
+            </if>
+            <if test="introduce != null">
+                introduce = #{introduce},
+            </if>
+            <if test="status != null">
+                status = #{status},
+            </if>
+            <if test="rank != null">
+                rank = #{rank},
+            </if>
+            <if test="videoUrl != null">
+                video_url = #{videoUrl},
+            </if>
+            <if test="channelNo != null">
+                channel_no = #{channelNo},
+            </if>
+        </set>
+        WHERE id = #{id}
+    </update>
+	<!-- 单个修改  end -->
+	
+	<!-- 通过主键查询 start -->
+    <select id="selectCourseOutlineById" resultMap="courseOutlineMap">
+        SELECT
+        <include refid="columns" />
+        FROM course_outline
+        WHERE id = #{id}
+    </select>
+    <!-- 通过主键查询 end -->
+    
+    <!--带条件的查询全部  start -->
+	<select id="selectCourseOutlineListAll"  parameterType="map" resultMap="courseOutlineMap">
+        SELECT
+        <include refid="columns" />
+        FROM course_outline
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="courseTypeId != null">
+                and course_type_id = #{courseTypeId}
+            </if>
+            <if test="startTime != null">
+                and start_time = #{startTime}
+            </if>
+            <if test="title != null">
+                and title = #{title}
+            </if>
+            <if test="introduce != null">
+                and introduce = #{introduce}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="rank != null">
+                and rank = #{rank}
+            </if>
+            <if test="videoUrl != null">
+                and video_url = #{videoUrl}
+            </if>
+            <if test="channelNo != null">
+                and channel_no = #{channelNo}
+            </if>
+        </trim>
+    </select>
+    <!--带条件的查询全部  end -->
+    
+    <!--带条件的分页查询  start -->
+    <select id="selectCourseOutlineListByPage"  parameterType="map" resultMap="courseOutlineMap">
+        SELECT
+        <include refid="columns" />
+        FROM course_outline
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="courseTypeId != null">
+                and course_type_id = #{courseTypeId}
+            </if>
+            <if test="startTime != null">
+                and start_time = #{startTime}
+            </if>
+            <if test="title != null">
+                and title = #{title}
+            </if>
+            <if test="introduce != null">
+                and introduce = #{introduce}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="rank != null">
+                and rank = #{rank}
+            </if>
+            <if test="videoUrl != null">
+                and video_url = #{videoUrl}
+            </if>
+            <if test="channelNo != null">
+                and channel_no = #{channelNo}
+            </if>
+        </trim>
+    </select>
+    <!--带条件的分页查询  end -->
+     
+   	<!-- 查询 总数  start -->
+	<select id="selectCourseOutlineCount" parameterType="map" resultType="int">
+        SELECT
+       	COUNT(1)
+        FROM course_outline
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="courseTypeId != null">
+                and course_type_id = #{courseTypeId}
+            </if>
+            <if test="startTime != null">
+                and start_time = #{startTime}
+            </if>
+            <if test="title != null">
+                and title = #{title}
+            </if>
+            <if test="introduce != null">
+                and introduce = #{introduce}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="rank != null">
+                and rank = #{rank}
+            </if>
+            <if test="videoUrl != null">
+                and video_url = #{videoUrl}
+            </if>
+            <if test="channelNo != null">
+                and channel_no = #{channelNo}
+            </if>
+        </trim>
+    </select>
+	<!-- 查询 总数  end -->
+	
+	<!-- ******************************自定义扩展sql******************************************** -->
+    <select id="selectCourseOutlineBycId"  parameterType="map" resultMap="courseOutlineMap">
+        SELECT
+        <include refid="columns" />
+        FROM course_outline
+        WHERE course_type_id = #{courseTypeId}
+    </select>
+
+    <select id="getOutLine"  parameterType="map" resultMap="courseOutlineMap">
+        SELECT
+        <include refid="columns" />
+        FROM course_outline
+        where course_type_id in (${courseTypeId}) and status = #{status}
+    </select>
+    <update id="updateUrl">
+        UPDATE course_outline
+        SET video_url = #{videoUrl}
+        WHERE channel_no = #{channelNo}
+    </update>
+
+    <delete id="deleteCourseOutlineByctId">
+        delete
+        FROM course_outline
+        WHERE course_type_id = #{courseTypeId}
+    </delete>
+
+    <select id="selectCourseOutlineBychannelNo"  parameterType="string" resultMap="courseOutlineMap">
+        SELECT
+        <include refid="columns" />
+        FROM course_outline
+        where channel_no = #{channelNo}
+    </select>
+
+</mapper>

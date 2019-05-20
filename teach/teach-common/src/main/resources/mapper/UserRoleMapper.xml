@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- userRole -->
+<mapper namespace="cn.logicalthinking.common.dao.UserRoleDao">
+    
+	<!-- 全局map1  start -->
+    <resultMap id="userRoleMap" type="userRole">
+        <result property="id" column="id"/>
+        <result property="userId" column="user_id"/>
+        <result property="roleId" column="role_id"/>
+    </resultMap>
+	<!-- 全局map1 end -->
+		
+	<!-- 全局字段  start -->
+    <sql id="columns">
+        id ,user_id ,role_id
+    </sql>
+	<!-- 全局字段  end -->
+	
+	<!-- 单个添加 start -->
+    <insert id="addUserRole">
+        	INSERT INTO user_role
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+         	<if test="id != null">
+                id,
+            </if>
+         	<if test="userId != null">
+                user_id,
+            </if>
+         	<if test="roleId != null">
+                role_id,
+            </if>
+        </trim>
+        <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+         	<if test="id != null">
+            	#{id} ,
+            </if>
+         	<if test="userId != null">
+            	#{userId} ,
+            </if>
+         	<if test="roleId != null">
+            	#{roleId} ,
+            </if>
+        </trim>
+    </insert>
+	<!-- 单个添加 end -->
+	
+	<!--批量添加  start -->
+	<insert id="batchUserRole">
+	    INSERT INTO 
+	    user_role
+	    <trim prefix="(" suffix=")" suffixOverrides=",">
+            id,
+            user_id,
+            role_id,
+        </trim>
+	    VALUES
+	    <foreach collection ="list" item="item" separator =",">
+	    <trim prefix="(" suffix=")" suffixOverrides=",">
+	         #{item.id},
+	         #{item.userId},
+	         #{item.roleId},
+	    </trim>
+	    </foreach >
+	</insert>
+	<!-- 批量添加  end -->
+	
+	<!-- 主键批量删除  start -->
+    <delete id="removeUserRole">
+        DELETE FROM user_role
+        WHERE id IN
+       	(${ids})
+    </delete>
+	<!-- 主键批量删除  end -->
+	
+	<!-- 单个修改  start -->
+    <update id="updateUserRole">
+        UPDATE user_role
+        <set>
+            <if test="userId != null">
+                user_id = #{userId},
+            </if>
+            <if test="roleId != null">
+                role_id = #{roleId},
+            </if>
+        </set>
+        WHERE id = #{id}
+    </update>
+	<!-- 单个修改  end -->
+	
+	<!-- 通过主键查询 start -->
+    <select id="selectUserRoleById" resultMap="userRoleMap">
+        SELECT
+        <include refid="columns" />
+        FROM user_role
+        WHERE id = #{id}
+    </select>
+    <!-- 通过主键查询 end -->
+    
+    <!--带条件的查询全部  start -->
+	<select id="selectUserRoleListAll"  parameterType="map" resultMap="userRoleMap">
+        SELECT
+        <include refid="columns" />
+        FROM user_role
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="userId != null">
+                and user_id = #{userId}
+            </if>
+            <if test="roleId != null">
+                and role_id = #{roleId}
+            </if>
+        </trim>
+    </select>
+    <!--带条件的查询全部  end -->
+    
+    <!--带条件的分页查询  start -->
+    <select id="selectUserRoleListByPage"  parameterType="map" resultMap="userRoleMap">
+        SELECT
+        <include refid="columns" />
+        FROM user_role
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="userId != null">
+                and user_id = #{userId}
+            </if>
+            <if test="roleId != null">
+                and role_id = #{roleId}
+            </if>
+        </trim>
+    </select>
+    <!--带条件的分页查询  end -->
+     
+   	<!-- 查询 总数  start -->
+	<select id="selectUserRoleCount" parameterType="map" resultType="int">
+        SELECT
+       	COUNT(1)
+        FROM user_role
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="userId != null">
+                and user_id = #{userId}
+            </if>
+            <if test="roleId != null">
+                and role_id = #{roleId}
+            </if>
+        </trim>
+    </select>
+	<!-- 查询 总数  end -->
+	
+	<!-- ******************************自定义扩展sql******************************************** -->
+	
+	<!-- 根据userId批量删除  start -->
+    <delete id="removeUserRoleByUserId">
+        DELETE FROM user_role
+        WHERE user_id = #{userId}
+    </delete>
+	<!-- 根据userId批量删除  end -->
+    <delete id="removeUserRoleByRoleId">
+        DELETE FROM user_role
+        WHERE role_id  = #{roleId}
+    </delete>
+	
+</mapper>

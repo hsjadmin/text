@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- orderStudent -->
+<mapper namespace="cn.logicalthinking.common.dao.OrderStudentDao">
+    
+	<!-- 全局map1  start -->
+    <resultMap id="orderStudentMap" type="orderStudent">
+        <result property="id" column="id"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="studentName" column="student_name"/>
+        <result property="gender" column="gender"/>
+        <result property="address" column="address"/>
+        <result property="phone" column="phone"/>
+        <result property="userName" column="user_name"/>
+    </resultMap>
+	<!-- 全局map1 end -->
+		
+	<!-- 全局字段  start -->
+    <sql id="columns">
+        id ,substring(create_time,1,19) create_time ,substring(update_time,1,19) update_time ,student_name ,gender ,address ,phone ,user_name
+    </sql>
+	<!-- 全局字段  end -->
+	
+	<!-- 单个添加 start -->
+    <insert id="addOrderStudent">
+        	INSERT INTO order_student
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+         	<if test="id != null">
+                id,
+            </if>
+         	<if test="createTime != null">
+                create_time,
+            </if>
+         	<if test="updateTime != null">
+                update_time,
+            </if>
+         	<if test="studentName != null">
+                student_name,
+            </if>
+         	<if test="gender != null">
+                gender,
+            </if>
+         	<if test="address != null">
+                address,
+            </if>
+         	<if test="phone != null">
+                phone,
+            </if>
+         	<if test="userName != null">
+                user_name,
+            </if>
+        </trim>
+        <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+         	<if test="id != null">
+            	#{id} ,
+            </if>
+         	<if test="createTime != null">
+            	#{createTime} ,
+            </if>
+         	<if test="updateTime != null">
+            	#{updateTime} ,
+            </if>
+         	<if test="studentName != null">
+            	#{studentName} ,
+            </if>
+         	<if test="gender != null">
+            	#{gender} ,
+            </if>
+         	<if test="address != null">
+            	#{address} ,
+            </if>
+         	<if test="phone != null">
+            	#{phone} ,
+            </if>
+         	<if test="userName != null">
+            	#{userName} ,
+            </if>
+        </trim>
+    </insert>
+	<!-- 单个添加 end -->
+	
+	<!--批量添加  start -->
+	<insert id="batchOrderStudent">
+	    INSERT INTO 
+	    order_student
+	    <trim prefix="(" suffix=")" suffixOverrides=",">
+            id,
+            create_time,
+            update_time,
+            student_name,
+            gender,
+            address,
+            phone,
+            user_name,
+        </trim>
+	    VALUES
+	    <foreach collection ="list" item="item" separator =",">
+	    <trim prefix="(" suffix=")" suffixOverrides=",">
+	         #{item.id},
+	         #{item.createTime},
+	         #{item.updateTime},
+	         #{item.studentName},
+	         #{item.gender},
+	         #{item.address},
+	         #{item.phone},
+	         #{item.userName},
+	    </trim>
+	    </foreach >
+	</insert>
+	<!-- 批量添加  end -->
+	
+	<!-- 主键批量删除  start -->
+    <delete id="removeOrderStudent">
+        DELETE FROM order_student
+        WHERE id IN
+       	(${ids})
+    </delete>
+	<!-- 主键批量删除  end -->
+	
+	<!-- 单个修改  start -->
+    <update id="updateOrderStudent">
+        UPDATE order_student
+        <set>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+            <if test="studentName != null">
+                student_name = #{studentName},
+            </if>
+            <if test="gender != null">
+                gender = #{gender},
+            </if>
+            <if test="address != null">
+                address = #{address},
+            </if>
+            <if test="phone != null">
+                phone = #{phone},
+            </if>
+            <if test="userName != null">
+                user_name = #{userName},
+            </if>
+        </set>
+        WHERE id = #{id}
+    </update>
+	<!-- 单个修改  end -->
+	
+	<!-- 通过主键查询 start -->
+    <select id="selectOrderStudentById" resultMap="orderStudentMap">
+        SELECT
+        <include refid="columns" />
+        FROM order_student
+        WHERE id = #{id}
+    </select>
+    <!-- 通过主键查询 end -->
+    
+    <!--带条件的查询全部  start -->
+	<select id="selectOrderStudentListAll"  parameterType="map" resultMap="orderStudentMap">
+        SELECT
+        <include refid="columns" />
+        FROM order_student
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="studentName != null">
+                and student_name = #{studentName}
+            </if>
+            <if test="gender != null">
+                and gender = #{gender}
+            </if>
+            <if test="address != null">
+                and address = #{address}
+            </if>
+            <if test="phone != null">
+                and phone = #{phone}
+            </if>
+            <if test="userName != null">
+                and user_name = #{userName}
+            </if>
+        </trim>
+    </select>
+    <!--带条件的查询全部  end -->
+    
+    <!--带条件的分页查询  start -->
+    <select id="selectOrderStudentListByPage"  parameterType="map" resultMap="orderStudentMap">
+        SELECT
+        <include refid="columns" />
+        FROM order_student
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="studentName != null">
+                and student_name like concat('%',#{studentName},'%')
+            </if>
+            <if test="gender != null">
+                and gender = #{gender}
+            </if>
+            <if test="address != null">
+                and address like concat('%',#{address},'%')
+            </if>
+            <if test="phone != null">
+                and phone like concat('%',#{phone},'%')
+            </if>
+            <if test="userName != null">
+                and user_name like concat('%',#{userName},'%')
+            </if>
+        </trim>
+    </select>
+    <!--带条件的分页查询  end -->
+     
+   	<!-- 查询 总数  start -->
+	<select id="selectOrderStudentCount" parameterType="map" resultType="int">
+        SELECT
+       	COUNT(1)
+        FROM order_student
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="studentName != null">
+                and student_name = #{studentName}
+            </if>
+            <if test="gender != null">
+                and gender = #{gender}
+            </if>
+            <if test="address != null">
+                and address = #{address}
+            </if>
+            <if test="phone != null">
+                and phone = #{phone}
+            </if>
+            <if test="userName != null">
+                and user_name = #{userName}
+            </if>
+        </trim>
+    </select>
+	<!-- 查询 总数  end -->
+	
+	<!-- ******************************自定义扩展sql******************************************** -->
+</mapper>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/teach-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/teach-dao" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/teach-pojo" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/teach-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/teach-service/teach-service-manager" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/teach-service/teach-service-student" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/teach-service/teach-service-teacher" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/teach-web" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/teach-web/teach-web-manager" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/teach-web/teach-web-student" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/teach-web/teach-web-teacher" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

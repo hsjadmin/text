@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- studentHasCourseType -->
+<mapper namespace="cn.logicalthinking.common.dao.StudentHasCourseTypeDao">
+
+    <!-- 全局map1  start -->
+    <resultMap id="studentHasCourseTypeMap" type="studentHasCourseType">
+        <result property="studentId" column="student_id"/>
+        <result property="courseTypeId" column="course_type_id"/>
+        <result property="createTime" column="create_time"/>
+        <result property="courseId" column="course_id"/>
+    </resultMap>
+    <!-- 全局map1 end -->
+
+    <!-- 全局字段  start -->
+    <sql id="columns">
+        student_id ,course_type_id ,substring(create_time,1,19) create_time ,course_id
+    </sql>
+    <!-- 全局字段  end -->
+
+    <!-- 单个添加 start -->
+    <insert id="addStudentHasCourseType">
+        INSERT INTO student_has_course_type
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="studentId != null">
+                student_id,
+            </if>
+            <if test="courseTypeId != null">
+                course_type_id,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="courseId != null">
+                course_id,
+            </if>
+        </trim>
+        <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+            <if test="studentId != null">
+                #{studentId} ,
+            </if>
+            <if test="courseTypeId != null">
+                #{courseTypeId} ,
+            </if>
+            <if test="createTime != null">
+                #{createTime} ,
+            </if>
+            <if test="courseId != null">
+                #{courseId} ,
+            </if>
+        </trim>
+    </insert>
+    <!-- 单个添加 end -->
+
+    <!--批量添加  start -->
+    <insert id="batchStudentHasCourseType">
+        INSERT INTO
+        student_has_course_type
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            student_id,
+            course_type_id,
+            create_time,
+            course_id,
+        </trim>
+        VALUES
+        <foreach collection="list" item="item" separator=",">
+            <trim prefix="(" suffix=")" suffixOverrides=",">
+                #{item.studentId},
+                #{item.courseTypeId},
+                #{item.createTime},
+                #{item.courseId},
+            </trim>
+        </foreach>
+    </insert>
+    <!-- 批量添加  end -->
+
+    <!-- 主键批量删除  start -->
+    <delete id="removeStudentHasCourseType">
+        DELETE FROM student_has_course_type
+        WHERE student_id IN
+       	(${studentIds})
+    </delete>
+    <!-- 主键批量删除  end -->
+
+    <!-- 单个修改  start -->
+    <update id="updateStudentHasCourseType">
+        UPDATE student_has_course_type
+        <set>
+            <if test="courseTypeId != null">
+                course_type_id = #{courseTypeId},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+            <if test="courseId != null">
+                course_id = #{courseId},
+            </if>
+        </set>
+        WHERE student_id = #{studentId}
+    </update>
+    <!-- 单个修改  end -->
+
+    <!-- 通过主键查询 start -->
+    <select id="selectStudentHasCourseTypeById" resultMap="studentHasCourseTypeMap">
+        SELECT
+        <include refid="columns"/>
+        FROM student_has_course_type
+        WHERE student_id = #{student_id}
+    </select>
+    <!-- 通过主键查询 end -->
+
+    <!--带条件的查询全部  start -->
+    <select id="selectStudentHasCourseTypeListAll" parameterType="map" resultMap="studentHasCourseTypeMap">
+        SELECT
+        <include refid="columns"/>
+        FROM student_has_course_type
+        <trim prefix="where" prefixOverrides="and">
+            <if test="studentId != null">
+                and student_id = #{studentId}
+            </if>
+            <if test="courseTypeId != null">
+                and course_type_id = #{courseTypeId}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="courseId != null">
+                and course_id = #{courseId}
+            </if>
+        </trim>
+    </select>
+    <!--带条件的查询全部  end -->
+
+    <!--带条件的分页查询  start -->
+    <select id="selectStudentHasCourseTypeListByPage" parameterType="map" resultMap="studentHasCourseTypeMap">
+        SELECT
+        <include refid="columns"/>
+        FROM student_has_course_type
+        <trim prefix="where" prefixOverrides="and">
+            <if test="studentId != null">
+                and student_id = #{studentId}
+            </if>
+            <if test="courseTypeId != null">
+                and course_type_id = #{courseTypeId}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="courseId != null">
+                and course_id = #{courseId}
+            </if>
+        </trim>
+    </select>
+    <!--带条件的分页查询  end -->
+
+    <!-- 查询 总数  start -->
+    <select id="selectStudentHasCourseTypeCount" parameterType="map" resultType="int">
+        SELECT
+        COUNT(1)
+        FROM student_has_course_type
+        <trim prefix="where" prefixOverrides="and">
+            <if test="studentId != null">
+                and student_id = #{studentId}
+            </if>
+            <if test="courseTypeId != null">
+                and course_type_id = #{courseTypeId}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="courseId != null">
+                and course_id = #{courseId}
+            </if>
+        </trim>
+    </select>
+    <!-- 查询 总数  end -->
+
+    <!-- ******************************自定义扩展sql******************************************** -->
+
+
+    <!--带条件的分页查询 ,带老师信息（带是否约满） start -->
+    <resultMap id="studentHasCourseTypeMapWithTeacher" type="studentHasCourseType" extends="studentHasCourseTypeMap">
+        <collection property="teacherList" column="teacherId" javaType="teacher"
+                    select="cn.logicalthinking.common.dao.TeacherDao.selectTeacherByIdWithFully"/>
+    </resultMap>
+    <select id="selectStudentHasCourseTypeListByPageWithTeacher" parameterType="map"
+            resultMap="studentHasCourseTypeMapWithTeacher">
+        SELECT
+        <include refid="columns"/>
+        FROM student_has_course_type
+        <trim prefix="where" prefixOverrides="and">
+            <if test="studentId != null">
+                and student_id = #{studentId}
+            </if>
+            <if test="courseTypeId != null">
+                and course_type_id = #{courseTypeId}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="courseId != null">
+                and course_id = #{courseId}
+            </if>
+        </trim>
+        order by create_time desc
+    </select>
+
+    <!--带条件的分页查询 ,带老师信息   end -->
+    <delete id="removeStudentHasCourseTypeBysId">
+        DELETE FROM student_has_course_type
+        WHERE student_id = #{studentId}
+    </delete>
+    <delete id="removeStudentHasCourseTypeById">
+        DELETE FROM student_has_course_type
+        WHERE course_type_id in (${ids})
+    </delete>
+</mapper>

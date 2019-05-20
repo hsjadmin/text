@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- messageStudent -->
+<mapper namespace="cn.logicalthinking.common.dao.MessageStudentDao">
+
+    <!-- 全局map1  start -->
+    <resultMap id="messageStudentMap" type="messageStudent">
+        <result property="id" column="id"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="studentId" column="student_id"/>
+        <result property="title" column="title"/>
+        <result property="comment" column="comment"/>
+        <result property="status" column="status"/>
+    </resultMap>
+    <!-- 全局map1 end -->
+
+    <!-- 全局字段  start -->
+    <sql id="columns">
+        id ,substring(create_time,1,19) create_time ,substring(update_time,1,19) update_time ,student_id ,title ,comment ,status
+    </sql>
+    <!-- 全局字段  end -->
+
+    <!-- 单个添加 start -->
+    <insert id="addMessageStudent">
+        INSERT INTO message_student
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+            <if test="studentId != null">
+                student_id,
+            </if>
+            <if test="title != null">
+                title,
+            </if>
+            <if test="comment != null">
+                comment,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+        </trim>
+        <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id} ,
+            </if>
+            <if test="createTime != null">
+                #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                #{updateTime} ,
+            </if>
+            <if test="studentId != null">
+                #{studentId} ,
+            </if>
+            <if test="title != null">
+                #{title} ,
+            </if>
+            <if test="comment != null">
+                #{comment} ,
+            </if>
+            <if test="status != null">
+                #{status} ,
+            </if>
+        </trim>
+    </insert>
+    <!-- 单个添加 end -->
+
+    <!--批量添加  start -->
+    <insert id="batchMessageStudent">
+        INSERT INTO
+        message_student
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            id,
+            create_time,
+            update_time,
+            student_id,
+            title,
+            comment,
+            status,
+        </trim>
+        VALUES
+        <foreach collection="list" item="item" separator=",">
+            <trim prefix="(" suffix=")" suffixOverrides=",">
+                #{item.id},
+                #{item.createTime},
+                #{item.updateTime},
+                #{item.studentId},
+                #{item.title},
+                #{item.comment},
+                #{item.status},
+            </trim>
+        </foreach>
+    </insert>
+    <!-- 批量添加  end -->
+
+    <!-- 主键批量删除  start -->
+    <delete id="removeMessageStudent">
+        DELETE FROM message_student
+        WHERE id IN
+       	(${ids})
+    </delete>
+    <!-- 主键批量删除  end -->
+
+    <!-- 单个修改  start -->
+    <update id="updateMessageStudent">
+        UPDATE message_student
+        <set>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+            <if test="studentId != null">
+                student_id = #{studentId},
+            </if>
+            <if test="title != null">
+                title = #{title},
+            </if>
+            <if test="comment != null">
+                comment = #{comment},
+            </if>
+            <if test="status != null">
+                status = #{status},
+            </if>
+        </set>
+        WHERE id = #{id}
+    </update>
+    <!-- 单个修改  end -->
+
+    <!-- 通过主键查询 start -->
+    <select id="selectMessageStudentById" resultMap="messageStudentMap">
+        SELECT
+        <include refid="columns"/>
+        FROM message_student
+        WHERE id = #{id}
+    </select>
+    <!-- 通过主键查询 end -->
+
+    <!--带条件的查询全部  start -->
+    <select id="selectMessageStudentListAll" parameterType="map" resultMap="messageStudentMap">
+        SELECT
+        <include refid="columns"/>
+        FROM message_student
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="studentId != null">
+                and student_id = #{studentId}
+            </if>
+            <if test="title != null">
+                and title = #{title}
+            </if>
+            <if test="comment != null">
+                and comment = #{comment}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+        </trim>
+    </select>
+    <!--带条件的查询全部  end -->
+
+    <!--带条件的分页查询  start -->
+    <select id="selectMessageStudentListByPage" parameterType="map" resultMap="messageStudentMap">
+        SELECT
+        <include refid="columns"/>
+        FROM message_student
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="studentId != null">
+                and student_id = #{studentId}
+            </if>
+            <if test="title != null">
+                and title = #{title}
+            </if>
+            <if test="comment != null">
+                and comment = #{comment}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+        </trim>
+        order by create_time desc
+    </select>
+    <!--带条件的分页查询  end -->
+
+    <!-- 查询 总数  start -->
+    <select id="selectMessageStudentCount" parameterType="map" resultType="int">
+        SELECT
+        COUNT(1)
+        FROM message_student
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="studentId != null">
+                and student_id = #{studentId}
+            </if>
+            <if test="title != null">
+                and title = #{title}
+            </if>
+            <if test="comment != null">
+                and comment = #{comment}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+        </trim>
+    </select>
+    <!-- 查询 总数  end -->
+
+    <!-- ******************************自定义扩展sql******************************************** -->
+
+
+    <update id="readAll" parameterType="integer">
+        update message_student set status = 1 where student_id = #{studentId}
+    </update>
+
+    <delete id="removeAll" parameterType="integer">
+        delete from message_student where student_id = #{studentId}
+    </delete>
+
+</mapper>

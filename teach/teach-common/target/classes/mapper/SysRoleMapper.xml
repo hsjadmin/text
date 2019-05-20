@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- sysRole -->
+<mapper namespace="cn.logicalthinking.common.dao.SysRoleDao">
+    
+	<!-- 全局map1  start -->
+    <resultMap id="sysRoleMap" type="sysRole">
+        <result property="roleId" column="roleId"/>
+        <result property="roleName" column="role_name"/>
+        <result property="roleMark" column="role_mark"/>
+        <result property="state" column="state"/>
+        <result property="createTime" column="create_time"/>
+    </resultMap>
+	<!-- 全局map1 end -->
+		
+	<!-- 全局字段  start -->
+    <sql id="columns">
+        roleId ,role_name ,role_mark ,state , substring(create_time,1,19) create_time
+    </sql>
+	<!-- 全局字段  end -->
+	
+	<!-- 单个添加 start -->
+    <insert id="addSysRole">
+        	INSERT INTO sys_role
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+         	<if test="roleId != null">
+                roleId,
+            </if>
+         	<if test="roleName != null">
+                role_name,
+            </if>
+         	<if test="roleMark != null">
+                role_mark,
+            </if>
+         	<if test="state != null">
+                state,
+            </if>
+                create_time
+        </trim>
+        <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+         	<if test="roleId != null">
+            	#{roleId} ,
+            </if>
+         	<if test="roleName != null">
+            	#{roleName} ,
+            </if>
+         	<if test="roleMark != null">
+            	#{roleMark} ,
+            </if>
+         	<if test="state != null">
+            	#{state} ,
+            </if>
+            now(),
+        </trim>
+    </insert>
+	<!-- 单个添加 end -->
+	
+	<!--批量添加  start -->
+	<insert id="batchSysRole">
+	    INSERT INTO 
+	    sys_role
+	    <trim prefix="(" suffix=")" suffixOverrides=",">
+            roleId,
+            role_name,
+            role_mark,
+            state,
+            create_time,
+        </trim>
+	    VALUES
+	    <foreach collection ="list" item="item" separator =",">
+	    <trim prefix="(" suffix=")" suffixOverrides=",">
+	         #{item.roleId},
+	         #{item.roleName},
+	         #{item.roleMark},
+	         #{item.state},
+	         #{item.createTime},
+	    </trim>
+	    </foreach >
+	</insert>
+	<!-- 批量添加  end -->
+	
+	<!-- 主键批量删除  start -->
+    <delete id="removeSysRole">
+        DELETE FROM sys_role
+        WHERE roleId IN
+       	(${roleIds})
+    </delete>
+	<!-- 主键批量删除  end -->
+	
+	<!-- 单个修改  start -->
+    <update id="updateSysRole">
+        UPDATE sys_role
+        <set>
+            <if test="roleName != null">
+                role_name = #{roleName},
+            </if>
+            <if test="roleMark != null">
+                role_mark = #{roleMark},
+            </if>
+            <if test="state != null">
+                state = #{state},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+        </set>
+        WHERE roleId = #{roleId}
+    </update>
+	<!-- 单个修改  end -->
+	
+	<!-- 通过主键查询 start -->
+    <select id="selectSysRoleById" resultMap="sysRoleMap">
+        SELECT
+        <include refid="columns" />
+        FROM sys_role
+        WHERE roleId = #{roleId}
+    </select>
+    <!-- 通过主键查询 end -->
+    
+    <!--带条件的查询全部  start -->
+	<select id="selectSysRoleListAll"  parameterType="map" resultMap="sysRoleMap">
+        SELECT
+        <include refid="columns" />
+        FROM sys_role
+        <trim prefix="where" prefixOverrides="and">
+            <if test="roleId != null">
+                and roleId = #{roleId}
+            </if>
+            <if test="roleName != null">
+                and role_name = #{roleName}
+            </if>
+            <if test="roleMark != null">
+                and role_mark = #{roleMark}
+            </if>
+            <if test="state != null">
+                and state = #{state}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+        </trim>
+                order by create_time desc
+    </select>
+    <!--带条件的查询全部  end -->
+    
+    <!--带条件的分页查询  start -->
+    <select id="selectSysRoleListByPage"  parameterType="map" resultMap="sysRoleMap">
+        SELECT
+        <include refid="columns" />
+        FROM sys_role
+        <trim prefix="where" prefixOverrides="and">
+            <if test="roleId != null">
+                and roleId = #{roleId}
+            </if>
+            <if test="roleName != null">
+                and  role_name like concat('%',#{roleName},'%')
+            </if>
+            <if test="roleMark != null">
+                and role_mark = #{roleMark}
+            </if>
+            <if test="state != null">
+                and state = #{state}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+        </trim>
+          order by create_time desc
+    </select>
+    <!--带条件的分页查询  end -->
+     
+   	<!-- 查询 总数  start -->
+	<select id="selectSysRoleCount" parameterType="map" resultType="int">
+        SELECT
+       	COUNT(1)
+        FROM sys_role
+        <trim prefix="where" prefixOverrides="and">
+            <if test="roleId != null">
+                and roleId = #{roleId}
+            </if>
+            <if test="roleName != null">
+                and role_name = #{roleName}
+            </if>
+            <if test="roleMark != null">
+                and role_mark = #{roleMark}
+            </if>
+            <if test="state != null">
+                and state = #{state}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+        </trim>
+    </select>
+	<!-- 查询 总数  end -->
+	
+	<!-- ******************************自定义扩展sql******************************************** -->
+	
+	<!-- 用户列表查询关联  start -->
+    <select id="selectSysRoleByUserId"  parameterType="string" resultMap="sysRoleMap">
+    	SELECT * FROM sys_role where roleId IN(
+    		SELECT role_id FROM user_role where user_id=#{user_id} 
+    	)
+    </select>
+    <!-- 用户列表查询关联  end -->
+    
+</mapper>

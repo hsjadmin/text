@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- roleMenu -->
+<mapper namespace="cn.logicalthinking.common.dao.RoleMenuDao">
+    
+	<!-- 全局map1  start -->
+    <resultMap id="roleMenuMap" type="roleMenu">
+        <result property="id" column="id"/>
+        <result property="menuId" column="menu_id"/>
+        <result property="roleId" column="role_id"/>
+        <result property="createTime" column="create_time"/>
+    </resultMap>
+	<!-- 全局map1 end -->
+		
+	<!-- 全局字段  start -->
+    <sql id="columns">
+        id ,menu_id ,role_id , substring(create_time,1,19) create_time
+    </sql>
+	<!-- 全局字段  end -->
+	
+	<!-- 单个添加 start -->
+    <insert id="addRoleMenu">
+        	INSERT INTO role_menu
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+         	<if test="id != null">
+                id,
+            </if>
+         	<if test="menuId != null">
+                menu_id,
+            </if>
+         	<if test="roleId != null">
+                role_id,
+            </if>
+         	<if test="createTime != null">
+                create_time,
+            </if>
+        </trim>
+        <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+         	<if test="id != null">
+            	#{id} ,
+            </if>
+         	<if test="menuId != null">
+            	#{menuId} ,
+            </if>
+         	<if test="roleId != null">
+            	#{roleId} ,
+            </if>
+         	<if test="createTime != null">
+            	#{createTime} ,
+            </if>
+        </trim>
+    </insert>
+	<!-- 单个添加 end -->
+	
+	<!--批量添加  start -->
+	<insert id="batchRoleMenu">
+	    INSERT INTO 
+	    role_menu
+	    <trim prefix="(" suffix=")" suffixOverrides=",">
+            id,
+            menu_id,
+            role_id,
+            create_time,
+        </trim>
+	    VALUES
+	    <foreach collection ="list" item="item" separator =",">
+	    <trim prefix="(" suffix=")" suffixOverrides=",">
+	         #{item.id},
+	         #{item.menuId},
+	         #{item.roleId},
+	         #{item.createTime},
+	    </trim>
+	    </foreach >
+	</insert>
+	<!-- 批量添加  end -->
+	
+	<!-- 主键批量删除  start -->
+    <delete id="removeRoleMenu">
+        DELETE FROM role_menu
+        WHERE id IN
+       	(${ids})
+    </delete>
+	<!-- 主键批量删除  end -->
+	
+	<!-- 单个修改  start -->
+    <update id="updateRoleMenu">
+        UPDATE role_menu
+        <set>
+            <if test="menuId != null">
+                menu_id = #{menuId},
+            </if>
+            <if test="roleId != null">
+                role_id = #{roleId},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+        </set>
+        WHERE id = #{id}
+    </update>
+	<!-- 单个修改  end -->
+	
+	<!-- 通过主键查询 start -->
+    <select id="selectRoleMenuById" resultMap="roleMenuMap">
+        SELECT
+        <include refid="columns" />
+        FROM role_menu
+        WHERE id = #{id}
+    </select>
+    <!-- 通过主键查询 end -->
+    
+    <!--带条件的查询全部  start -->
+	<select id="selectRoleMenuListAll"  parameterType="map" resultMap="roleMenuMap">
+        SELECT
+        <include refid="columns" />
+        FROM role_menu
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="menuId != null">
+                and menu_id = #{menuId}
+            </if>
+            <if test="roleId != null">
+                and role_id = #{roleId}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+        </trim>
+    </select>
+    <!--带条件的查询全部  end -->
+    
+    <!--带条件的分页查询  start -->
+    <select id="selectRoleMenuListByPage"  parameterType="map" resultMap="roleMenuMap">
+        SELECT
+        <include refid="columns" />
+        FROM role_menu
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="menuId != null">
+                and menu_id = #{menuId}
+            </if>
+            <if test="roleId != null">
+                and role_id = #{roleId}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+        </trim>
+    </select>
+    <!--带条件的分页查询  end -->
+     
+   	<!-- 查询 总数  start -->
+	<select id="selectRoleMenuCount" parameterType="map" resultType="int">
+        SELECT
+       	COUNT(1)
+        FROM role_menu
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="menuId != null">
+                and menu_id = #{menuId}
+            </if>
+            <if test="roleId != null">
+                and role_id = #{roleId}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+        </trim>
+    </select>
+	<!-- 查询 总数  end -->
+	
+	<!-- ******************************自定义扩展sql******************************************** -->
+	
+	<!-- 主键批量删除  start -->
+    <delete id="removeRoleMenuByRoleId">
+        DELETE FROM role_menu
+        WHERE role_id =#{roleId}
+    </delete>
+	<!-- 主键批量删除  end -->
+	
+</mapper>

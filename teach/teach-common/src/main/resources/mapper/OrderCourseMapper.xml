@@ -1,0 +1,857 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- orderCourse -->
+<mapper namespace="cn.logicalthinking.common.dao.OrderCourseDao">
+
+    <!-- 全局map1  start -->
+    <resultMap id="orderCourseMap" type="orderCourse">
+        <result property="id" column="id"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="studentName" column="student_name"/>
+        <result property="gender" column="gender"/>
+        <result property="address" column="address"/>
+        <result property="phone" column="phone"/>
+        <result property="orig" column="orig"/>
+        <result property="discount" column="discount"/>
+        <result property="periods" column="periods"/>
+        <result property="duration" column="duration"/>
+        <result property="courseTime" column="course_time"/>
+        <result property="teacherName" column="teacher_name"/>
+        <result property="isCoupon" column="is_coupon"/>
+        <result property="couponPrice" column="coupon_price"/>
+        <result property="teacherBonus" column="teacher_bonus"/>
+        <result property="studentId" column="student_id"/>
+        <result property="teacherId" column="teacher_id"/>
+        <result property="courseId" column="course_id"/>
+        <result property="courseTypeId" column="course_type_id"/>
+        <result property="apprised" column="apprised"/>
+        <result property="amount" column="amount"/>
+        <result property="status" column="status"/>
+        <result property="courseTitle" column="course_title"/>
+        <result property="courseInfo" column="course_info"/>
+        <result property="courseStartTime" column="course_start_time"/>
+        <result property="courseClassFrequency" column="course_class_frequency"/>
+        <result property="couponId" column="coupon_id"/>
+        <result property="grade" column="grade"/>
+    </resultMap>
+    <!-- 全局map1 end -->
+
+    <!-- 全局字段  start -->
+    <sql id="columns">
+        id ,substring(create_time,1,19) create_time ,substring(update_time,1,19) update_time ,student_name ,gender ,address ,phone ,orig ,discount ,periods ,duration ,
+        course_time ,teacher_name ,is_coupon ,coupon_price ,teacher_bonus ,student_id ,teacher_id ,course_id ,course_type_id, apprised, amount, status,
+        course_title, course_info, course_start_time, course_class_frequency,coupon_id,grade
+    </sql>
+    <!-- 全局字段  end -->
+
+    <!-- 单个添加 start -->
+    <insert id="addOrderCourse" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO order_course
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+            <if test="studentName != null">
+                student_name,
+            </if>
+            <if test="gender != null">
+                gender,
+            </if>
+            <if test="address != null">
+                address,
+            </if>
+            <if test="phone != null">
+                phone,
+            </if>
+            <if test="orig != null">
+                orig,
+            </if>
+            <if test="discount != null">
+                discount,
+            </if>
+            <if test="periods != null">
+                periods,
+            </if>
+            <if test="duration != null">
+                duration,
+            </if>
+            <if test="courseTime != null">
+                course_time,
+            </if>
+            <if test="teacherName != null">
+                teacher_name,
+            </if>
+            <if test="isCoupon != null">
+                is_coupon,
+            </if>
+            <if test="couponPrice != null">
+                coupon_price,
+            </if>
+            <if test="teacherBonus != null">
+                teacher_bonus,
+            </if>
+            <if test="studentId != null">
+                student_id,
+            </if>
+            <if test="teacherId != null">
+                teacher_id,
+            </if>
+            <if test="courseId != null">
+                course_id,
+            </if>
+            <if test="courseTypeId != null">
+                course_type_id,
+            </if>
+            <if test="apprised != null">
+                apprised,
+            </if>
+            <if test="amount != null">
+                amount,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+            <if test="courseTitle != null">
+                course_title,
+            </if>
+            <if test="courseInfo != null">
+                course_info,
+            </if>
+            <if test="courseStartTime != null">
+                course_start_time,
+            </if>
+            <if test="courseClassFrequency != null">
+                course_class_frequency,
+            </if>
+            <if test="couponId != null">
+                coupon_id,
+            </if>
+            <if test="grade != null">
+                grade,
+            </if>
+        </trim>
+        <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id} ,
+            </if>
+            <if test="createTime != null">
+                #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                #{updateTime} ,
+            </if>
+            <if test="studentName != null">
+                #{studentName} ,
+            </if>
+            <if test="gender != null">
+                #{gender} ,
+            </if>
+            <if test="address != null">
+                #{address} ,
+            </if>
+            <if test="phone != null">
+                #{phone} ,
+            </if>
+            <if test="orig != null">
+                #{orig} ,
+            </if>
+            <if test="discount != null">
+                #{discount} ,
+            </if>
+            <if test="periods != null">
+                #{periods} ,
+            </if>
+            <if test="duration != null">
+                #{duration} ,
+            </if>
+            <if test="courseTime != null">
+                #{courseTime} ,
+            </if>
+            <if test="teacherName != null">
+                #{teacherName} ,
+            </if>
+            <if test="isCoupon != null">
+                #{isCoupon} ,
+            </if>
+            <if test="couponPrice != null">
+                #{couponPrice} ,
+            </if>
+            <if test="teacherBonus != null">
+                #{teacherBonus} ,
+            </if>
+            <if test="studentId != null">
+                #{studentId} ,
+            </if>
+            <if test="teacherId != null">
+                #{teacherId} ,
+            </if>
+            <if test="courseId != null">
+                #{courseId} ,
+            </if>
+            <if test="courseTypeId != null">
+                #{courseTypeId} ,
+            </if>
+            <if test="apprised != null">
+                #{apprised} ,
+            </if>
+            <if test="amount != null">
+                #{amount} ,
+            </if>
+            <if test="status != null">
+                #{status} ,
+            </if>
+            <if test="courseTitle != null">
+                #{courseTitle} ,
+            </if>
+            <if test="courseInfo != null">
+                #{courseInfo} ,
+            </if>
+            <if test="courseStartTime != null">
+                #{courseStartTime} ,
+            </if>
+            <if test="courseClassFrequency != null">
+                #{courseClassFrequency} ,
+            </if>
+            <if test="couponId != null">
+                #{couponId} ,
+            </if>
+            <if test="grade != null">
+                #{grade} ,
+            </if>
+        </trim>
+    </insert>
+    <!-- 单个添加 end -->
+
+    <!--批量添加  start -->
+    <insert id="batchOrderCourse">
+        INSERT INTO
+        order_course
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            id,
+            create_time,
+            update_time,
+            student_name,
+            gender,
+            address,
+            phone,
+            orig,
+            discount,
+            periods,
+            duration,
+            course_time,
+            teacher_name,
+            is_coupon,
+            coupon_price,
+            teacher_bonus,
+            student_id,
+            teacher_id,
+            course_id,
+            course_type_id,
+            apprised,
+            amount,
+            status,
+            course_title,
+            course_info,
+            course_start_time,
+            course_class_frequency,
+            grade
+        </trim>
+        VALUES
+        <foreach collection="list" item="item" separator=",">
+            <trim prefix="(" suffix=")" suffixOverrides=",">
+                #{item.id},
+                #{item.createTime},
+                #{item.updateTime},
+                #{item.studentName},
+                #{item.gender},
+                #{item.address},
+                #{item.phone},
+                #{item.orig},
+                #{item.discount},
+                #{item.periods},
+                #{item.duration},
+                #{item.courseTime},
+                #{item.teacherName},
+                #{item.isCoupon},
+                #{item.couponPrice},
+                #{item.teacherBonus},
+                #{item.studentId},
+                #{item.teacherId},
+                #{item.courseId},
+                #{item.courseTypeId},
+                #{item.apprised},
+                #{item.amount},
+                #{item.status},
+                #{item.courseTitle},
+                #{item.courseInfo},
+                #{item.courseStartTime},
+                #{item.courseClassFrequency},
+                #{item.grade},
+            </trim>
+        </foreach>
+    </insert>
+    <!-- 批量添加  end -->
+
+    <!-- 主键批量删除  start -->
+    <delete id="removeOrderCourse">
+        DELETE FROM order_course
+        WHERE id IN
+       	(${ids})
+    </delete>
+    <!-- 主键批量删除  end -->
+
+    <!-- 单个修改  start -->
+    <update id="updateOrderCourse">
+        UPDATE order_course
+        <set>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+            <if test="studentName != null">
+                student_name = #{studentName},
+            </if>
+            <if test="gender != null">
+                gender = #{gender},
+            </if>
+            <if test="address != null">
+                address = #{address},
+            </if>
+            <if test="phone != null">
+                phone = #{phone},
+            </if>
+            <if test="orig != null">
+                orig = #{orig},
+            </if>
+            <if test="discount != null">
+                discount = #{discount},
+            </if>
+            <if test="periods != null">
+                periods = #{periods},
+            </if>
+            <if test="duration != null">
+                duration = #{duration},
+            </if>
+            <if test="courseTime != null">
+                course_time = #{courseTime},
+            </if>
+            <if test="teacherName != null">
+                teacher_name = #{teacherName},
+            </if>
+            <if test="isCoupon != null">
+                is_coupon = #{isCoupon},
+            </if>
+            <if test="couponPrice != null">
+                coupon_price = #{couponPrice},
+            </if>
+            <if test="teacherBonus != null">
+                teacher_bonus = #{teacherBonus},
+            </if>
+            <if test="studentId != null">
+                student_id = #{studentId},
+            </if>
+            <if test="teacherId != null">
+                teacher_id = #{teacherId},
+            </if>
+            <if test="courseId != null">
+                course_id = #{courseId},
+            </if>
+            <if test="courseTypeId != null">
+                course_type_id = #{courseTypeId},
+            </if>
+            <if test="apprised != null">
+                apprised = #{apprised},
+            </if>
+            <if test="amount != null">
+                amount = #{amount},
+            </if>
+            <if test="status != null">
+                status = #{status},
+            </if>
+            <if test="courseTitle != null">
+                course_title = #{courseTitle},
+            </if>
+            <if test="courseInfo != null">
+                course_info = #{courseInfo},
+            </if>
+            <if test="courseStartTime != null">
+                course_start_time = #{courseStartTime},
+            </if>
+            <if test="courseClassFrequency != null">
+                course_class_frequency = #{courseClassFrequency},
+            </if>
+            <if test="grade != null">
+                grade = #{grade},
+            </if>
+        </set>
+        WHERE id = #{id}
+    </update>
+    <!-- 单个修改  end -->
+
+    <!-- 通过主键查询 start -->
+    <select id="selectOrderCourseById" resultMap="orderCourseMap">
+        SELECT
+        <include refid="columns"/>
+        FROM order_course
+        WHERE id = #{id}
+    </select>
+    <!-- 通过主键查询 end -->
+
+    <!--带条件的查询全部  start -->
+    <select id="selectOrderCourseListAll" parameterType="map" resultMap="orderCourseMap">
+        SELECT
+        <include refid="columns"/>
+        FROM order_course
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="studentName != null">
+                and student_name = #{studentName}
+            </if>
+            <if test="gender != null">
+                and gender = #{gender}
+            </if>
+            <if test="address != null">
+                and address = #{address}
+            </if>
+            <if test="phone != null">
+                and phone = #{phone}
+            </if>
+            <if test="orig != null">
+                and orig = #{orig}
+            </if>
+            <if test="discount != null">
+                and discount = #{discount}
+            </if>
+            <if test="periods != null">
+                and periods = #{periods}
+            </if>
+            <if test="duration != null">
+                and duration = #{duration}
+            </if>
+            <if test="courseTime != null">
+                and course_time = #{courseTime}
+            </if>
+            <if test="teacherName != null">
+                and teacher_name = #{teacherName}
+            </if>
+            <if test="isCoupon != null">
+                and is_coupon = #{isCoupon}
+            </if>
+            <if test="couponPrice != null">
+                and coupon_price = #{couponPrice}
+            </if>
+            <if test="teacherBonus != null">
+                and teacher_bonus = #{teacherBonus}
+            </if>
+            <if test="studentId != null">
+                and student_id = #{studentId}
+            </if>
+            <if test="teacherId != null">
+                and teacher_id = #{teacherId}
+            </if>
+            <if test="courseId != null">
+                and course_id = #{courseId}
+            </if>
+            <if test="courseTypeId != null">
+                and course_type_id = #{courseTypeId}
+            </if>
+            <if test="apprised != null">
+                and apprised = #{apprised}
+            </if>
+            <if test="amount != null">
+                and amount = #{amount}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="courseTitle != null">
+                and course_title = #{courseTitle}
+            </if>
+            <if test="courseInfo != null">
+                and course_info = #{courseInfo}
+            </if>
+            <if test="courseStartTime != null">
+                and course_start_time = #{courseStartTime}
+            </if>
+            <if test="courseClassFrequency != null">
+                and course_class_frequency = #{courseClassFrequency}
+            </if>
+            <if test="grade != null">
+                and grade = #{grade}
+            </if>
+        </trim>
+    </select>
+    <!--带条件的查询全部  end -->
+
+    <!--带条件的分页查询  start -->
+    <select id="selectOrderCourseListByPage" parameterType="map" resultMap="orderCourseMap">
+        SELECT
+        <include refid="columns"/>
+        FROM order_course
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="studentName != null">
+                and student_name = #{studentName}
+            </if>
+            <if test="gender != null">
+                and gender = #{gender}
+            </if>
+            <if test="address != null">
+                and address = #{address}
+            </if>
+            <if test="phone != null">
+                and phone = #{phone}
+            </if>
+            <if test="orig != null">
+                and orig = #{orig}
+            </if>
+            <if test="discount != null">
+                and discount = #{discount}
+            </if>
+            <if test="periods != null">
+                and periods = #{periods}
+            </if>
+            <if test="duration != null">
+                and duration = #{duration}
+            </if>
+            <if test="courseTime != null">
+                and course_time = #{courseTime}
+            </if>
+            <if test="teacherName != null">
+                and teacher_name = #{teacherName}
+            </if>
+            <if test="isCoupon != null">
+                and is_coupon = #{isCoupon}
+            </if>
+            <if test="couponPrice != null">
+                and coupon_price = #{couponPrice}
+            </if>
+            <if test="teacherBonus != null">
+                and teacher_bonus = #{teacherBonus}
+            </if>
+            <if test="studentId != null">
+                and student_id = #{studentId}
+            </if>
+            <if test="teacherId != null">
+                and teacher_id = #{teacherId}
+            </if>
+            <if test="courseId != null">
+                and course_id = #{courseId}
+            </if>
+            <if test="courseTypeId != null">
+                and course_type_id = #{courseTypeId}
+            </if>
+            <if test="apprised != null">
+                and apprised = #{apprised}
+            </if>
+            <if test="amount != null">
+                and amount = #{amount}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="courseTitle != null">
+                and course_title = #{courseTitle}
+            </if>
+            <if test="courseInfo != null">
+                and course_info = #{courseInfo}
+            </if>
+            <if test="courseStartTime != null">
+                and course_start_time = #{courseStartTime}
+            </if>
+            <if test="courseClassFrequency != null">
+                and course_class_frequency = #{courseClassFrequency}
+            </if>
+            <if test="grade != null">
+                and grade = #{grade}
+            </if>
+        </trim>
+    </select>
+    <!--带条件的分页查询  end -->
+
+    <!-- 查询 总数  start -->
+    <select id="selectOrderCourseCount" parameterType="map" resultType="int">
+        SELECT
+        COUNT(1)
+        FROM order_course
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="studentName != null">
+                and student_name = #{studentName}
+            </if>
+            <if test="gender != null">
+                and gender = #{gender}
+            </if>
+            <if test="address != null">
+                and address = #{address}
+            </if>
+            <if test="phone != null">
+                and phone = #{phone}
+            </if>
+            <if test="orig != null">
+                and orig = #{orig}
+            </if>
+            <if test="discount != null">
+                and discount = #{discount}
+            </if>
+            <if test="periods != null">
+                and periods = #{periods}
+            </if>
+            <if test="duration != null">
+                and duration = #{duration}
+            </if>
+            <if test="courseTime != null">
+                and course_time = #{courseTime}
+            </if>
+            <if test="teacherName != null">
+                and teacher_name = #{teacherName}
+            </if>
+            <if test="isCoupon != null">
+                and is_coupon = #{isCoupon}
+            </if>
+            <if test="couponPrice != null">
+                and coupon_price = #{couponPrice}
+            </if>
+            <if test="teacherBonus != null">
+                and teacher_bonus = #{teacherBonus}
+            </if>
+            <if test="studentId != null">
+                and student_id = #{studentId}
+            </if>
+            <if test="teacherId != null">
+                and teacher_id = #{teacherId}
+            </if>
+            <if test="courseId != null">
+                and course_id = #{courseId}
+            </if>
+            <if test="courseTypeId != null">
+                and course_type_id = #{courseTypeId}
+            </if>
+            <if test="apprised != null">
+                and apprised = #{apprised}
+            </if>
+            <if test="amount != null">
+                and amount = #{amount}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="courseTitle != null">
+                and course_title = #{courseTitle}
+            </if>
+            <if test="courseInfo != null">
+                and course_info = #{courseInfo}
+            </if>
+            <if test="courseStartTime != null">
+                and course_start_time = #{courseStartTime}
+            </if>
+            <if test="courseClassFrequency != null">
+                and course_class_frequency = #{courseClassFrequency}
+            </if>
+            <if test="grade != null">
+                and grade = #{grade}
+            </if>
+        </trim>
+    </select>
+    <!-- 查询 总数  end -->
+
+    <!-- ******************************自定义扩展sql******************************************** -->
+    <!--带条件的分页查询  start -->
+
+    <!-- 全局map1  start -->
+    <resultMap id="orderCourseMapWithCourseType" extends="orderCourseMap" type="orderCourse">
+        <association property="courseType" column="course_id"
+                     select="cn.logicalthinking.common.dao.CourseTypeDao.selectCourseTypeById"/>
+    </resultMap>
+    <!-- 全局map1 end -->
+    <select id="selectOrderCourseListByPageWithCourseType" parameterType="map" resultMap="orderCourseMapWithCourseType">
+        SELECT
+        <include refid="columns"/>
+        FROM order_course
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="studentName != null">
+                and student_name like concat('%',#{studentName},'%')
+            </if>
+            <if test="gender != null">
+                and gender = #{gender}
+            </if>
+            <if test="address != null">
+                and address like concat('%',#{address},'%')
+            </if>
+            <if test="phone != null">
+                and phone like concat('%',#{phone},'%')
+            </if>
+            <if test="orig != null">
+                and orig = #{orig}
+            </if>
+            <if test="discount != null">
+                and discount = #{discount}
+            </if>
+            <if test="periods != null">
+                and periods = #{periods}
+            </if>
+            <if test="duration != null">
+                and duration = #{duration}
+            </if>
+            <if test="courseTime != null">
+                and course_time = #{courseTime}
+            </if>
+            <if test="teacherName != null">
+                and teacher_name like concat('%',#{teacherName},'%')
+            </if>
+            <if test="isCoupon != null">
+                and is_coupon = #{isCoupon}
+            </if>
+            <if test="couponPrice != null">
+                and coupon_price = #{couponPrice}
+            </if>
+            <if test="teacherBonus != null">
+                and teacher_bonus = #{teacherBonus}
+            </if>
+            <if test="studentId != null">
+                and student_id = #{studentId}
+            </if>
+            <if test="teacherId != null">
+                and teacher_id = #{teacherId}
+            </if>
+            <if test="courseId != null">
+                and course_id = #{courseId}
+            </if>
+            <if test="courseTypeId != null">
+                and course_type_id = #{courseTypeId}
+            </if>
+            <if test="apprised != null">
+                and apprised = #{apprised}
+            </if>
+            <if test="amount != null">
+                and amount = #{amount}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="courseTitle != null">
+                and course_title = #{courseTitle}
+            </if>
+            <if test="courseInfo != null">
+                and course_info = #{courseInfo}
+            </if>
+            <if test="courseStartTime != null">
+                and course_start_time = #{courseStartTime}
+            </if>
+            <if test="courseClassFrequency != null">
+                and course_class_frequency = #{courseClassFrequency}
+            </if>
+            <if test="grade != null">
+                and grade = #{grade}
+            </if>
+        </trim>
+        order by create_time desc
+    </select>
+    <!--带条件的分页查询  end -->
+
+    <!--查询学生课程，带课程和课程类型  start -->
+
+    <!-- 全局map1  start -->
+    <resultMap id="orderCourseMapWithCourseTypeAndCourseAndTeacher" extends="orderCourseMap" type="orderCourse">
+        <association property="courseType" column="course_id"
+                     select="cn.logicalthinking.common.dao.CourseTypeDao.selectCourseTypeById"/>
+        <association property="course" column="course_id"
+                     select="cn.logicalthinking.common.dao.CourseDao.selectCourseById"/>
+        <association property="teacher" column="teacher_id" javaType="Teacher"
+                     select="cn.logicalthinking.common.dao.TeacherDao.selectTeacherById"/>
+    </resultMap>
+    <!-- 全局map1 end -->
+    <select id="selectOrderCourseListByPageWithCourseTypeAndCourse" parameterType="map"
+            resultMap="orderCourseMapWithCourseTypeAndCourseAndTeacher">
+        SELECT
+        order_course.id,
+        substring(order_course.create_time,1,19) create_time,
+        substring(order_course.update_time,1,19) update_time,
+        order_course.student_name,
+        order_course.gender,
+        order_course.address,
+        order_course.phone,
+        order_course.orig,
+        order_course.discount,
+        order_course.periods,
+        order_course.duration,
+        order_course.course_time,
+        order_course.teacher_name,
+        order_course.is_coupon,
+        order_course.coupon_price,
+        order_course.teacher_bonus,
+        order_course.student_id,
+        order_course.teacher_id,
+        order_course.course_id,
+        order_course.course_type_id,
+        order_course.apprised,
+        order_course.amount,
+        order_course.status,
+        order_course.course_title,
+        order_course.course_info,
+        substring(order_course.update_time,1,19) course_start_time,
+        order_course.course_class_frequency
+        FROM order_course
+        <if test="isFinish">
+            LEFT JOIN course_type ON order_course.course_type_id = course_type.id
+            LEFT JOIN course ON course_type.course_id = course.id
+        </if>
+        where
+        order_course.student_id = #{studentId}
+        and order_course.status = 2
+        <if test="isFinish">
+            and course_type.is_finish = #{isFinish}
+        </if>
+        <if test="status">
+            and order_course.status = #{status}
+        </if>
+
+        order by order_course.create_time desc
+    </select>
+    <!--查询学生课程，带课程和课程类型  end -->
+
+
+</mapper>

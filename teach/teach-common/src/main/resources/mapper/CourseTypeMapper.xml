@@ -1,0 +1,698 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- courseType -->
+<mapper namespace="cn.logicalthinking.common.dao.CourseTypeDao">
+
+    <!-- 全局map1  start -->
+    <resultMap id="courseTypeMap" type="courseType">
+        <result property="id" column="id"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="courseId" column="course_id"/>
+        <result property="courseType" column="course_type"/>
+        <result property="orig" column="orig"/>
+        <result property="discount" column="discount"/>
+        <result property="periods" column="periods"/>
+        <result property="duration" column="duration"/>
+        <result property="startTime" column="start_time"/>
+        <result property="courseTime" column="course_time"/>
+        <result property="quantity" column="quantity"/>
+        <result property="enrolment" column="enrolment"/>
+        <result property="classFrequency" column="class_frequency"/>
+        <result property="isFinish" column="is_finish"/>
+        <result property="commission" column="commission"/>
+    </resultMap>
+    <!-- 全局map1 end -->
+
+    <!-- 全局字段  start -->
+    <sql id="columns">
+        id ,substring(create_time,1,19) create_time ,substring(update_time,1,19) update_time ,course_id ,course_type ,orig ,discount ,periods ,duration ,substring(start_time,1,19) start_time ,course_time ,quantity ,enrolment ,class_frequency ,is_finish, commission
+    </sql>
+    <!-- 全局字段  end -->
+
+    <!-- 单个添加 start -->
+    <insert id="addCourseType" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO course_type
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+            <if test="courseId != null">
+                course_id,
+            </if>
+            <if test="courseType != null">
+                course_type,
+            </if>
+            <if test="orig != null">
+                orig,
+            </if>
+            <if test="discount != null">
+                discount,
+            </if>
+            <if test="periods != null">
+                periods,
+            </if>
+            <if test="duration != null">
+                duration,
+            </if>
+            <if test="startTime != null">
+                start_time,
+            </if>
+            <if test="courseTime != null">
+                course_time,
+            </if>
+            <if test="quantity != null">
+                quantity,
+            </if>
+            <if test="enrolment != null">
+                enrolment,
+            </if>
+            <if test="classFrequency != null">
+                class_frequency,
+            </if>
+            <if test="isFinish != null">
+                is_finish,
+            </if>
+            <if test="commission != null">
+                commission,
+            </if>
+        </trim>
+        <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id} ,
+            </if>
+            <if test="createTime != null">
+                #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                #{updateTime} ,
+            </if>
+            <if test="courseId != null">
+                #{courseId} ,
+            </if>
+            <if test="courseType != null">
+                #{courseType} ,
+            </if>
+            <if test="orig != null">
+                #{orig} ,
+            </if>
+            <if test="discount != null">
+                #{discount} ,
+            </if>
+            <if test="periods != null">
+                #{periods} ,
+            </if>
+            <if test="duration != null">
+                #{duration} ,
+            </if>
+            <if test="startTime != null">
+                #{startTime} ,
+            </if>
+            <if test="courseTime != null">
+                #{courseTime} ,
+            </if>
+            <if test="quantity != null">
+                #{quantity} ,
+            </if>
+            <if test="enrolment != null">
+                #{enrolment} ,
+            </if>
+            <if test="classFrequency != null">
+                #{classFrequency} ,
+            </if>
+            <if test="isFinish != null">
+                #{isFinish} ,
+            </if>
+            <if test="commission != null">
+                #{commission} ,
+            </if>
+        </trim>
+    </insert>
+    <!-- 单个添加 end -->
+
+    <!--批量添加  start -->
+    <insert id="batchCourseType" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO
+        course_type
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            create_time,
+            update_time,
+            course_id,
+            course_type,
+            orig,
+            discount,
+            periods,
+            duration,
+            start_time,
+            course_time,
+            quantity,
+            enrolment,
+            class_frequency,
+            is_finish,
+            commission,
+        </trim>
+        VALUES
+        <foreach collection="list" item="item" separator=",">
+            <trim prefix="(" suffix=")" suffixOverrides=",">
+                #{item.createTime},
+                #{item.updateTime},
+                #{item.courseId},
+                #{item.courseType},
+                #{item.orig},
+                #{item.discount},
+                #{item.periods},
+                #{item.duration},
+                #{item.startTime},
+                #{item.courseTime},
+                #{item.quantity},
+                #{item.enrolment},
+                #{item.classFrequency},
+                #{item.isFinish},
+                #{item.commission},
+            </trim>
+        </foreach>
+    </insert>
+    <!-- 批量添加  end -->
+
+    <!-- 主键批量删除  start -->
+    <delete id="removeCourseType">
+        DELETE FROM course_type
+        WHERE id IN
+       	(${ids})
+    </delete>
+    <!-- 主键批量删除  end -->
+
+    <!-- 单个修改  start -->
+    <update id="updateCourseType">
+        UPDATE course_type
+        <set>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+            <if test="courseId != null">
+                course_id = #{courseId},
+            </if>
+            <if test="courseType != null">
+                course_type = #{courseType},
+            </if>
+            <if test="orig != null">
+                orig = #{orig},
+            </if>
+            <if test="discount != null">
+                discount = #{discount},
+            </if>
+            <if test="periods != null">
+                periods = #{periods},
+            </if>
+            <if test="duration != null">
+                duration = #{duration},
+            </if>
+            <if test="startTime != null">
+                start_time = #{startTime},
+            </if>
+            <if test="courseTime != null">
+                course_time = #{courseTime},
+            </if>
+            <if test="quantity != null">
+                quantity = #{quantity},
+            </if>
+            <if test="enrolment != null">
+                enrolment = #{enrolment},
+            </if>
+            <if test="classFrequency != null">
+                class_frequency = #{classFrequency},
+            </if>
+            <if test="isFinish != null">
+                is_finish = #{isFinish},
+            </if>
+            <if test="commission != null">
+                commission = #{commission},
+            </if>
+        </set>
+        WHERE id = #{id}
+    </update>
+    <!-- 单个修改  end -->
+
+    <!-- 通过主键查询 start -->
+    <select id="selectCourseTypeById" resultMap="courseTypeMap">
+        SELECT
+        <include refid="columns"/>
+        FROM course_type
+        WHERE id = #{id}
+    </select>
+    <!-- 通过主键查询 end -->
+
+    <!--带条件的查询全部  start -->
+    <select id="selectCourseTypeListAll" parameterType="map" resultMap="courseTypeMap">
+        SELECT
+        <include refid="columns"/>
+        FROM course_type
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="courseId != null">
+                and course_id = #{courseId}
+            </if>
+            <if test="courseType != null">
+                and course_type = #{courseType}
+            </if>
+            <if test="orig != null">
+                and orig = #{orig}
+            </if>
+            <if test="discount != null">
+                and discount = #{discount}
+            </if>
+            <if test="periods != null">
+                and periods = #{periods}
+            </if>
+            <if test="duration != null">
+                and duration = #{duration}
+            </if>
+            <if test="startTime != null">
+                and start_time = #{startTime}
+            </if>
+            <if test="courseTime != null">
+                and course_time = #{courseTime}
+            </if>
+            <if test="quantity != null">
+                and quantity = #{quantity}
+            </if>
+            <if test="enrolment != null">
+                and enrolment = #{enrolment}
+            </if>
+            <if test="classFrequency != null">
+                and class_frequency = #{classFrequency}
+            </if>
+            <if test="isFinish != null">
+                and is_finish = #{isFinish}
+            </if>
+            <if test="commission != null">
+                and commission = #{commission}
+            </if>
+        </trim>
+    </select>
+    <!--带条件的查询全部  end -->
+
+    <!--带条件的分页查询  start -->
+    <select id="selectCourseTypeListByPage" parameterType="map" resultMap="courseTypeMap">
+        SELECT
+        <include refid="columns"/>
+        FROM course_type
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="courseId != null">
+                and course_id = #{courseId}
+            </if>
+            <if test="courseType != null">
+                and course_type = #{courseType}
+            </if>
+            <if test="orig != null">
+                and orig = #{orig}
+            </if>
+            <if test="discount != null">
+                and discount = #{discount}
+            </if>
+            <if test="periods != null">
+                and periods = #{periods}
+            </if>
+            <if test="duration != null">
+                and duration = #{duration}
+            </if>
+            <if test="startTime != null">
+                and start_time = #{startTime}
+            </if>
+            <if test="courseTime != null">
+                and course_time = #{courseTime}
+            </if>
+            <if test="quantity != null">
+                and quantity = #{quantity}
+            </if>
+            <if test="enrolment != null">
+                and enrolment = #{enrolment}
+            </if>
+            <if test="classFrequency != null">
+                and class_frequency = #{classFrequency}
+            </if>
+            <if test="isFinish != null">
+                and is_finish = #{isFinish}
+            </if>
+            <if test="commission != null">
+                and commission = #{commission}
+            </if>
+        </trim>
+    </select>
+    <!--带条件的分页查询  end -->
+
+    <!-- 查询 总数  start -->
+    <select id="selectCourseTypeCount" parameterType="map" resultType="int">
+        SELECT
+        COUNT(1)
+        FROM course_type
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="courseId != null">
+                and course_id = #{courseId}
+            </if>
+            <if test="courseType != null">
+                and course_type = #{courseType}
+            </if>
+            <if test="orig != null">
+                and orig = #{orig}
+            </if>
+            <if test="discount != null">
+                and discount = #{discount}
+            </if>
+            <if test="periods != null">
+                and periods = #{periods}
+            </if>
+            <if test="duration != null">
+                and duration = #{duration}
+            </if>
+            <if test="startTime != null">
+                and start_time = #{startTime}
+            </if>
+            <if test="courseTime != null">
+                and course_time = #{courseTime}
+            </if>
+            <if test="quantity != null">
+                and quantity = #{quantity}
+            </if>
+            <if test="enrolment != null">
+                and enrolment = #{enrolment}
+            </if>
+            <if test="classFrequency != null">
+                and class_frequency = #{classFrequency}
+            </if>
+            <if test="isFinish != null">
+                and is_finish = #{isFinish}
+            </if>
+            <if test="commission != null">
+                and commission = #{commission}
+            </if>
+        </trim>
+    </select>
+    <!-- 查询 总数  end -->
+
+    <!-- ******************************自定义扩展sql******************************************** -->
+    <!--带条件的分页查询  start -->
+    <!--查询课程类型带课程和老师-->
+    <resultMap id="courseTypeMapWithCourseAndTeacher" type="courseType" extends="courseTypeMap">
+        <association property="course" column="cId" javaType="Course"
+                     select="cn.logicalthinking.common.dao.CourseDao.selectCourseById"/>
+        <association property="teacher" column="tId" javaType="Teacher"
+                     select="cn.logicalthinking.common.dao.TeacherDao.selectTeacherById"/>
+    </resultMap>
+    <select id="selectCourseTypeListByPageWithCourseAndTeacher" parameterType="map"
+            resultMap="courseTypeMapWithCourseAndTeacher">
+        SELECT
+        ct.id,
+        ct.create_time,
+        ct.update_time,
+        ct.course_id,
+        ct.course_type,
+        ct.orig,
+        ct.discount,
+        ct.periods,
+        ct.duration,
+        ct.start_time,
+        ct.course_time,
+        ct.quantity,
+        ct.enrolment,
+        ct.class_frequency,
+        ct.is_finish,
+        ct.commission,
+        c.id AS cId,
+        t.id AS tId
+        FROM
+        course_type AS ct
+        INNER JOIN course AS c ON ct.course_id = c.id
+        INNER JOIN teacher AS t ON c.teacher_id = t.id
+        <trim prefix="where" prefixOverrides="and">
+            <if test="level != null">
+                AND c.level LIKE CONCAT('%',#{level},'%')
+            </if>
+            <if test="grade != null">
+                AND c.grade LIKE CONCAT('%',#{grade},'%')
+            </if>
+            <if test="subject != null">
+                AND c.subject LIKE CONCAT('%',#{subject},'%')
+            </if>
+            <if test="courseType != null">
+                AND ct.course_type = #{courseType}
+            </if>
+            <if test="duration != null">
+                AND ct.duration = #{duration}
+            </if>
+            <if test="periods != null">
+                AND ct.periods = #{periods}
+            </if>
+            <if test="courseTime != null">
+                AND ct.course_time = #{courseTime}
+            </if>
+            <if test="teacherName != null">
+                AND t.name LIKE CONCAT('%', #{teacherName}, '%')
+            </if>
+        </trim>
+        order by ct.create_time
+    </select>
+
+
+    <!--带条件的查询全部，带课程大纲  start -->
+    <resultMap id="courseTypeMapWithCourseOutline" type="courseType" extends="courseTypeMap">
+        <collection property="courseOutlineList" column="{courseTypeId=id}"
+                    select="cn.logicalthinking.common.dao.CourseOutlineDao.selectCourseOutlineListAll"/>
+    </resultMap>
+    <select id="selectCourseTypeListAllWithCourseOutline" parameterType="map"
+            resultMap="courseTypeMapWithCourseOutline">
+        SELECT
+        <include refid="columns"/>
+        FROM course_type
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="courseId != null">
+                and course_id = #{courseId}
+            </if>
+            <if test="courseType != null">
+                and course_type = #{courseType}
+            </if>
+            <if test="orig != null">
+                and orig = #{orig}
+            </if>
+            <if test="discount != null">
+                and discount = #{discount}
+            </if>
+            <if test="periods != null">
+                and periods = #{periods}
+            </if>
+            <if test="duration != null">
+                and duration = #{duration}
+            </if>
+            <if test="startTime != null">
+                and start_time = #{startTime}
+            </if>
+            <if test="courseTime != null">
+                and course_time = #{courseTime}
+            </if>
+            <if test="quantity != null">
+                and quantity = #{quantity}
+            </if>
+            <if test="enrolment != null">
+                and enrolment = #{enrolment}
+            </if>
+            <if test="classFrequency != null">
+                and class_frequency = #{classFrequency}
+            </if>
+            <if test="isFinish != null">
+                and is_finish = #{isFinish}
+            </if>
+            <if test="commission != null">
+                and commission = #{commission}
+            </if>
+        </trim>
+    </select>
+    <resultMap id="courseTypeMaps" type="CourseType" extends="courseTypeMap">
+        <collection property="courseOutlineList" ofType="CourseOutline" column="id" select="cn.logicalthinking.common.dao.CourseOutlineDao.selectCourseOutlineBycId"/>
+    </resultMap>
+    <!--带条件的查询全部  end -->
+    <select id="selectCourseTypeBycId" parameterType="map" resultMap="courseTypeMaps">
+        SELECT
+        <include refid="columns"/>
+        FROM course_type
+        WHERE course_id = #{courseId}
+    </select>
+
+    <insert id="addCourseTypes" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+        INSERT INTO course_type
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+            <if test="courseId != null">
+                course_id,
+            </if>
+            <if test="courseType != null">
+                course_type,
+            </if>
+            <if test="orig != null">
+                orig,
+            </if>
+            <if test="discount != null">
+                discount,
+            </if>
+            <if test="periods != null">
+                periods,
+            </if>
+            <if test="duration != null">
+                duration,
+            </if>
+            <if test="startTime != null">
+                start_time,
+            </if>
+            <if test="courseTime != null">
+                course_time,
+            </if>
+            <if test="quantity != null">
+                quantity,
+            </if>
+            <if test="enrolment != null">
+                enrolment,
+            </if>
+            <if test="classFrequency != null">
+                class_frequency,
+            </if>
+            <if test="isFinish != null">
+                is_finish,
+            </if>
+            <if test="commission != null">
+                commission,
+            </if>
+        </trim>
+        <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id} ,
+            </if>
+            <if test="createTime != null">
+                #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                #{updateTime} ,
+            </if>
+            <if test="courseId != null">
+                #{courseId} ,
+            </if>
+            <if test="courseType != null">
+                #{courseType} ,
+            </if>
+            <if test="orig != null">
+                #{orig} ,
+            </if>
+            <if test="discount != null">
+                #{discount} ,
+            </if>
+            <if test="periods != null">
+                #{periods} ,
+            </if>
+            <if test="duration != null">
+                #{duration} ,
+            </if>
+            <if test="startTime != null">
+                #{startTime} ,
+            </if>
+            <if test="courseTime != null">
+                #{courseTime} ,
+            </if>
+            <if test="quantity != null">
+                #{quantity} ,
+            </if>
+            <if test="enrolment != null">
+                #{enrolment} ,
+            </if>
+            <if test="classFrequency != null">
+                #{classFrequency} ,
+            </if>
+            <if test="isFinish != null">
+                #{isFinish} ,
+            </if>
+            <if test="commission != null">
+                #{commission} ,
+            </if>
+        </trim>
+    </insert>
+
+    <select id="getType" parameterType="map" resultMap="courseTypeMap">
+        SELECT
+        <include refid="columns"/>
+        FROM course_type
+        WHERE course_id in (${courseId})
+    </select>
+    <select id="getTypeOne" parameterType="string" resultMap="courseTypeMap">
+        SELECT
+        <include refid="columns"/>
+        FROM course_type
+        WHERE course_id = #{courseId}
+    </select>
+
+
+    <update id="updateCourseTypeEnrolmentAndCommissionSafely" parameterType="CourseType">
+        UPDATE
+        course_type
+        set
+        enrolment = #{enrolment},
+        commission = #{commission},
+        update_time = NOW()
+        where id = #{id}
+        <if test="updateTime == null">
+            and update_time is #{updateTime}
+        </if>
+        <if test="updateTime != null">
+            and update_time = #{updateTime}
+        </if>
+    </update>
+</mapper>

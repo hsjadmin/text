@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- questionComment -->
+<mapper namespace="cn.logicalthinking.common.dao.QuestionCommentDao">
+    
+	<!-- 全局map1  start -->
+    <resultMap id="questionCommentMap" type="questionComment">
+        <result property="id" column="id"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="teacherId" column="teacher_id"/>
+        <result property="studentId" column="student_id"/>
+        <result property="name" column="name"/>
+        <result property="type" column="type"/>
+        <result property="star" column="star"/>
+        <result property="comment" column="comment"/>
+        <result property="picture" column="picture"/>
+        <result property="orderId" column="order_id"/>
+        <result property="questionImg" column="question_img"/>
+    </resultMap>
+	<!-- 全局map1 end -->
+		
+	<!-- 全局字段  start -->
+    <sql id="columns">
+        id ,substring(create_time,1,19) create_time ,substring(update_time,1,19) update_time ,teacher_id ,student_id ,name ,type ,star ,comment ,picture ,order_id, question_img
+    </sql>
+	<!-- 全局字段  end -->
+	
+	<!-- 单个添加 start -->
+    <insert id="addQuestionComment">
+        	INSERT INTO question_comment
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+         	<if test="id != null">
+                id,
+            </if>
+         	<if test="createTime != null">
+                create_time,
+            </if>
+         	<if test="updateTime != null">
+                update_time,
+            </if>
+         	<if test="teacherId != null">
+                teacher_id,
+            </if>
+         	<if test="studentId != null">
+                student_id,
+            </if>
+         	<if test="name != null">
+                name,
+            </if>
+         	<if test="type != null">
+                type,
+            </if>
+         	<if test="star != null">
+                star,
+            </if>
+         	<if test="comment != null">
+                comment,
+            </if>
+         	<if test="picture != null">
+                picture,
+            </if>
+         	<if test="orderId != null">
+                order_id,
+            </if>
+         	<if test="questionImg != null">
+                question_img,
+            </if>
+        </trim>
+        <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+         	<if test="id != null">
+            	#{id} ,
+            </if>
+         	<if test="createTime != null">
+            	#{createTime} ,
+            </if>
+         	<if test="updateTime != null">
+            	#{updateTime} ,
+            </if>
+         	<if test="teacherId != null">
+            	#{teacherId} ,
+            </if>
+         	<if test="studentId != null">
+            	#{studentId} ,
+            </if>
+         	<if test="name != null">
+            	#{name} ,
+            </if>
+         	<if test="type != null">
+            	#{type} ,
+            </if>
+         	<if test="star != null">
+            	#{star} ,
+            </if>
+         	<if test="comment != null">
+            	#{comment} ,
+            </if>
+         	<if test="picture != null">
+            	#{picture} ,
+            </if>
+         	<if test="orderId != null">
+            	#{orderId} ,
+            </if>
+         	<if test="questionImg != null">
+            	#{questionImg} ,
+            </if>
+        </trim>
+    </insert>
+	<!-- 单个添加 end -->
+	
+	<!--批量添加  start -->
+	<insert id="batchQuestionComment">
+	    INSERT INTO 
+	    question_comment
+	    <trim prefix="(" suffix=")" suffixOverrides=",">
+            id,
+            create_time,
+            update_time,
+            teacher_id,
+            student_id,
+            name,
+            type,
+            star,
+            comment,
+            picture,
+            order_id,
+            question_img,
+        </trim>
+	    VALUES
+	    <foreach collection ="list" item="item" separator =",">
+	    <trim prefix="(" suffix=")" suffixOverrides=",">
+	         #{item.id},
+	         #{item.createTime},
+	         #{item.updateTime},
+	         #{item.teacherId},
+	         #{item.studentId},
+	         #{item.name},
+	         #{item.type},
+	         #{item.star},
+	         #{item.comment},
+	         #{item.picture},
+	         #{item.orderId},
+	         #{item.questionImg},
+	    </trim>
+	    </foreach >
+	</insert>
+	<!-- 批量添加  end -->
+	
+	<!-- 主键批量删除  start -->
+    <delete id="removeQuestionComment">
+        DELETE FROM question_comment
+        WHERE id IN
+       	(${ids})
+    </delete>
+	<!-- 主键批量删除  end -->
+	
+	<!-- 单个修改  start -->
+    <update id="updateQuestionComment">
+        UPDATE question_comment
+        <set>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+            <if test="teacherId != null">
+                teacher_id = #{teacherId},
+            </if>
+            <if test="studentId != null">
+                student_id = #{studentId},
+            </if>
+            <if test="name != null">
+                name = #{name},
+            </if>
+            <if test="type != null">
+                type = #{type},
+            </if>
+            <if test="star != null">
+                star = #{star},
+            </if>
+            <if test="comment != null">
+                comment = #{comment},
+            </if>
+            <if test="picture != null">
+                picture = #{picture},
+            </if>
+            <if test="orderId != null">
+                order_id = #{orderId},
+            </if>
+            <if test="questionImg != null">
+                question_img = #{questionImg},
+            </if>
+        </set>
+        WHERE id = #{id}
+    </update>
+	<!-- 单个修改  end -->
+	
+	<!-- 通过主键查询 start -->
+    <select id="selectQuestionCommentById" resultMap="questionCommentMap">
+        SELECT
+        <include refid="columns" />
+        FROM question_comment
+        WHERE id = #{id}
+    </select>
+    <!-- 通过主键查询 end -->
+    
+    <!--带条件的查询全部  start -->
+	<select id="selectQuestionCommentListAll"  parameterType="map" resultMap="questionCommentMap">
+        SELECT
+        <include refid="columns" />
+        FROM question_comment
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="teacherId != null">
+                and teacher_id = #{teacherId}
+            </if>
+            <if test="studentId != null">
+                and student_id = #{studentId}
+            </if>
+            <if test="name != null">
+                and name = #{name}
+            </if>
+            <if test="type != null">
+                and type = #{type}
+            </if>
+            <if test="star != null">
+                and star = #{star}
+            </if>
+            <if test="comment != null">
+                and comment = #{comment}
+            </if>
+            <if test="picture != null">
+                and picture = #{picture}
+            </if>
+            <if test="orderId != null">
+                and order_id = #{orderId}
+            </if>
+            <if test="questionImg != null">
+                and question_img = #{questionImg},
+            </if>
+        </trim>
+    </select>
+    <!--带条件的查询全部  end -->
+    
+    <!--带条件的分页查询  start -->
+    <select id="selectQuestionCommentListByPage"  parameterType="map" resultMap="questionCommentMap">
+        SELECT
+        <include refid="columns" />
+        FROM question_comment
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="teacherId != null">
+                and teacher_id = #{teacherId}
+            </if>
+            <if test="studentId != null">
+                and student_id = #{studentId}
+            </if>
+            <if test="name != null">
+                and name = #{name}
+            </if>
+            <if test="type != null">
+                and type = #{type}
+            </if>
+            <if test="star != null">
+                and star = #{star}
+            </if>
+            <if test="comment != null">
+                and comment = #{comment}
+            </if>
+            <if test="picture != null">
+                and picture = #{picture}
+            </if>
+            <if test="orderId != null">
+                and order_id = #{orderId}
+            </if>
+            <if test="questionImg != null">
+                and question_img = #{questionImg},
+            </if>
+        </trim>
+    </select>
+    <!--带条件的分页查询  end -->
+     
+   	<!-- 查询 总数  start -->
+	<select id="selectQuestionCommentCount" parameterType="map" resultType="int">
+        SELECT
+       	COUNT(1)
+        FROM question_comment
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="teacherId != null">
+                and teacher_id = #{teacherId}
+            </if>
+            <if test="studentId != null">
+                and student_id = #{studentId}
+            </if>
+            <if test="name != null">
+                and name = #{name}
+            </if>
+            <if test="type != null">
+                and type = #{type}
+            </if>
+            <if test="star != null">
+                and star = #{star}
+            </if>
+            <if test="comment != null">
+                and comment = #{comment}
+            </if>
+            <if test="picture != null">
+                and picture = #{picture}
+            </if>
+            <if test="orderId != null">
+                and order_id = #{orderId}
+            </if>
+            <if test="questionImg != null">
+                and question_img = #{questionImg},
+            </if>
+        </trim>
+    </select>
+	<!-- 查询 总数  end -->
+	
+	<!-- ******************************自定义扩展sql******************************************** -->
+
+    <delete id="removeQuestionCommentBytId">
+        DELETE FROM question_comment
+        WHERE teacher_id = #{teacherId}
+    </delete>
+</mapper>

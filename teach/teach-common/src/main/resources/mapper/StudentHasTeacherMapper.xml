@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- studentHasTeacher -->
+<mapper namespace="cn.logicalthinking.common.dao.StudentHasTeacherDao">
+
+    <!-- 全局map1  start -->
+    <resultMap id="studentHasTeacherMap" type="studentHasTeacher">
+        <result property="studentId" column="student_id"/>
+        <result property="teacherId" column="teacher_id"/>
+        <result property="createTime" column="create_time"/>
+    </resultMap>
+    <!-- 全局map1 end -->
+
+    <!-- 全局字段  start -->
+    <sql id="columns">
+        student_id ,teacher_id , substring(create_time,1,19) create_time
+    </sql>
+    <!-- 全局字段  end -->
+
+    <!-- 单个添加 start -->
+    <insert id="addStudentHasTeacher">
+        INSERT INTO student_has_teacher
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="studentId != null">
+                student_id,
+            </if>
+            <if test="teacherId != null">
+                teacher_id,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+        </trim>
+        <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+            <if test="studentId != null">
+                #{studentId} ,
+            </if>
+            <if test="teacherId != null">
+                #{teacherId} ,
+            </if>
+            <if test="createTime != null">
+                #{createTime} ,
+            </if>
+        </trim>
+    </insert>
+    <!-- 单个添加 end -->
+
+    <!--批量添加  start -->
+    <insert id="batchStudentHasTeacher">
+        INSERT INTO
+        student_has_teacher
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            student_id,
+            teacher_id,
+            create_time,
+        </trim>
+        VALUES
+        <foreach collection="list" item="item" separator=",">
+            <trim prefix="(" suffix=")" suffixOverrides=",">
+                #{item.studentId},
+                #{item.teacherId},
+                #{item.createTime},
+            </trim>
+        </foreach>
+    </insert>
+    <!-- 批量添加  end -->
+
+    <!-- 主键批量删除  start -->
+    <delete id="removeStudentHasTeacher">
+        DELETE FROM student_has_teacher
+        WHERE student_id IN
+       	(${studentIds})
+    </delete>
+    <!-- 主键批量删除  end -->
+
+    <!-- 单个修改  start -->
+    <update id="updateStudentHasTeacher">
+        UPDATE student_has_teacher
+        <set>
+            <if test="teacherId != null">
+                teacher_id = #{teacherId},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+        </set>
+        WHERE student_id = #{studentId}
+    </update>
+    <!-- 单个修改  end -->
+
+    <!-- 通过主键查询 start -->
+    <select id="selectStudentHasTeacherById" resultMap="studentHasTeacherMap">
+        SELECT
+        <include refid="columns"/>
+        FROM student_has_teacher
+        WHERE student_id = #{student_id}
+    </select>
+    <!-- 通过主键查询 end -->
+
+    <!--带条件的查询全部  start -->
+    <select id="selectStudentHasTeacherListAll" parameterType="map" resultMap="studentHasTeacherMap">
+        SELECT
+        <include refid="columns"/>
+        FROM student_has_teacher
+        <trim prefix="where" prefixOverrides="and">
+            <if test="studentId != null">
+                and student_id = #{studentId}
+            </if>
+            <if test="teacherId != null">
+                and teacher_id = #{teacherId}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+        </trim>
+    </select>
+    <!--带条件的查询全部  end -->
+
+    <!--带条件的分页查询  start -->
+    <select id="selectStudentHasTeacherListByPage" parameterType="map" resultMap="studentHasTeacherMap">
+        SELECT
+        <include refid="columns"/>
+        FROM student_has_teacher
+        <trim prefix="where" prefixOverrides="and">
+            <if test="studentId != null">
+                and student_id = #{studentId}
+            </if>
+            <if test="teacherId != null">
+                and teacher_id = #{teacherId}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+        </trim>
+    </select>
+    <!--带条件的分页查询  end -->
+
+    <!-- 查询 总数  start -->
+    <select id="selectStudentHasTeacherCount" parameterType="map" resultType="int">
+        SELECT
+        COUNT(1)
+        FROM student_has_teacher
+        <trim prefix="where" prefixOverrides="and">
+            <if test="studentId != null">
+                and student_id = #{studentId}
+            </if>
+            <if test="teacherId != null">
+                and teacher_id = #{teacherId}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+        </trim>
+    </select>
+    <!-- 查询 总数  end -->
+
+    <!-- ******************************自定义扩展sql******************************************** -->
+
+    <!--带条件的分页查询 ,待老师信息 start -->
+    <resultMap id="studentHasTeacherMapWithTeacher" type="StudentHasTeacher" extends="studentHasTeacherMap">
+        <association property="teacher" column="teacher_id" javaType="Teacher"
+                     select="cn.logicalthinking.common.dao.TeacherDao.selectTeacherByIdPageOrderByFully"/>
+    </resultMap>
+    <select id="selectStudentHasTeacherListByPageWithTeacher" parameterType="map" resultMap="studentHasTeacherMapWithTeacher">
+        SELECT
+        <include refid="columns"/>
+        FROM student_has_teacher
+        <trim prefix="where" prefixOverrides="and">
+            <if test="studentId != null">
+                and student_id = #{studentId}
+            </if>
+            <if test="teacherId != null">
+                and teacher_id = #{teacherId}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+        </trim>
+    </select>
+    <!--带条件的分页查询,待老师信息  end -->
+    <delete id="removeStudentHasTeacherBysId">
+        DELETE FROM student_has_teacher
+        WHERE student_id = #{studentId}
+    </delete>
+    <delete id="removeStudentHasTeacherBytId">
+        DELETE FROM student_has_teacher
+        WHERE teacher_id = #{teacherId}
+    </delete>
+</mapper>
